@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+li{
+	list-style: none;
+}
+
+.header:after{
+	content:"";
+	display: block;
+	clear: both;
+}
+.header .main-tab{
+	float: left;
+	margin-left: 90px;
+    line-height: 76px;	
+}
+.header .main-tab a{
+	margin-left: 30px;
+	color: #111;
+	font-size: 16px;
+	font-weight: bold;
+}
+.header .main-tab a img{
+	display:inline-block;
+	margin-right: 10px;
+}
+.header .main-tab a:first-child img{
+	width: 26px;
+}
+.header .main-tab a:last-child img{
+	width: 24px;
+}
+.header .right-menu{
+	position: absolute;
+	right: 0;
+    max-width: fit-content;	
+}
+
+.room-list{
+	width: 100%;
+	margin-bottom: 25px;
+}
+.room-list a{
+	position: relative;
+    display: block;
+    color: #333;
+}
+.room-list a:hover{
+	color: #333;
+}
+.room-list-img{
+	width:100%;
+	height: 250px;
+}
+.room-list-img img{
+    display: inline-block;
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+}
+.room-list-txt{
+	padding: 15px 0 25px;
+}
+.room-list-txt:after{
+	content:"";
+	display: block;
+	clear: both;	
+}
+.room-list-txt-t{
+	float: left;
+    font-size: 15px;	
+}
+.room-list-txt-t span:last-child{
+    font-size: 12px;	
+	color: #555;
+}
+.room-list-txt-p{
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+
+footer{
+	background: #F5F5F5;
+	padding: 30px 0;
+	font-size: 14px;
+	color: #555;	
+}
+footer .footer-logo{
+	display: inline-block;
+	width: 165px;
+}
+footer .right-menu{
+	float: right;
+}
+footer .right-menu li{
+	display: inline-block;
+}
+footer .right-menu li a{
+	margin-right: 10px;
+	color: #555;
+}
+footer .right-menu li:last-child a{
+	font-weight: bold;
+}
+footer div{
+	margin-top: 20px;
+	line-height: 2;
+}
+footer span{
+	color: #888;
+	font-size: 13px;
+}
+
+
+
+
+
