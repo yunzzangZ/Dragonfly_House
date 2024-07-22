@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.house.dragonfly">
+	<logger name="kr.co.dong">
 		<level value="info" />
 	</logger>
 	

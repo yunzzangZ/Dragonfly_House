@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.dong.CSMapper">
+
+	<!-- 문의사항전체 -->
+	<select id="mycsAll" resultType="kr.co.dong.domain.CS">
+		select * from cs
+	</select>
+
+	<!-- 문의사항 회원별 전체 -->
+	<select id="mycsSelect" resultType="kr.co.dong.domain.CS">
+		select * from cs 
+		where member_email = #{email}
+	</select>
+	
+	<!-- 문의사항 상세보기 -->
+	<select id="mycsDetails" resultType="kr.co.dong.domain.CS">
+		select * from cs 
+		where cs_id = #{cs_id};
+	</select>
+	
+	<!-- 문의사항 추가 -->
+	<insert id ="mycsInsert" parameterType="kr.co.dong.domain.CS">
+		insert into cs 
+		(`member_email`, `cs_title`, `cs_text`, `cs_date`) values
+		(#{email}, #{cs_title}, #{cs_text}, sysdate())
+	</insert>
+
+	<!-- 문의사항 수정 -->
+	<update id="mycsUpdate" parameterType="kr.co.dong.domain.CS">
+		 update cs set 
+		 cs_title = #{cs_title}, cs_text =#{cs_text}
+		  where cs_id =#{cs_id};
+	</update>
+	
+	<!-- 문의사항 삭제 -->
+	<delete id="mycsDelete" parameterType="int">
+		 delete from cs 
+		 where cs_id = #{cs_id}
+	</delete>
+</mapper>

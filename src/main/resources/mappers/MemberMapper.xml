@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.dong.MemberMapper">
+
+	<!-- 임시_로그인 -->
+	<select id="signIn" resultType="kr.co.dong.domain.MEMBER">
+		select * from member where email = #{email}
+	</select>
+	
+	<!-- 임시_회원전체 -->
+	<select id="myInfoAll" resultType="kr.co.dong.domain.MEMBER">
+		select * from member
+	</select>
+	
+	<!-- 회원정보조회 -->
+	<select id="myInfo" resultType="kr.co.dong.domain.MEMBER">
+		select * from member where email= #{email}
+	</select>
+
+	<!-- 회원정보수정_전화전호, 이름만 바꿈 -->
+	<update id="myInfoUpdate"
+		parameterType="kr.co.dong.domain.MEMBER">
+		update member
+		set name = #{name}, tel = #{tel}
+		where email= #{email}
+	</update>
+
+	<!-- 회원정보 비번 변경 -->
+	<update id="updatePw" parameterType="kr.co.dong.domain.MEMBER">
+		update member set password = #{password} where email = #{email}
+	</update>
+
+	<!-- 회원탈퇴 -->
+	<delete id="memberDelete">
+		delete from member
+		where email = #{email}
+	</delete>
+
+
+</mapper>
