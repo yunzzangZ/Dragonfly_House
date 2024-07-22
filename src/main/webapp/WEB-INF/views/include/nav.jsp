@@ -9,8 +9,8 @@
 	</dl>
 		<dl>
 			<dt><a href="myInfo?email=${email}">회원정보</a></dt>
-			<dd><a href="myInfoUpdate?email=${email}">회원정보수정</a></dd>
-			<dd><a href="memberDelete?email=${email}">회원탈퇴</a></dd>
+			<!--<dd><a href="myInfoUpdate?email=${email}">회원정보수정</a></dd>
+			 <dd><a href="memberDelete?email=${email}">회원탈퇴</a></dd> -->
 		</dl>
 		<dl>
 			<dt><a href="bookingListAll">전체예약</a></dt>

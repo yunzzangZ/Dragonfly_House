@@ -2,8 +2,8 @@ package com.house.dragonfly.domain;
 
 public class BOOKING {
 	private int bo_num;
-	private String email;
-	private int ro_num;
+	private String member_email;
+	private int room_ro_num;
 	private String bo_checkin;
 	private String bo_checkout;
 	private String bo_status;
@@ -12,22 +12,23 @@ public class BOOKING {
 	
 	public BOOKING() {}
 
-	public BOOKING(int bo_num, String email, int ro_num, String bo_checkin, String bo_checkout, String bo_status,
-			String bo_paymethod, double bo_price) {
+	public BOOKING(int bo_num, String member_email, int room_ro_num, String bo_checkin, String bo_checkout,
+			String bo_status, String bo_paymethod, double bo_price) {
 		this.bo_num = bo_num;
-		this.email = email;
-		this.ro_num = ro_num;
+		this.member_email = member_email;
+		this.room_ro_num = room_ro_num;
 		this.bo_checkin = bo_checkin;
 		this.bo_checkout = bo_checkout;
 		this.bo_status = bo_status;
 		this.bo_paymethod = bo_paymethod;
 		this.bo_price = bo_price;
 	}
+	
 
-	public BOOKING(String email, int ro_num, String bo_checkin, String bo_checkout, String bo_status,
+	public BOOKING(String member_email, int room_ro_num, String bo_checkin, String bo_checkout, String bo_status,
 			String bo_paymethod, double bo_price) {
-		this.email = email;
-		this.ro_num = ro_num;
+		this.member_email = member_email;
+		this.room_ro_num = room_ro_num;
 		this.bo_checkin = bo_checkin;
 		this.bo_checkout = bo_checkout;
 		this.bo_status = bo_status;
@@ -43,20 +44,20 @@ public class BOOKING {
 		this.bo_num = bo_num;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getMember_email() {
+		return member_email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMember_email(String member_email) {
+		this.member_email = member_email;
 	}
 
-	public int getRo_num() {
-		return ro_num;
+	public int getRoom_ro_num() {
+		return room_ro_num;
 	}
 
-	public void setRo_num(int ro_num) {
-		this.ro_num = ro_num;
+	public void setRoom_ro_num(int room_ro_num) {
+		this.room_ro_num = room_ro_num;
 	}
 
 	public String getBo_checkin() {
@@ -101,10 +102,12 @@ public class BOOKING {
 
 	@Override
 	public String toString() {
-		return "BOOKING [bo_num=" + bo_num + ", email=" + email + ", ro_num=" + ro_num + ", bo_checkin=" + bo_checkin
-				+ ", bo_checkout=" + bo_checkout + ", bo_status=" + bo_status + ", bo_paymethod=" + bo_paymethod
-				+ ", bo_price=" + bo_price + "]";
+		return "BOOKING [bo_num=" + bo_num + ", member_email=" + member_email + ", room_ro_num=" + room_ro_num
+				+ ", bo_checkin=" + bo_checkin + ", bo_checkout=" + bo_checkout + ", bo_status=" + bo_status
+				+ ", bo_paymethod=" + bo_paymethod + ", bo_price=" + bo_price + "]";
 	}
+
+	
 
 	
 

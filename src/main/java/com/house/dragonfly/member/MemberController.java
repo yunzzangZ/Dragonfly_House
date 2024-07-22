@@ -73,44 +73,46 @@ public class MemberController {
 	}// end
 
 //	updatePwEmail이동
-	@GetMapping(value = "updatePwEmail")
-	public String updatePwEmail() {
-		System.out.println("비번 email 인증");
-		return "member/updatePwEmail";
-	}// end
+//	@GetMapping(value = "updatePwEmail")
+//	public ModelAndView updatePwEmail(String email) {
+//		System.out.println("비번 email 인증");
+//		ModelAndView mav = myInfo(email);
+//		mav.setViewName("member/updatePwEmail");
+//		return mav;
+//	}// end
 
 //	비밀번호 변경
 	@RequestMapping(value = "UpPw", method = RequestMethod.POST)
-	public ModelAndView updatePw(String email, MEMBER mem) {
+	public String updatePw(MEMBER mem) {
 		System.out.println("비번변경");
-		ModelAndView mav = myInfo(email);
 		service.updatePw(mem);
-		mav.setViewName("redirect:/myInfo?email="+mem.getEmail());
-		return mav;
+		return "redirect:/myInfo?email="+mem.getEmail();
 	}//end
 	
 //	memberDelete이동
 	@GetMapping(value = "memberDelete")
-	public String memberDelete(String email) {
+	public ModelAndView memberDelete(String email) {
 		System.out.println("삭제폼 이동");
-		return "member/memberDelete";
+		ModelAndView mav = myInfo(email);
+		mav.setViewName("member/memberDelete");
+		return mav;
 	}// end
 
 //	memberDeleteEmail이동
 	@GetMapping(value = "memberDeleteEmail")
-	public String memberDeleteEmail() {
+	public ModelAndView memberDeleteEmail(String email) {
 		System.out.println("삭제 email 인증");
-		return "member/memberDeleteEmail";
+		ModelAndView mav = myInfo(email);
+		mav.setViewName("member/memberDeleteEmail");
+		return mav;
+//		return "member/memberDeleteEmail";
 	}// end
 
 //	memberDeleteDone이동
 	@GetMapping(value = "memberDeleteDone")
 	public String memberDeleteDone(String email) {
 		System.out.println("삭제완료");
-//		ModelAndView mav = myInfo(email);
 		service.memberDelete(email);
-//		mav.setViewName("member/memberDeleteDone");
-//		return mav;
 		return "member/memberDeleteDone";
 	}// end
 

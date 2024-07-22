@@ -11,9 +11,13 @@
 <body>
 	<%@include file="../include/header.jsp"%>
 	<%@include file="../include/nav.jsp"%>
-	<h1>회원탈퇴 페이지</h1>
-	<button type = "submit" id = "delete" name = "delete" onclick="location.href='memberDeleteDone?email=${mem.email}'">회원탈퇴</button>
-	<input type="submit" value="이메일인증" id = "Btnemail" onclick="location.href='memberDeleteEmail?email=${mem.email}'">
+	<h1>${mem.email } 회원탈퇴 페이지</h1>
+	
+	<form action="memberDeleteDone" method = "get">
+	<input type = "hidden" value = ${mem.email } name ="email">
+	<input type="submit" value = "회원탈퇴" id="delete" name="delete" onclick="location.href='memberDeleteDone?email=${mem.email}'">
+	<input type="submit" value="이메일인증" id="Btnemail" onclick="location.href='memberDeleteEmail?email=${mem.email}'">
 	<%@include file="../include/footer.jsp"%>
+	</form>
 </body>
 </html>

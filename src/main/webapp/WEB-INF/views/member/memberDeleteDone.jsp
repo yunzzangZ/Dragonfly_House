@@ -13,7 +13,7 @@
 	<%@include file="../include/nav.jsp"%>
 	<h1>회원탈퇴확인</h1>
 	<div>
-	<h3>${mem.email }의 회원탈퇴 완료되었습니다.</h3>
+	<h3>회원탈퇴 완료되었습니다.</h3>
 	</div>
 
 	<%@include file="../include/footer.jsp"%>

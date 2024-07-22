@@ -34,6 +34,9 @@
 			<tr>
 				<td colspan="2" align="right"><input type="submit" value="수정" id = "Btnupdate" onclick="alert('수정 완료')"></td>
 			</tr>
+			<tr>
+				<td colspan="2" align="right"><input type="button" value="뒤로가기" onclick="location.href=myInfo?email=${mem.email}"></td>
+			</tr>
 		</table>
 	</form>
 	<%@include file="../include/footer.jsp"%>
