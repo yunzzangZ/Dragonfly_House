@@ -7,6 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>1:1문의 삭제</title>
+<script type="text/javascript">
+
+
+</script>
+
 </head>
 <body>
 	<%@include file="../include/header.jsp"%>

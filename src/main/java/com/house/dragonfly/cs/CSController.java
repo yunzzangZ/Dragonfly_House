@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -53,12 +54,12 @@ public class CSController {
 	@GetMapping(value="mycsInsert")
 	public String mycsInsert(String email) {
 		System.out.println("문의사항 추가");
-		return "cs/mycsInsert?email="+email;
+		return "cs/mycsInsert";
 	}//end
 	
 //	Insert_post
 	@PostMapping(value="csInsert")
-	public String Insert(CS cs) {
+	public String Insert(@ModelAttribute CS cs) {
 		System.out.println("cs Insert");
 		service.mycsInsert(cs);
 		return "redirect:/mycsDetails?cs_id="+cs.getCs_id();
@@ -78,7 +79,7 @@ public class CSController {
 	public String csUpdate(CS cs) {
 		System.out.println("cs Update");
 		service.mycsUpdate(cs);
-		return "redirect:/mycsDetails?cs_id="+cs.getCs_id();
+		return "redirect:/mycsAll";
 	}//end
 	
 //	mycsDelete이동 및 삭제진행

@@ -15,7 +15,7 @@ public class CSDAOImp implements CSDAO {
 	@Inject
 	private SqlSession SqlSession;
 	
-	private final static String nameSpace="kr.co.dong.CSMapper";
+	private final static String nameSpace="com.house.dragonfly.CSMapper";
 	
 	@Override
 	public List<CS> mycsAll() {

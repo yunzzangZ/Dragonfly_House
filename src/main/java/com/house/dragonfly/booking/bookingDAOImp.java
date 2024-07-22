@@ -15,7 +15,7 @@ public class bookingDAOImp implements bookingDAO {
 	@Inject
 	private SqlSession SqlSession;
 	
-	private final static String nameSpace = "kr.co.dong.BookinglistMapper";
+	private final static String nameSpace = "com.house.dragonfly.BookinglistMapper";
 	
 	@Override
 	public List<BOOKING> bookingListAll() {

@@ -12,21 +12,31 @@
 	<%@include file="../include/header.jsp"%>
 	<%@include file="../include/nav.jsp"%>
 	<h3>${cs.cs_id }의수정</h3>
-	<form action="csUpdate" method="post">
+	<form action="csUpdate" method="post" name = "csUpdateForm">
 		<table border="1">
+			<tr>
+				<td>cs_id</td>
+				<td><input type="text" name="cs_id" value=${cs.cs_id } readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td>작성자</td>
+				<td><input value = "${cs.email }" type = "text" name = "email" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td>내용</td>
+				<td><input value = "${cs.cs_text }" type = "text" name = "cs_text"></td>
+			</tr>
 			<tr>
 				<td>제목</td>
 				<td><input type="text" name="cs_title" value=${cs.cs_title }></td>
 			</tr>
 			<tr>
-				<td>내용</td>
-				<td><textarea rows="10" name="cs_text">${cs.cs_text }</textarea></td>
-				<!-- <td><input type = "text" name = "cs_text" value =${cs.cs_text } ></td>-->
+				<td>작성일</td>
+				<td><input value = "${cs.cs_date }" type = "text" name = "cs_date" readonly="readonly"></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="right">
-					<button type="submit" onclick="alert('수정 완료')">수정하기</button> 
-					<!--  <input type="submit" value="수정" id="Btnupdate" onclick="alert('수정 완료')">-->
+					<input type="submit" value="수정" id="Btnupdate">
 			</tr>
 		</table>
 	</form>

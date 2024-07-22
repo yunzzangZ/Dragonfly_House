@@ -14,7 +14,7 @@ public class MemberDAOImp implements MemberDAO{
 	@Inject
 	private SqlSession SqlSession;
 	
-	private final static String nameSpace = "kr.co.dong.MemberMapper";
+	private final static String nameSpace = "com.house.dragonfly.MemberMapper";
 
 	@Override
 	public List<MEMBER> myInfoAll() {
