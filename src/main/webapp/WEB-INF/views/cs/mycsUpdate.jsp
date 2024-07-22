@@ -20,19 +20,19 @@
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td><input value = "${cs.email }" type = "text" name = "email" readonly="readonly"></td>
+				<td><input value = "${cs.member_email }" type = "text" name = "email" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td>내용</td>
-				<td><input value = "${cs.cs_text }" type = "text" name = "cs_text"></td>
+				<td>작성일</td>
+				<td><input value = "${cs.cs_date }" type = "text" name = "cs_date" readonly="readonly"></td>
 			</tr>
 			<tr>
 				<td>제목</td>
 				<td><input type="text" name="cs_title" value=${cs.cs_title }></td>
 			</tr>
 			<tr>
-				<td>작성일</td>
-				<td><input value = "${cs.cs_date }" type = "text" name = "cs_date" readonly="readonly"></td>
+				<td>내용</td>
+				<td><input value = "${cs.cs_text }" type = "text" name = "cs_text"></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="right">

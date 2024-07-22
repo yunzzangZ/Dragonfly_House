@@ -16,17 +16,19 @@
 			<td>cs_id</td>
 			<td>제목</td>
 			<td>작성날짜</td>
+			<td>작성자</td>
+			<td>내용</td>
 		</tr>
-		<c:forEach var="cs" items="${csselist}">
+		<c:forEach var="cs" items="${csselist }">
 			<tr>
-				<td><a href = "mycsDetails?cs_id=${cs.cs_id }">${cs.cs_id }</a></td>
+				<td><a href="mycsDetails?cs_id=${cs.cs_id }">${cs.cs_id }</a></td>
 				<td>${cs.cs_title }</td>
 				<td>${cs.cs_date }</td>
+				<td>${cs.member_email }</td>
+				<td>${cs.cs_text }</td>
 			</tr>
 		</c:forEach>
 	</table>
-	
-
 	<%@include file="../include/footer.jsp"%>
 </body>
 </html>
