@@ -5,19 +5,10 @@
 <mapper namespace="com.house.dragonfly.PaymentMapper">
 	
 	<!-- 결제_카드 -->
-	<select id="myInfo" resultType="com.house.dragonfly.domain.MEMBER">
-		select * from member where email= #{email}
-	</select>
 	
 	<!-- 결제_현금 -->
-	<select id="myInfo" resultType="com.house.dragonfly.domain.MEMBER">
-		select * from member where email= #{email}
-	</select>
 
 	<!-- 결제내역 수정 -->
-	<update id="updatePw" parameterType="com.house.dragonfly.domain.MEMBER">
-		update member set password = #{password} where email = #{email}
-	</update>
 
 
 </mapper>
