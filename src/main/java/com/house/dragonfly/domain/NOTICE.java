@@ -9,7 +9,7 @@ public class NOTICE {
     private Date notice_date;
     private String member_email;
 
-    // getters and setters
+    // Getters and setters
 
     public int getNotice_id() {
         return notice_id;
@@ -50,10 +50,4 @@ public class NOTICE {
     public void setMember_email(String member_email) {
         this.member_email = member_email;
     }
-
-	@Override
-	public String toString() {
-		return "NOTICE [notice_id=" + notice_id + ", notice_title=" + notice_title + ", notice_text=" + notice_text
-				+ ", notice_date=" + notice_date + ", member_email=" + member_email + "]";
-	}
 }
