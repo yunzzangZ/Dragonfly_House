@@ -57,8 +57,8 @@
                                     <li><a href="#">FINE STAY</a></li>
                                     <li><a href="#">예약조회</a></li>
                                     <li><a href="#">공지사항</a></li>
-                                    <li><a href="#">로그인</a></li>
-                                    <li><a href="#">마이페이지</a></li>                                    
+                                    <li><a href="loginForm">로그인</a></li>
+                                    <li><a href="mypage">마이페이지</a></li>                                    
                                 </ul>
                             </nav>
                         </div>
