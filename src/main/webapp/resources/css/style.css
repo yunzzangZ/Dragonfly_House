@@ -1,7 +1,15 @@
 @charset "UTF-8";
 
+body{
+	color: #333;
+}
 li{
 	list-style: none;
+}
+button{
+    padding: 0;	
+    background: none;
+    border: 0;
 }
 
 .header:after{
@@ -35,10 +43,81 @@ li{
 	right: 0;
     max-width: fit-content;	
 }
+.modal{
+	display: none;
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: rgba(0,0,0,0.75);
+}
+.modal.on{
+	display: block;
+}
+.modal .modal-popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+}
+.modal-popup > div{
+	posiiton: relative;
+}
+.modal-popup-txt{	
+	font-size: 32px;
+}
+.searchLoca-modal-popup{
+	width: 824px;
+}
+.search-input{
+    display: block;	
+    width: 100%;
+    padding: 10px 15px;
+    margin: 20px 0;
+    background: #e9e9e9;
+    border: 0;
+}
+.searchLoca-list{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -10px;
+    margin-left: -10px;
+}
+.searchLoca-list li{
+    padding: 0 10px;
+	font-size: 18px;
+}
+.search-btn-box{
+	margin-top: 30px;
+	text-align: center;
+}
+.search-btn{
+    padding: 15px 80px;	
+	background: #FFAD32;
+}
+
+.close-btn{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 40px;
+}
+
+
+
+
+
 
 .room-list{
 	width: 100%;
-	margin-bottom: 25px;
+	margin-bottom: 35px;
 }
 .room-list a{
 	position: relative;
