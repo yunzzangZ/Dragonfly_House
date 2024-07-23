@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.house.dragonfly.PaymentMapper">
+	
+	<!-- 결제_카드 -->
+	<select id="myInfo" resultType="com.house.dragonfly.domain.MEMBER">
+		select * from member where email= #{email}
+	</select>
+	
+	<!-- 결제_현금 -->
+	<select id="myInfo" resultType="com.house.dragonfly.domain.MEMBER">
+		select * from member where email= #{email}
+	</select>
+
+	<!-- 결제내역 수정 -->
+	<update id="updatePw" parameterType="com.house.dragonfly.domain.MEMBER">
+		update member set password = #{password} where email = #{email}
+	</update>
+
+
+</mapper>
