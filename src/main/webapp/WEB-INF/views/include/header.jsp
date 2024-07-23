@@ -41,7 +41,7 @@
                 <div class="row"> 
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="index">
+                            <a href="${contextPath}/index">
                                 <img src="${contextPath}/resources/images/logo.png" alt="로고">
                             </a>
                         </div>
@@ -57,7 +57,7 @@
                                     <li><a href="#">FINE STAY</a></li>
                                     <li><a href="#">예약조회</a></li>
                                     <li><a href="#">공지사항</a></li>
-                                    <li><a href="loginForm">로그인</a></li>
+                                    <li><a href="user/login/login">로그인</a></li>
                                     <li><a href="mypage">마이페이지</a></li>                                    
                                 </ul>
                             </nav>
