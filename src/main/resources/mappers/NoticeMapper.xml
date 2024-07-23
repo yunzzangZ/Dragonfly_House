@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.house.dragonfly.NoticeMapper">
+
+    <select id="noticeList" resultType="com.house.dragonfly.domain.NOTICE">
+        SELECT * FROM notice ORDER BY notice_date DESC
+    </select>
+
+    <select id="noticeView" parameterType="int" resultType="com.house.dragonfly.domain.NOTICE">
+        SELECT * FROM notice WHERE notice_id = #{notice_id}
+    </select>
+
+    <insert id="noticeAdd" parameterType="com.house.dragonfly.domain.NOTICE">
+        INSERT INTO notice (notice_title, notice_text, notice_date, member_email) 
+        VALUES (#{notice_title}, #{notice_text}, #{notice_date}, #{member_email})
+    </insert>
+
+    <update id="noticeUpdate" parameterType="com.house.dragonfly.domain.NOTICE">
+        UPDATE notice 
+        SET notice_title = #{notice_title}, notice_text = #{notice_text}, notice_date = #{notice_date} 
+        WHERE notice_id = #{notice_id}
+    </update>
+
+    <delete id="noticeDel" parameterType="int">
+        DELETE FROM notice WHERE notice_id = #{notice_id}
+    </delete>
+
+</mapper>
