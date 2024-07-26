@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.house.dragonfly.BookinglistMapper">
+	
+	<!-- 예약상황전체보기 -->
+	<select id="bookingListAll" resultType="com.house.dragonfly.domain.BOOKING">
+	  select * from booking
+	</select>
+	
+	<!-- 예약상황 회원별 -->
+	<select id="bookingListSelect" resultType="com.house.dragonfly.domain.BOOKING">
+		select * from booking 
+		where member_email = #{email};
+	</select>
+	
+	<!-- 예약상황 상세보기 & 취소목록 상세보기-->
+	<select id="bookingListDetails" resultType="com.house.dragonfly.domain.BOOKING">
+		 select * from booking 
+		 where bo_num = #{bo_num}
+	</select>
+	
+	<!-- 예약취소만 보기 -->
+	<select id="bookingCancleSelect" resultType="com.house.dragonfly.domain.BOOKING">
+		 select * from booking 
+		 where member_email = #{email}
+		 and bo_status like '예약취소%'	
+	</select>
+	
+	<!-- 예약 취소요청 -->
+	<update id="bookingCancleUpdate" parameterType="int">
+		update booking set 
+		bo_status = '예약취소요청' 
+		where bo_num = #{bo_num}
+	</update>
+	
+	
+	
+</mapper>
