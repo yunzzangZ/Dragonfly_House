@@ -16,7 +16,6 @@
 				<th>회원 이메일</th>
 				<th>회원명</th>
 				<th>사업장 등록번호</th>
-				<th>사업장 명</th>
 				<th>가입 승인여부</th>
 			
 			</tr>
@@ -25,7 +24,6 @@
 					<td><a href="selectOne?bu_email=${bu.bu_email}">${bu.bu_email}</a></td>
 					<td>${bu.bu_name}</td>
 					<td>${bu.bu_code}</td>
-					<td>${bu.bu_title}</td>
 					<td>${bu.bu_approval}</td>
 				</tr>
 			</c:forEach>

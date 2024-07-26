@@ -8,38 +8,39 @@ import org.springframework.stereotype.Service;
 import com.house.dragonfly.domain.FacilityVO;
 
 @Service
-public class FacilityServiceImpl implements FacilityService {
-
+public class FacilityServiceImpl implements FacilityService{
 	@Autowired
 	private FacilityDAO dao;
+
 	@Override
-	public List<FacilityVO> listAll() {
+	public List<FacilityVO> fac_listAll() {
 		// TODO Auto-generated method stub
-		return dao.listAll();
+		return dao.fac_listAll();
 	}
 
 	@Override
-	public FacilityVO selectOne(int fac_id) {
+	public FacilityVO fac_selectOne(int fac_id) {
 		// TODO Auto-generated method stub
-		return dao.selectOne(fac_id);
+		return dao.fac_selectOne(fac_id);
 	}
 
 	@Override
-	public int insert(FacilityVO fac) {
+	public boolean fac_insert(FacilityVO fac_insert) {
 		// TODO Auto-generated method stub
-		return dao.insert(fac);
+		return dao.fac_insert(fac_insert);
 	}
 
 	@Override
-	public int update(FacilityVO fac) {
+	public boolean fac_update(FacilityVO fac_update) {
 		// TODO Auto-generated method stub
-		return dao.update(fac);
+		return dao.fac_update(fac_update);
 	}
 
 	@Override
-	public int delete(int fac_id) {
+	public boolean fac_delete(int fac_id) {
 		// TODO Auto-generated method stub
-		return dao.delete(fac_id);
+		return dao.fac_delete(fac_id);
 	}
 
+	//======================
 }

@@ -12,6 +12,10 @@
 	
 	<div><a href="bu_listall">전체 사업장 가입자 조회</a></div>
 	<div><a href="fac_listall">전체 시설명 조회</a></div>
+	<div><a href="res_listall">전체 예약현황 조회</a></div>
+	<div><a href="ro_listall">전체 방 조회</a></div>
+	<div><a href="rofac_listall">전체 방 시설 조회</a></div>
+	<div><a href="pen_listall">전체 펜션 조회</a></div>
 	
 	
 <a href="index">index 페이지로 이동</a>

@@ -14,12 +14,12 @@ public interface BusinessDAO {
 	   public BusinessVO selectOne(String bu_email);
 	   
 	   // 사업자 가입자 추가
-	   public String insert(BusinessVO business);;
+	   public boolean insert(BusinessVO bu_insert);;
 	   
 	   //가입자(사업자)수정
-	   public String update(BusinessVO business);
+	   public boolean update(BusinessVO bu_update);
 	   
 	   // 삭제_이메일 기준
-	   public String delete(String bu_eamil);
+	   public boolean delete(String bu_eamil);
 	   
 	}//end interface

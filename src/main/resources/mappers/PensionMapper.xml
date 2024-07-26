@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.house.dragonfly.PensionMapper">
+
+    <!-- 전체 펜션 조회 -->
+    <select id="pen_listAll" resultType="com.house.dragonfly.domain.PensionVO">
+        SELECT * FROM pension
+    </select>
+
+    <!-- 단일 펜션 조회 -->
+    <select id="pen_selectOne" resultType="com.house.dragonfly.domain.PensionVO">
+        SELECT * FROM pension 
+        WHERE pen_addr = #{pen_addr}
+    </select>
+
+    <!-- 펜션 추가 -->
+    <insert id="pen_insert">  
+        INSERT INTO pension (pen_addr, pen_name, pen_tel, business_bu_email, pen_description)
+        VALUES (#{pen_addr}, #{pen_name}, #{pen_tel}, #{business_bu_email}, #{pen_description})
+    </insert>
+
+    <!-- 펜션 정보 수정 -->
+    <update id="pen_update">
+        UPDATE pension SET
+        pen_name = #{pen_name}, 
+        pen_tel = #{pen_tel}, 
+        pen_description = #{pen_description},
+        business_bu_email = #{business_bu_email}
+        WHERE pen_addr = #{pen_addr}		    
+    </update>
+
+    <!-- 펜션 삭제 -->
+    <delete id="pen_delete">
+        DELETE FROM pension WHERE pen_addr = #{pen_addr}
+    </delete>
+
+</mapper>

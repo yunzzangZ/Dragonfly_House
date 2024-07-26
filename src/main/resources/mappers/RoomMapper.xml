@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.house.dragonfly.RoomMapper">
+
+    <!-- 전체 방 조회 -->
+    <select id="ro_listAll" resultType="com.house.dragonfly.domain.RoomVO">
+        select * from room
+    </select>
+
+    <!-- 단일 방 조회 -->
+    <select id="ro_selectOne" resultType="com.house.dragonfly.domain.RoomVO">
+        select * from room WHERE ro_num = #{ro_num}
+    </select>
+
+    <!-- 방 추가 -->
+    <insert id="ro_insert">  
+        insert into room
+        	(ro_num, ro_name, pension_pen_addr, ro_price, ro_info, ro_max_person, business_bu_email, picture_pic_num)
+        values 
+        	(#{ro_num}, #{ro_name}, #{pension_pen_addr}, #{ro_price}, #{ro_info}, #{ro_max_person}, #{business_bu_email}, #{picture_pic_num})
+    </insert>
+
+    <!-- 방 정보 수정 -->
+    <update id="ro_update">
+        update room set 
+            ro_name = #{ro_name}, 
+            pension_pen_addr = #{pension_pen_addr}
+            ro_price = #{ro_price}, 
+            ro_info = #{ro_info}, 
+            ro_max_person = #{ro_max_person}, 
+            business_bu_email = #{business_bu_email}, 
+            picture_pic_num = #{picture_pic_num}
+        where ro_num = #{ro_num}		    
+    </update>
+
+    <!-- 방 삭제 -->
+    <delete id="ro_delete">
+        delete from room where ro_num = #{ro_num}
+    </delete>
+
+</mapper>

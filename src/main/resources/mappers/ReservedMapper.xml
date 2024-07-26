@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.house.dragonfly.ReservedMapper">
+
+    <!-- 전체 시설물 조회 -->
+    <select id="res_listAll" resultType="com.house.dragonfly.domain.ReservedVO">
+        select * from reserved
+    </select>
+
+    <!-- 단일 시설물 조회 -->
+    <select id="res_selectOne" resultType="com.house.dragonfly.domain.ReservedVO">
+        select booking_bo_num 
+        from reserved where booking_bo_num = #{booking_bo_num}
+    </select>
+
+    <!-- 시설 추가 -->
+    <insert id="res_insert">  
+        insert into reserved (booking_bo_num)
+        values (#{booking_bo_num})
+    </insert>
+
+    <!-- 시설 정보 수정 -->
+    <update id="res_update">
+        update reserved 
+        set booking_bo_num = #{booking_bo_num} 
+        where booking_bo_num = #{booking_bo_num}		    
+    </update>
+
+    <!-- 시설 삭제 -->
+    <delete id="res_delete">
+        delete from reserved where booking_bo_num = #{booking_bo_num}
+    </delete>
+
+</mapper>

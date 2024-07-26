@@ -2,35 +2,25 @@ package com.house.dragonfly.domain;
 
 public class RoomFacilityVO {
 	
-	private int ro_num;
-	private int fac_id;
+	private int room_ro_num;
 	
 	public RoomFacilityVO() {}
 
-	public RoomFacilityVO(int ro_num, int fac_id) {
-		this.ro_num = ro_num;
-		this.fac_id = fac_id;
+	public RoomFacilityVO(int room_ro_num) {
+		this.room_ro_num = room_ro_num;
 	}
 
-	public int getRo_num() {
-		return ro_num;
+	public int getRoom_ro_num() {
+		return room_ro_num;
 	}
 
-	public void setRo_num(int ro_num) {
-		this.ro_num = ro_num;
-	}
-
-	public int getFac_id() {
-		return fac_id;
-	}
-
-	public void setFac_id(int fac_id) {
-		this.fac_id = fac_id;
+	public void setRoom_ro_num(int room_ro_num) {
+		this.room_ro_num = room_ro_num;
 	}
 
 	@Override
 	public String toString() {
-		return "ROOM_FACILITY [ro_num=" + ro_num + ", fac_id=" + fac_id + "]";
+		return "RoomFacilityVO [room_ro_num=" + room_ro_num + "]";
 	}
 	//=======================
 }

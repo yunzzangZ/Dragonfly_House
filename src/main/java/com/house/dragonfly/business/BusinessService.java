@@ -13,13 +13,21 @@ public interface BusinessService {
 	   public BusinessVO selectOne(String bu_email);
 	   
 	   // 사업자 가입자 추가
-	   public String insert(BusinessVO bu);
+	   public boolean insert(BusinessVO bu_insert);;
 	   
 	   //가입자(사업자)수정
-	   public String update(BusinessVO bu);
+	   public boolean update(BusinessVO bu_update);
 	   
 	   // 삭제_이메일 기준
-	   public String delete(String bu_email);
+	   public boolean delete(String bu_eamil);
+	 
+	   //======================
+	}
+
+
+	
+
+	
 
 
 
@@ -30,4 +38,4 @@ public interface BusinessService {
 	
 	
 	
-}
+

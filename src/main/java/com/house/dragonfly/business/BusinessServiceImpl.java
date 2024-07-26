@@ -1,7 +1,3 @@
-/*
- * Service -> 비지니스모델 기능처리를 함 (->DAO호출도 함)
- * @Service
- */
 package com.house.dragonfly.business;
 
 import java.util.List;
@@ -29,23 +25,23 @@ public class BusinessServiceImpl implements BusinessService{
 	}
 
 	@Override
-	public String insert(BusinessVO bu) {
+	public boolean insert(BusinessVO bu_insert) {
 		// TODO Auto-generated method stub
-		return dao.insert(bu);
+		return dao.insert(bu_insert);
 	}
 
 	@Override
-	public String update(BusinessVO bu) {
+	public boolean update(BusinessVO bu_update) {
 		// TODO Auto-generated method stub
-		return dao.update(bu);
+		return dao.update(bu_update);
 	}
 
 	@Override
-	public String delete(String bu_email) {
+	public boolean delete(String bu_email) {
 		// TODO Auto-generated method stub
 		return dao.delete(bu_email);
 	}
-	
+
 
 
 	//======================
