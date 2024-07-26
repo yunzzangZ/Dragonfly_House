@@ -23,18 +23,16 @@
 	
 	<!-- 예약취소만 보기 -->
 	<select id="bookingCancleSelect" resultType="com.house.dragonfly.domain.BOOKING">
-		 select * from booking 
-		 where member_email = #{email}
-		 and bo_status like '예약취소%'	
+	 select * from booking 
+	 where member_email = #{email}
+	 and bo_status like '예약취소%'	
 	</select>
 	
 	<!-- 예약 취소요청 -->
 	<update id="bookingCancleUpdate" parameterType="int">
 		update booking set 
 		bo_status = '예약취소요청' 
-		where bo_num = #{bo_num}
+		where bo_num = #{bo.bo_num}
 	</update>
-	
-	
 	
 </mapper>
