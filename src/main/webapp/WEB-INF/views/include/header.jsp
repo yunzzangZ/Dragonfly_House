@@ -56,9 +56,19 @@
                                 <ul>
                                     <li><a href="#">FINE STAY</a></li>
                                     <li><a href="#">예약조회</a></li>
-                                    <li><a href="#">공지사항</a></li>
-                                    <li><a href="user/login/login">로그인</a></li>
-                                    <li><a href="mypage">마이페이지</a></li>                                    
+                                    <li><a href="#">공지사항</a></li>                           
+							       	<c:if test="${email==null }">
+										<li><a href="${contextPath}/user/login/login">로그인</a></li>
+									</c:if>
+							        <c:if test="${email!=null }">
+										<li><a href="${contextPath}/user/login/logout">로그아웃</a></li>
+									</c:if>          
+							       	<c:if test="${email==null }">
+										<li><a href="${contextPath}/user/login/login">마이페이지</a></li>
+									</c:if>
+							        <c:if test="${email!=null }">
+										<li><a href="mypage">마이페이지</a></li>
+									</c:if>                              
                                 </ul>
                             </nav>
                         </div>
