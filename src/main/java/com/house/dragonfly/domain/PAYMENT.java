@@ -1,112 +1,67 @@
 package com.house.dragonfly.domain;
 
 public class PAYMENT {
-	private int pay_id;
-	private int bo_num;
-	private int car_number;
-	private String pay_name;
-	private String pay_method;
-	private String pay_date;	
-	private double pay_amount;
-	private String pay_status;
+	private String payment_id;
+	private double amount;
+	private String payment_method;
+	private String payment_status;
+	private String email;
 	
 	public PAYMENT() {}
 
-//	카드결제
-	public PAYMENT(int pay_id, int bo_num, int car_number, String pay_method, String pay_date, double pay_amount,
-			String pay_status) {
-		this.pay_id = pay_id;
-		this.bo_num = bo_num;
-		this.car_number = car_number;//카드번호
-		this.pay_method = pay_method;
-		this.pay_date = pay_date;
-		this.pay_amount = pay_amount;
-		this.pay_status = pay_status;
+	public PAYMENT(String payment_id, double amount, String payment_method, String payment_status, String email) {
+		this.payment_id = payment_id;
+		this.amount = amount;
+		this.payment_method = payment_method;
+		this.payment_status = payment_status;
+		this.email = email;
 	}
 
-//	현금결제
-	public PAYMENT(int pay_id, int bo_num, String pay_name, String pay_method, String pay_date, double pay_amount,
-			String pay_status) {
-		this.pay_id = pay_id;
-		this.bo_num = bo_num;
-		this.pay_name = pay_name;//예금자이름
-		this.pay_method = pay_method;
-		this.pay_date = pay_date;
-		this.pay_amount = pay_amount;
-		this.pay_status = pay_status;
+	public String getPayment_id() {
+		return payment_id;
 	}
 
-	public int getPay_id() {
-		return pay_id;
+	public void setPayment_id(String payment_id) {
+		this.payment_id = payment_id;
 	}
 
-	public void setPay_id(int pay_id) {
-		this.pay_id = pay_id;
+	public double getAmount() {
+		return amount;
 	}
 
-	public int getBo_num() {
-		return bo_num;
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 
-	public void setBo_num(int bo_num) {
-		this.bo_num = bo_num;
+	public String getPayment_method() {
+		return payment_method;
 	}
 
-	public int getCar_number() {
-		return car_number;
+	public void setPayment_method(String payment_method) {
+		this.payment_method = payment_method;
 	}
 
-	public void setCar_number(int car_number) {
-		this.car_number = car_number;
+	public String getPayment_status() {
+		return payment_status;
 	}
 
-	public String getPay_name() {
-		return pay_name;
+	public void setPayment_status(String payment_status) {
+		this.payment_status = payment_status;
 	}
 
-	public void setPay_name(String pay_name) {
-		this.pay_name = pay_name;
+	public String getEmail() {
+		return email;
 	}
 
-	public String getPay_method() {
-		return pay_method;
-	}
-
-	public void setPay_method(String pay_method) {
-		this.pay_method = pay_method;
-	}
-
-	public String getPay_date() {
-		return pay_date;
-	}
-
-	public void setPay_date(String pay_date) {
-		this.pay_date = pay_date;
-	}
-
-	public double getPay_amount() {
-		return pay_amount;
-	}
-
-	public void setPay_amount(double pay_amount) {
-		this.pay_amount = pay_amount;
-	}
-
-	public String getPay_status() {
-		return pay_status;
-	}
-
-	public void setPay_status(String pay_status) {
-		this.pay_status = pay_status;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override
 	public String toString() {
-		return "PAYMENT [pay_id=" + pay_id + ", bo_num=" + bo_num + ", car_number=" + car_number + ", pay_name="
-				+ pay_name + ", pay_method=" + pay_method + ", pay_date=" + pay_date + ", pay_amount=" + pay_amount
-				+ ", pay_status=" + pay_status + "]";
+		return "PAYMENT [payment_id=" + payment_id + ", amount=" + amount + ", payment_method=" + payment_method
+				+ ", payment_status=" + payment_status + ", email=" + email + "]";
 	}
-
 	
 	
 	

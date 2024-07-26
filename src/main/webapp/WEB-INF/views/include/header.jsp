@@ -56,7 +56,7 @@
                                 <ul>
                                     <li><a href="#">FINE STAY</a></li>
                                     <li><a href="#">예약조회</a></li>
-                                    <li><a href="#">공지사항</a></li>                           
+                                    <li><a href="${contextPath}/admin/notice/noticeList">공지사항</a></li>                           
 							       	<c:if test="${email==null }">
 										<li><a href="${contextPath}/user/login/login">로그인</a></li>
 									</c:if>

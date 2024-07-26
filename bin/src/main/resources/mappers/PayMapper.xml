@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.house.dragonfly.PayMapper">
+
+    <select id="statistic" resultType="com.house.dragonfly.domain.PAYMENT">
+        SELECT * FROM payment_statistic
+    </select>
+
+    <select id="payList" resultType="com.house.dragonfly.domain.PAYMENT">
+        SELECT * FROM payment
+    </select>
+
+
+    <select id="payCard" resultType="com.house.dragonfly.domain.PAYMENT">
+        SELECT * FROM payment WHERE pay_method = 'CARD'
+    </select>
+
+
+    <select id="payViewCard" parameterType="int" resultType="com.house.dragonfly.domain.PAYMENT">
+        SELECT * FROM payment WHERE pay_id = #{id} AND pay_method = 'CARD'
+    </select>
+
+
+    <select id="payBank" resultType="com.house.dragonfly.domain.PAYMENT">
+        SELECT * FROM payment WHERE pay_method = 'BANK'
+    </select>
+
+   
+    <select id="payViewBank" parameterType="int" resultType="com.house.dragonfly.domain.PAYMENT">
+        SELECT * FROM payment WHERE pay_id = #{id} AND pay_method = 'BANK'
+    </select>
+
+    <select id="refundList" resultType="com.house.dragonfly.domain.PAYMENT">
+        SELECT * FROM refund
+    </select>
+
+    <select id="refundView" parameterType="int" resultType="com.house.dragonfly.domain.PAYMENT">
+        SELECT * FROM refund WHERE id = #{id}
+    </select>
+
+</mapper>
