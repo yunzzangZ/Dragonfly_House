@@ -3,5 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+<<<<<<< HEAD
 
 </configuration>
+=======
+  
+</configuration>
+>>>>>>> ba1145eb396a46bd219bb01d81c844e7719cc9c6

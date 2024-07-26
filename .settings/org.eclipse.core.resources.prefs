@@ -1,3 +1,6 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//src/main/webapp/WEB-INF/views/chat.jsp=UTF-8
+=======
+>>>>>>> ba1145eb396a46bd219bb01d81c844e7719cc9c6
 encoding//src/main/webapp/WEB-INF/views/home.jsp=UTF-8

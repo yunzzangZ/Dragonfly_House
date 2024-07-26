@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+=======
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>>>>>>> ba1145eb396a46bd219bb01d81c844e7719cc9c6
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.house</groupId>
@@ -9,22 +13,39 @@
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
+<<<<<<< HEAD
 		<java-version>11</java-version> <!-- Java 11 -->
 		<org.springframework-version>5.3.10</org.springframework-version>
+=======
+		<java-version>1.11</java-version> <!-- 1.11.이상이여야해 -->
+		<org.springframework-version>5.2.6.RELEASE</org.springframework-version>
+>>>>>>> ba1145eb396a46bd219bb01d81c844e7719cc9c6
 		<org.aspectj-version>1.8.9</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
+<<<<<<< HEAD
 		<!-- Spring Context -->
+=======
+		<!-- Spring -->
+>>>>>>> ba1145eb396a46bd219bb01d81c844e7719cc9c6
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework-version}</version>
 			<exclusions>
+<<<<<<< HEAD
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
+=======
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				 </exclusion>
+>>>>>>> ba1145eb396a46bd219bb01d81c844e7719cc9c6
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -32,6 +53,7 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+<<<<<<< HEAD
 
 		<!-- Spring WebSocket -->
 		<dependency>
@@ -47,13 +69,21 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
+=======
+				
+>>>>>>> ba1145eb396a46bd219bb01d81c844e7719cc9c6
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
+<<<<<<< HEAD
 		</dependency>
 
+=======
+		</dependency>	
+		
+>>>>>>> ba1145eb396a46bd219bb01d81c844e7719cc9c6
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -97,6 +127,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
+<<<<<<< HEAD
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
@@ -114,13 +145,19 @@
 		</dependency>
 
 
+=======
+>>>>>>> ba1145eb396a46bd219bb01d81c844e7719cc9c6
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+				
+>>>>>>> ba1145eb396a46bd219bb01d81c844e7719cc9c6
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -139,11 +176,16 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> ba1145eb396a46bd219bb01d81c844e7719cc9c6
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+<<<<<<< HEAD
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
@@ -156,11 +198,26 @@
 		</dependency>
 
 		<!-- Spring JDBC -->
+=======
+			<version>4.12</version>  <!-- 4.12 버전 이상이여야함 -->
+			<scope>test</scope>
+		</dependency> 
+		
+		<!-- 새로운 기능은 이쪽이에요 -->		
+		<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+		<dependency>
+		    <groupId>com.mysql</groupId>
+		    <artifactId>mysql-connector-j</artifactId>
+		    <version>8.0.33</version>
+		</dependency>		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+>>>>>>> ba1145eb396a46bd219bb01d81c844e7719cc9c6
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+<<<<<<< HEAD
 
 		<!-- Spring Test -->
 		<dependency>
@@ -220,4 +277,64 @@
 			</plugin>
 		</plugins>
 	</build>
+=======
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-test</artifactId>
+		    <version>5.2.6.RELEASE</version>
+		    <scope>test</scope>
+		</dependency>	
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>3.5.6</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <version>2.0.1</version>
+		</dependency>
+	</dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                    </additionalBuildcommands>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.11</source>
+                    <target>1.11</target>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <mainClass>org.test.int1.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+>>>>>>> ba1145eb396a46bd219bb01d81c844e7719cc9c6
 </project>
