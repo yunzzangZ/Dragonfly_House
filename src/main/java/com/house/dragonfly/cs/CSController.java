@@ -17,7 +17,7 @@ public class CSController {
 	private CSService service;
 	
 //	mycsAll이동 및 정보 list가져오기
-	@GetMapping(value="mycsAll")
+	@GetMapping(value="cs/mycsAll")
 	public ModelAndView mycsAll() {
 		System.out.println("문의사항 전체");
 		List<CS> cslist = service.mycsAll();
@@ -28,7 +28,7 @@ public class CSController {
 	}//end
 	
 //	mycsSelect이동 및 정보 가져오기
-	@GetMapping(value="mycsSelect")
+	@GetMapping(value="cs/mycsSelect")
 	public ModelAndView mycsSelect(String email) {
 		System.out.println(email+"의 문의사항");
 		List<CS> csselist = service.mycsSelect(email);
@@ -40,7 +40,7 @@ public class CSController {
 	
 	
 //	mycsDetails이동 및 상세보기
-	@GetMapping(value="mycsDetails")
+	@GetMapping(value="cs/mycsDetails")
 	public ModelAndView mycsDetails(int cs_id) {
 		System.out.println(cs_id+" 문의사항 상세보기");
 		CS cs = service.mycsDetails(cs_id);
@@ -51,7 +51,7 @@ public class CSController {
 	}//end
 	
 //	mycsInsert이동
-	@GetMapping(value="mycsInsert")
+	@GetMapping(value="cs/mycsInsert")
 	public String mycsInsert(String email) {
 		System.out.println("문의사항 추가");
 		return "cs/mycsInsert";
@@ -66,7 +66,7 @@ public class CSController {
 	}//end
 	
 //	mycsUpdate이동
-	@GetMapping(value="mycsUpdate")
+	@GetMapping(value="cs/mycsUpdate")
 	public ModelAndView mycsUpdate(int cs_id) {
 		System.out.println(cs_id+"문의사항 수정");
 		ModelAndView mav = mycsDetails(cs_id);
@@ -83,7 +83,7 @@ public class CSController {
 	}//end
 	
 //	mycsDelete이동 및 삭제진행
-	@GetMapping(value="mycsDelete")
+	@GetMapping(value="cs/mycsDelete")
 	public String mycsDelete(int cs_id) {
 		System.out.println(cs_id+"문의사항 삭제");
 		service.mycsDelete(cs_id);
