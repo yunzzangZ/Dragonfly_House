@@ -24,11 +24,6 @@
     <script src="${contextPath}/resources/bootstrap/js/jquery-ui.min.js"></script>
     <script src="${contextPath}/resources/bootstrap/js/jquery.slicknav.js"></script>
     <script src="${contextPath}/resources/bootstrap/js/owl.carousel.min.js"></script>
-    <script src="${contextPath}/resources/bootstrap/js/main.js"></script>     
-    
-	<script src="${contextPath}/resources/calendar/js/popper.js"></script>
-	<script src="${contextPath}/resources/calendar/js/main.js"></script>   
-    
-    <script src="${contextPath}/resources/js/main.js"></script>      
+    <script src="${contextPath}/resources/bootstrap/js/main.js"></script>      
 </body>
 </html>
