@@ -4,12 +4,31 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.house.dragonfly.CardMapper">
 	
-	<!-- 회원별 등록된 카드보기 -->
+	<!-- 등록한 카드 정보보기 -->
+	<select id="cardSelect" resultType="com.house.dragonfly.domain.CARD">
+		select * from card 
+		where member_email = #{email}
+	</select>
 	
+	<!-- 카드 상세보기 -->
+	<select id="cardDetails" resultType="com.house.dragonfly.domain.CARD">
+		select * from card 
+		where card_number = #{card_number}
+	</select>
 	
 	
 	<!-- 카드 등록 -->
+	<insert id="cardInsert" parameterType="com.house.dragonfly.domain.CARD">
+		insert into card
+		(`card_number`, `card_password`, `card_duodate`, `member_email`) values
+		(#{card_number}, #{card_password}, #{card_duodate}, #{member_email})
 	
+	</insert>
+
 	<!-- 카드 삭제 -->
+	<delete id="cardDelete">
+		delete from card 
+		where card_number = #{card_number}
+	</delete>
 
 </mapper>

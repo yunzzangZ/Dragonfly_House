@@ -67,7 +67,7 @@
 										<li><a href="${contextPath}/user/login/login">마이페이지</a></li>
 									</c:if>
 							        <c:if test="${email!=null }">
-										<li><a href="mypage">마이페이지</a></li>
+										<li><a href="${contextPath}/member/mypage">마이페이지</a></li>
 									</c:if>                              
                                 </ul>
                             </nav>

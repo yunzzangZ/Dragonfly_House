@@ -19,12 +19,12 @@
 			<td>회원 이름</td>
 			<td>회원 전화번호</td>
 		</tr>
-		<c:forEach var="member" items="${memberlist }">
+		<c:forEach var="mem" items="${memberlist }">
 			<tr>
-				<td><a href = "myInfo?email=${member.email }">${member.email }</a></td>
-				<td>${member.password }</td>
-				<td>${member.name }</td>
-				<td>${member.tel }</td>
+				<td><a href = "myInfo?email=${mem.email }">${mem.email }</a></td>
+				<td>${mem.password }</td>
+				<td>${mem.name }</td>
+				<td>${mem.tel }</td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -12,7 +12,7 @@
 	<%@include file="../include/header.jsp"%>
 	<%@include file="../include/nav.jsp"%>
 	<div>
-	${email } / ${member_email }/ ${bo.email }
+	${email.name }님의 전체예약내역
 	</div>
 	<table border="1">
 		<tr>
@@ -27,7 +27,7 @@
 				<td><a href = "bookingListDetails?bo_num=${bo.bo_num }">${bo.bo_num }</a></td>
 				<td>${bo.bo_checkin }</td>
 				<td>${bo.bo_checkout }</td>
-				<td>${bo.ro_num }</td>
+				<td>${bo.room_ro_num }</td>
 				<td>${bo.bo_status }</td>
 			</tr>
 		</c:forEach>

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
 	<%@include file="../include/nav.jsp"%>
 	<h1>회원탈퇴확인 email 인증</h1>
 	
-	<form action="" method="post">
+	<form action="${contextPath }/member/memberDeleteDone" method="get">
 		<table border="1">
 			<tr>
 				<td>회원 이메일 입력</td>

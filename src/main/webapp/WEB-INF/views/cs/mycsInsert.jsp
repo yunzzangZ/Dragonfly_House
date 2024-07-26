@@ -45,7 +45,7 @@
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td><input type="text" name="email" id="eamil" value="${email}"></td>
+				<td><input type="text" name="email" id="eamil" value="${eamil.email}" readonly></td>
 			</tr>
 			<tr>
 				<td>내용</td>

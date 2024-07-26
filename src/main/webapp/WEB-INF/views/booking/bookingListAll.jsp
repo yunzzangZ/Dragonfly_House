@@ -24,7 +24,7 @@
 				<td><a href = "bookingListDetails?bo_num=${bo.bo_num }">${bo.bo_num }</a></td>
 				<td>${bo.bo_checkin }</td>
 				<td>${bo.bo_checkout }</td>
-				<td>${bo.ro_num }</td>
+				<td>${bo.room_ro_num }</td>
 				<td>${bo.bo_status }</td>
 			</tr>
 		</c:forEach>

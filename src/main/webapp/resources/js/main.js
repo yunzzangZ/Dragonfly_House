@@ -22,15 +22,3 @@ lModalClose.addEventListener('click',function(){
 dModalClose.addEventListener('click',function(){
     dModal.classList.remove('on');  
 });
-
-// 탭 on 클래스
-function changeTab(button) {
-	// 모든 li 요소에서 'on' 클래스를 제거
-	const tabs = document.querySelectorAll('.login-tab li');
-	tabs.forEach(tab => {
-		tab.classList.remove('on');
-	});
-            
-	// 클릭한 버튼이 속한 li에 'on' 클래스를 추가
-	button.parentElement.classList.add('on');
-}

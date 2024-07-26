@@ -1,27 +1,27 @@
 package com.house.dragonfly.domain;
 
 public class LOGIN {
-	private String userID;
+	private String email;
 	private String password;
 	
 	public LOGIN() {}
 
-	public LOGIN(String userID, String password) {
-		this.userID = userID;
+	public LOGIN(String email, String password) {
+		this.email = email;
 		this.password = password;
 	}
 
 	@Override
 	public String toString() {
-		return "LoginVO [userID=" + userID + ", password=" + password + "]";
+		return "LoginVO [email=" + email + ", password=" + password + "]";
 	}
 
-	public String getUserID() {
-		return userID;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUserID(String userID) {
-		this.userID = userID;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
@@ -31,5 +31,7 @@ public class LOGIN {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	
 	
 }//end class
