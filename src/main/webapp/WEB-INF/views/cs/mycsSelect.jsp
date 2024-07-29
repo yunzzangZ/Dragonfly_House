@@ -11,6 +11,7 @@
 <body>
 	<%@include file="../include/header.jsp"%>
 	<%@include file="../include/nav.jsp"%>
+	<h3>${email.email }님의 문의사항</h3>
 	<table border="1">
 		<tr>
 			<td>cs_id</td>
@@ -29,6 +30,10 @@
 			</tr>
 		</c:forEach>
 	</table>
+	
+	<div>
+	<button type = "button" onclick="location.href='mycsInsert?email=${email.email}'">문의사항 등록하기</button>
+	</div>
 	<%@include file="../include/footer.jsp"%>
 </body>
 </html>

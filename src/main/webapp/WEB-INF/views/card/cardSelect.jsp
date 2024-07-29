@@ -4,7 +4,7 @@
 <%@ page session="true"%>
 
 <section>
-	<h3>${mem.email } 의카드정보</h3>
+<h3>카드정보</h3>
 	<table border="1">
 		<tr>
 			<td>card_number</td>

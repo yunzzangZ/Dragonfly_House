@@ -22,14 +22,20 @@ public class PaymentServiceImp implements PaymentService {
 	}
 	
 	@Override
-	public void payInsertCard(PAYMENT pay) {
-		paydao.payInsertCard(pay);
+	public void payInsertUpdate(PAYMENT pay) {
+		paydao.payInsertUpdate(pay);
 	}
-
-	@Override
-	public void payInsertCash(PAYMENT pay) {
-		paydao.payInsertCash(pay);
-	}
+	
+//	
+//	@Override
+//	public void payInsertCard(PAYMENT pay) {
+//		paydao.payInsertCard(pay);
+//	}
+//
+//	@Override
+//	public void payInsertCash(PAYMENT pay) {
+//		paydao.payInsertCash(pay);
+//	}
 	
 	@Override
 	public void payInsertDone(PAYMENT pay) {
@@ -45,6 +51,8 @@ public class PaymentServiceImp implements PaymentService {
 	public void payUpdateCash(PAYMENT pay) {
 		paydao.payUpdateCash(pay);
 	}
+
+
 
 
 

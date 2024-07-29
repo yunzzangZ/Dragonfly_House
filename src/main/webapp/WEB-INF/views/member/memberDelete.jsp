@@ -9,11 +9,12 @@
 <meta charset="UTF-8">
 <title>회원탈퇴 페이지</title>
 <script type="text/javascript">
-	const checknum = Math.floor(Math.random() * 101);
+	
+	
+
+
+	var checknum = Math.floor(Math.random() * 101);
 	document.write('checknum : ' + checknum + '<br>');
-	
-	
-	
 </script>
 </head>
 <body>
@@ -29,10 +30,11 @@
 			</tr>
 			<tr>
 				<td>인증번호 입력</td>
+				<td><input type = "text" readonly id = "checknum"></td>
 				<td><input type="number" name="check_number"></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="이메일인증" id="Btnemail" onclick="location.href='${contextPath}/member/memberDeleteDone'">
+				<td><input type="submit" value="이메일인증 확인" id="Btnemail" onclick="location.href='${contextPath}/member/memberDeleteDone'">
 				</td>
 			</tr>
 		</table>

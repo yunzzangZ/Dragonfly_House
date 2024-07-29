@@ -11,12 +11,12 @@
 <body>
 	<%@include file="../include/header.jsp"%>
 	<%@include file="../include/nav.jsp"%>
-	
-	<form action="bocaUpdate" method ="post">
-	취소할 예약번호 : <input type = "text" name = "bo_num" value="${bo.bo_num }">
-	<input type = "submit" value = "예약취소">
+
+	<form action="bocaUpdate" method="post">
+		취소할 예약번호 : <input type="text" name="bo_num" value="${bo.bo_num }">
+		<input type="submit" value="예약취소">
 	</form>
-	
+
 
 	<%@include file="../include/footer.jsp"%>
 </body>

@@ -8,6 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <title>예약목록 상세보기</title>
+
+
+
+
 </head>
 <body>
 	<%@include file="../include/header.jsp"%>
@@ -48,39 +52,36 @@
 		</tr>
 	</table>
 	<div>
-		<a href="bookingListSelect?email=${bo.member_email}">${bo.member_email }
+		<a href="bookingListSelect?email=${email.email}">${email.email}
 			뒤로가기</a>
 	</div>
 	<div>
 		<form action="payment/payScreen" method="get">
-			<c:choose>
-				<c:when test="${bo.bo_status eq '결제전'}">
-					<div>
-						<input type="submit" name="booking_bo_num" value="${bo.bo_num}">
-					</div>
-				</c:when>
-				<c:when test="${bo.bo_status eq '예약전'}">
-					<div>
-						<a href="bookingCancleUpdate?bo_num=${bo.bo_num}">${bo.bo_num }의
-							예약취소하기</a>
-					</div>
-				</c:when>
-			</c:choose>
+			<c:if test="${bo.bo_status eq '결제 대기'}">
+				<div>
+					<input type="hidden" name="booking_bo_num" value="${bo.bo_num}">
+					<input type="submit" value="결제하기" id="BtnpayScreen">
+				</div>
+			</c:if>
+		</form>
+		<form action="bookingCancleUpdate" method="get">
+			<c:if test="${bo.bo_status eq '결제 확인요청'}">
+				<div>
+					<input type="hidden" name="bo_num" value="${bo.bo_num}"> <input
+						type="submit" value="예약취소하기" id="BtnCancle">
+				</div>
+			</c:if>
 		</form>
 		<form action="payment/payDetails" method="get">
-			<c:choose>
-				<c:when test="${bo.bo_status eq '결제확인요청'}">
-					<input type="hidden" name="pay_id" value="0">
-					<input type="submit" name="booking_bo_num" value="${bo.bo_num }">결제내역확인
-			</c:when>
-				<c:when test="${bo.bo_status eq '예약완료'}">
-					<input type="hidden" name="pay_id" value="0">
-					<input type="submit" name="booking_bo_num" value="${bo.bo_num }">결제내역확인
-			</c:when>
-			</c:choose>
+			<c:if test="${bo.bo_status eq '예약 완료'}">
+				<div>
+					<input type="hidden" name="pay_id" value="0"> <input
+						type="hidden" name="booking_bo_num" value="${bo.bo_num }">
+					<input type="submit" name="BtnDetails" id="BtnDetails">결제내역확인
+				</div>
+			</c:if>
 		</form>
 	</div>
-
 	<%@include file="../include/footer.jsp"%>
 </body>
 </html>

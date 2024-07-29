@@ -42,4 +42,14 @@ public class bookingDAOImp implements bookingDAO {
 		SqlSession.selectOne(nameSpace+".bookingCancleUpdate", bo_num);
 	}
 
+	@Override
+	public void bookingInsert(BOOKING bo) {
+		SqlSession.selectOne(nameSpace+".bookingInsert", bo);
+	}
+
+	@Override
+	public void payInsert(BOOKING bo) {
+		SqlSession.selectOne(nameSpace+".payInsert", bo);
+	}
+
 }//end

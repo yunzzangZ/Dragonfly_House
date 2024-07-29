@@ -7,11 +7,14 @@ public interface PaymentDAO {
 // 결제상세보기_예약번호로
 	public PAYMENT payDetails_bo_num(int bo_num);
 	
+//	결제하기
+	public void payInsertUpdate(PAYMENT pay);
+	
 //	결제 추가_card
-	public void payInsertCard(PAYMENT pay);
+//	public void payInsertCard(PAYMENT pay);
 	
 //	결제 추가_cash
-	public void payInsertCash(PAYMENT pay);
+//	public void payInsertCash(PAYMENT pay);
 	
 //	결제 완료시 booking 수정
 	public void payInsertDone(PAYMENT pay);

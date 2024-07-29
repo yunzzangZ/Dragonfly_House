@@ -8,61 +8,61 @@
 <meta charset="UTF-8">
 <title>1:1문의 추가</title>
 <script type="text/javascript">
-	$(document).ready(function() {
-		$("#BtnInsert").click(function() {
+		function checkUpdate() {
 			var title = $("#cs_title").val();
-			var email = $("#email").val();
 			var text = $("#cs_text").val();
+			
 			if (title == "") {
 				alert("제목을 입력해주세요.");
-				document.csInsertForm.title.focus();
+				$("#cs_title").focus();
 				return;
 			}
-			if (email == "") {
-				alert("작성자가 맞지 않습니다.");
-				document.csInsertForm.email.focus();
-				return;
-			}
+			
 			if (text == "") {
 				alert("내용을 입력해주세요.")
-				document.csInsertForm.text.focus();
+				$("#cs_text").focus();
 				return;
 			}
-			document.csInsertForm.submit();
-		});
-	});
+			
+			
+			if (!confirm('문의사항을 등록하시겠습니까?')) {
+				window.history.back;
+				alert("문의사항 등록이 취소되었습니다.");
+				location.href = "mycsSelect?email=${email.email}"
+			} else {
+				var form = document.getElementById("csInsertForm");
+				form.submit();
+				alert("문의사항이 등록되었습니다.");
+			}
+		}//end checkUpdate
 </script>
 </head>
 <body>
 	<%@include file="../include/header.jsp"%>
 	<%@include file="../include/nav.jsp"%>
-	<form action="csInsert" method="post" name=csInsertForm>
+	
+	<h3>문의사항 등록</h3>
+	<form action="csInsert" method="post" id= "csInsertForm" name = "csInsertForm">
 		<table border="1">
 			<tr>
 				<td>제목</td>
-				<td><input type="text" name="cs_title" id="cs_title"
-					placeholder="제목을 입력해주세요."></td>
+				<td><input type="text" name="cs_title" id="cs_title"></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td><input type="text" name="email" id="eamil" value="${eamil.email}" readonly></td>
+				<td><input type="text" name="email" id="eamil" value="${email.email}" readonly></td>
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><textarea rows="10" name="cs_text" name="cs_text"
-						placeholder="내용을 입력해주세요."></textarea></td>
+				<td><textarea rows="10" name="cs_text" id="cs_text"></textarea></td>
 			</tr>
 			<tr>
-				<td><button type="button" id="BtnInsert">문의사항 작성</button></td>
+				<td><button type="button" onclick="checkUpdate();">문의사항 작성</button></td>
 				<td><button type="reset">초기화</button></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="right"><input type="button"
-					onclick="location.href = 'mycsAll'" value="돌아가기"></td>
-			</tr>
-			<tr>
-				<!-- 추가는 됨 -->
-				<td colspan="2" align="right"><input type = "submit" value = "작성"></td>
+				<td colspan="2" align="right"><button type="button"
+					onclick="location.href='mycsSelect?email=${email.email}'">돌아가기</button></td>
 			</tr>
 		</table>
 	</form>

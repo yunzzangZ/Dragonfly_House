@@ -11,16 +11,13 @@
 	<%@include file="../include/header.jsp"%>
 	<%@include file="../include/nav.jsp"%>
 	<div>
-		<h2>${email.name}의마이페이지</h2>
 		<h2>${email.email}</h2>
 	</div>
-	<div>
-	<jsp:include page = "../card/cardSelect.jsp" flush = "false">
-		<jsp:param value="${email.email }" name = "email"/>
+	
+	<jsp:include page="../card/cardSelect.jsp">
+		<jsp:param value="${email.email }" name="email"/>
 	</jsp:include>
-	</div>
-
-
+	
 	<%@include file="../include/footer.jsp"%>
 </body>
 </html>
