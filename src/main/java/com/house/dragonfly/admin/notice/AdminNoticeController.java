@@ -78,4 +78,10 @@ public class AdminNoticeController {
         noticeService.noticeDel(notice_id);
         return "redirect:/admin/notice/noticeList";
     }
+    
+    @GetMapping("/admin/notice/index")
+    public String noticeIndex() {
+        return "redirect:/index";
+    }
+
 }

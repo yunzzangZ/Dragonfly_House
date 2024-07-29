@@ -8290,7 +8290,7 @@ button.switch-month {
     right: 0; }
 
 button.switch-month:hover {
-  color: #FFAD32 !important; }
+  color: #bd83ce; }
 
 button.switch-month:active {
   background-color: transparent; }
