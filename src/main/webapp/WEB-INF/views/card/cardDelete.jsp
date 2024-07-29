@@ -13,9 +13,7 @@
 	<%@include file="../include/nav.jsp"%>
 	
 	<h3>카드 삭제 완료</h3>
-	
-	
-	
+
 	<%@include file="../include/footer.jsp"%>
 </body>
 </html>

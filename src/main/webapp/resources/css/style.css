@@ -271,3 +271,169 @@ footer span{
 	color: #888;
 	font-size: 13px;
 }
+
+/*마이페이지*/
+.mypage-container > div{
+	display: flex;
+}
+.mypage-container a, .mypage-container a:hover{
+	color: #333;
+}
+.mypage-nav{
+	width: 260px;
+	padding: 35px 20px;
+	background: #ffd597;
+}
+.mypage-nav > div{
+	font-size: 18px;
+}
+.mypage-nav > dl{
+    margin: 20px 0 0;
+    font-size: 15px;
+}
+.mypage-nav > dl dd{
+	margin-bottom: 0;
+}
+.mypage-content{
+    flex-grow: 1;	
+	width: calc(100% - 260px);    
+	padding: 35px 0 35px 20px;
+}
+.mypage-content h3{
+	font-size: 18px;
+	fontn-weight: 700;
+}
+.mypage-content table{
+	width: 100%;
+	font-size: 15px;
+	border-color: #e3e3e3;
+}
+.mypage-content table th{
+	padding: 5px;
+	text-align: center;
+	background: #e9e9e9;	
+}
+.mypage-content table td{
+	padding: 5px;	
+	text-align: center;	
+}
+.mypage-card{
+    position: relative;	
+    margin-top: 30px;		
+}
+.mypage-card a{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #FFAD32;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0 20px;
+    border: 1px solid #e9e9e9;
+    border-radius: 5px;
+}
+.mypage-content form{
+	margin: 20px -10px 0;
+}
+.mypage-content form:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.mypage-content form div{
+	float: left;
+	width: 50%;
+    padding: 0 10px;	
+	margin-bottom: 10px;
+}
+.mypage-content form .mypage-form-one{
+	width: 100%;
+}
+.mypage-content form div p{
+	margin-bottom: 10px;
+	font-size: 15px;	
+	color: #333;
+}
+.mypage-content form div input,
+.mypage-content form div textarea{
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    border: 1px solid #E9E9E9;
+    border-radius: 5px;
+    box-sizing: border-box;	
+}
+.mypage-content form .mypage-btn{
+    width: 100%;
+    margin-top: 10px;
+}
+.mypage-content form .mypage-btn input{
+    background: #FFAD32;
+    font-size: 16px;
+    font-weight: bold;	
+}
+.pw-update-btn{
+    display: inline-block;
+    width: 100%;
+    height: 49px;
+    font-size: 16px;
+    line-height: 48px;
+	background: #FFAD32;
+    border: 1px solid #E9E9E9;
+    border-radius: 5px;
+    text-align: center;
+}
+.mypage-txt{
+	display: block;
+	margin-top: 5px;
+	text-align: right;
+	font-size: 14px;
+	color: #ff9900;
+}
+.mypage-content .mypage-booking form{
+	margin: 20px 0 0;
+}
+.mypage-content .mypage-booking form input,
+.mypage-content .mypage-booking form a{
+	display: block;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    background: #FFAD32;
+    border-radius: 5px;
+    border: 1px solid #E9E9E9;
+}
+.mypage-content .mypage-cs form{
+	margin: 0;
+}
+.mypage-content form .mypage-cs-btn{
+    width: 100%;
+    padding: 0;
+    margin-top: 10px;
+    text-align: right;
+}
+.mypage-cs-btn a{
+    background: #FFAD32;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 20px;
+    border: 1px solid #e9e9e9;
+    border-radius: 5px;	
+}
+.mypage-content form .mypage-cs-one{
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
