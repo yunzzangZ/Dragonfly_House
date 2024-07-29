@@ -10,7 +10,7 @@
 <meta
    content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
    name='viewport'>
-   <title>admin</title>
+   <title>business</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
@@ -64,12 +64,7 @@
                                     <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
                                 </nav>
                             </div> -->
-                            <a class="nav-link" href="${contextPath}/admin/index">HOME</a>
-                            <a class="nav-link" href="${contextPath}/pay/statistic">결제 통계</a>
-                            <a class="nav-link" href="${contextPath}/pay/payList">결제 내역</a>
-                            <a class="nav-link" href="${contextPath}/pay/payCard">카드 결제</a>
-                            <a class="nav-link" href="${contextPath}/pay/payBank">계좌 입금</a>
-                            <a class="nav-link" href="${contextPath}/pay/refundList">환불 요청</a>                           
+                            <a class="nav-link" href="${contextPath}/business/index">HOME</a>                        
                         </div>
                     </div>
                 </nav>

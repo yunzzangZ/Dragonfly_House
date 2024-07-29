@@ -14,12 +14,12 @@ public class AdminPayController {
     @Autowired
     private PayService payService;
 
-    @GetMapping("/admin/main")
-    public ModelAndView adminMain() {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("pay/adminMain");
-        return mav;
-    }
+//    @GetMapping("/admin/main")
+//    public ModelAndView adminMain() {
+//        ModelAndView mav = new ModelAndView();
+//        mav.setViewName("pay/adminMain");
+//        return mav;
+//    }
 
     @GetMapping("/admin/pay/statistic")
     public ModelAndView statistic() {
