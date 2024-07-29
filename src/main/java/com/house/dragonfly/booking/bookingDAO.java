@@ -21,4 +21,11 @@ public interface bookingDAO {
 //	예약취소요청
 	public void bookingCancleUpdate(int bo_num);
 	
+//	예약 추가
+	public void bookingInsert(BOOKING bo);
+	
+//	예약추가 후 바로 결제화면 추가
+	public void payInsert(BOOKING bo);
+	
+	
 }//end

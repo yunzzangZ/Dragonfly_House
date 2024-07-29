@@ -36,21 +36,22 @@ public class MemberPaymentController {
 		return mav;
 	}// end
 	
-	@PostMapping(value = "payment/payInsert")
+	@PostMapping(value = "payment/payInsertUpdate")
 	public String payInsert(PAYMENT pay) {
-		System.out.println("payInsert이동");
+		System.out.println("payInsertUpdate이동");
 		System.out.println("방법 : "+pay.getPay_method());
 		if(pay.getPay_method().equals("카드")) {
-			System.out.println("카드예약번호 : "+pay.getBooking_bo_num());
-			payservice.payInsertCard(pay);
+			System.out.println("카드 예약번호 : "+pay.getBooking_bo_num());
+			payservice.payInsertUpdate(pay);
 		}else{
-			System.out.println("현금예약번호 : "+pay.getBooking_bo_num());
-			payservice.payInsertCash(pay);
+			System.out.println("현금 예약번호 : "+pay.getBooking_bo_num());
+			payservice.payInsertUpdate(pay);
 		}
 		System.out.println("최종예약번호 : "+pay.getBooking_bo_num());
 		payservice.payInsertDone(pay);
 		return "redirect:/bookingListDetails?bo_num="+pay.getBooking_bo_num();
 	}//end
+	
 	
 //	payDetails_bo_num & payDetails_pay_id이동
 	@GetMapping(value = "payment/payDetails")
@@ -72,6 +73,7 @@ public class MemberPaymentController {
 		return mav;
 	}//end
 	
+//	payDetails_bo_num 이동
 	@GetMapping(value = "payment/booking_bo_num")
 	public ModelAndView payDetails_bo_num(int booking_bo_num) {
 		PAYMENT pay = new PAYMENT();
@@ -82,8 +84,7 @@ public class MemberPaymentController {
 		return mav;
 	}//end
 	
-	
-	
+//	payDetails_pay_id 이동
 	@GetMapping(value = "payment/payDetails_pay_id")
 	public ModelAndView payDetails_pay_id(int pay_id) {
 		PAYMENT pay = new PAYMENT();

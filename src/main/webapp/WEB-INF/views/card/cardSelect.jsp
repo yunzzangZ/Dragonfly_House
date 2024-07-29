@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
 <section>
-	<h3>${mem.name }님의 카드정보</h3>
+<h3>카드정보</h3>
 	<table border="1">
 		<tr>
 			<th>카드번호</th>

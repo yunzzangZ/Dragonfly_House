@@ -33,24 +33,19 @@
 		</div>
 	</div>	
 <script type="text/javascript">
-	$(document).ready(function() {
-		$("#BtnInsert").click(function() {
+		function checkUpdate() {
 			var title = $("#cs_title").val();
-			var email = $("#email").val();
 			var text = $("#cs_text").val();
+			
 			if (title == "") {
 				alert("제목을 입력해주세요.");
-				document.csInsertForm.title.focus();
+				$("#cs_title").focus();
 				return;
 			}
-			if (email == "") {
-				alert("작성자가 맞지 않습니다.");
-				document.csInsertForm.email.focus();
-				return;
-			}
+			
 			if (text == "") {
 				alert("내용을 입력해주세요.")
-				document.csInsertForm.text.focus();
+				$("#cs_text").focus();
 				return;
 			}
 			document.csInsertForm.submit();
