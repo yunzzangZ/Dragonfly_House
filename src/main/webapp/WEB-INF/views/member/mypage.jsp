@@ -7,9 +7,8 @@
 			<%@include file="../include/nav.jsp"%>
 			<div class="mypage-content">
 				<div>
-					<jsp:include page = "../card/cardSelect.jsp" flush = "false">
-						<jsp:param value="${mem.email }" name = "email"/>
-					</jsp:include>
+					<!-- 본문내용 -->
+
 				</div>
 			</div>
 		</div>
