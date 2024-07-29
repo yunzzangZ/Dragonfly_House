@@ -1,45 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath }" />
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>회원정보수정</title>
-</head>
-<body>
-	<%@include file="../include/header.jsp"%>
-	<%@include file="../include/nav.jsp"%>
-	<h3>회원정보수정</h3>
-	<form action="${contextPath }/member/InfoUpdate" method="post">
-		<table border="1">
-			<tr>
-				<td>회원 이메일</td>
-				<td><input type="text" name="email" value="${mem.email }"
-					readonly="readonly"></td>
-			</tr>
-			<tr>
-				<td>회원 비번</td>
-				<td><a type = "button" href = "updatePw?email=${mem.email }">비번변경</a></td>
-			</tr>
-			<tr>
-				<td>회원 이름</td>
-				<td><input type="text" name="name" value="${mem.name }"></td>
-			</tr>
-			<tr>
-				<td>회원 전화번호</td>
-				<td><input type="text" name="tel" value="${mem.tel }"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="right"><input type="submit" value="수정" id = "Btnupdate" onclick="alert('수정 완료')"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="right"><a href="myInfo?email=${mem.email}">뒤로가기1</a>
-			</tr>
-		</table>
-	</form>
-	<%@include file="../include/footer.jsp"%>
-</body>
-</html>
+<%@include file="../include/header.jsp"%>
+    <div class="container mypage-container">
+		<div>
+			<%@include file="../include/nav.jsp"%>
+			<div class="mypage-content">
+				<div>
+					<h3>회원정보수정</h3>
+					<form action="${contextPath }/member/InfoUpdate" method="post">
+						<div>
+							<p>이메일</p>
+							<input type="text" name="email" value="${mem.email }" readonly="readonly">
+						</div>
+						<div>
+							<p>비밀번호</p>
+							<a href="updatePw?email=${mem.email }" class="pw-update-btn">비밀번호변경</a>
+						</div>
+						<div style="clear: both;">
+							<p>이름</p>
+							<input type="text" name="name" value="${mem.name }">
+						</div>
+						<div>
+							<p>회원 전화번호</p>
+							<input type="text" name="tel" value="${mem.tel }">
+						</div>
+						<div class="mypage-btn"><input type="submit" value="수정" id = "Btnupdate" onclick="alert('수정 완료')"></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<%@include file="../include/footer.jsp"%>

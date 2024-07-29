@@ -31,7 +31,7 @@
 		</tr>
 	</table>
 	<div>
-		<a href = "cardDelete?card_number=${card.card_number }">삭제</a>
+		<a href="cardDelete?card_number=${card.card_number }">삭제</a>
 	</div>
 
 
