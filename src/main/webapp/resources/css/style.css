@@ -19,6 +19,7 @@ button:focus{
 	display: none;
 }
 
+/* 메인 페이지 */
 .header{
 	border-bottom: 1px solid #e9e9e9;
 }
@@ -238,9 +239,6 @@ button:focus{
     margin-top: 30px;	
 	text-align: center;
 }
-
-
-
 
 footer{
 	background: #F5F5F5;
