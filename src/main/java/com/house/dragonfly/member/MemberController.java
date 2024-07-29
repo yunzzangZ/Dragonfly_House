@@ -4,12 +4,15 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.house.dragonfly.card.CardService;
+import com.house.dragonfly.domain.CARD;
 import com.house.dragonfly.domain.MEMBER;
 
 @Controller
@@ -30,7 +33,7 @@ public class MemberController {
 
 //	mypage이동
 	@GetMapping(value = "member/mypage")
-	public String mypage() {
+	public String mypage(String email) {
 		System.out.println("mypage 이동");
 		return "member/mypage";
 	}// end

@@ -5,7 +5,7 @@
 <mapper namespace="com.house.dragonfly.LoginMapper">
 	<!-- 로그인 처리를 위한 SQL -->
 	<select id="login" parameterType="java.util.Map" resultType="java.util.Map">
-		select email
+		select email, name
 		from member
 		where email=#{email} and password=#{password}
 	</select>

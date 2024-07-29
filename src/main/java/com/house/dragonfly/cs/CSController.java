@@ -59,7 +59,7 @@ public class CSController {
 	
 //	Insert_post
 	@PostMapping(value="csInsert")
-	public String Insert(@ModelAttribute CS cs) {
+	public String Insert(CS cs) {
 		System.out.println("cs Insert");
 		service.mycsInsert(cs);
 		return "redirect:/mycsDetails?cs_id="+cs.getCs_id();
@@ -79,7 +79,7 @@ public class CSController {
 	public String csUpdate(CS cs) {
 		System.out.println("cs Update");
 		service.mycsUpdate(cs);
-		return "redirect:/mycsAll";
+		return "cs/mycsSelect";
 	}//end
 	
 //	mycsDelete이동 및 삭제진행
