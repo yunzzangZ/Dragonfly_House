@@ -21,4 +21,16 @@ public class LoginDAOImpl implements LoginDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(nameSpaces + ".login", map);
 	}
+	
+	@Override
+	public Map<String, Object> businessLogin(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(nameSpaces + ".businessLogin", map);
+	}	
+	
+	@Override
+	public Map<String, Object> adminLogin(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(nameSpaces + ".adminLogin", map);
+	}	
 }

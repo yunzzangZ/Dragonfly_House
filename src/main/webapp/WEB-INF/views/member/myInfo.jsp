@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,10 +28,17 @@
 		</tr>
 	</table>
 	<div>
-		<a href = "myInfoUpdate?email=${mem.email}">수정</a>
+		<%@include file="../card/cardSelect.jsp"%>
+		<a href="${contextPath}/card/cardSelect?email=${mem.email }">카드 정보</a>
 	</div>
 	<div>
-		<a href = "memberDelete?email=${mem.email}">탈퇴</a>
+		<a href="${contextPath}/card/cardInsert?email=${mem.email }">카드추가</a>
+	</div>
+	<div>
+		<a href="${contextPath}/member/myInfoUpdate?email=${mem.email}">수정</a>
+	</div>
+	<div>
+		<a href="${contextPath}/member/memberDelete?email=${mem.email}">탈퇴</a>
 	</div>
 
 	<%@include file="../include/footer.jsp"%>

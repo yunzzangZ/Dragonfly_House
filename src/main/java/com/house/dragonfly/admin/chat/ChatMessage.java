@@ -1,9 +1,8 @@
 package com.house.dragonfly.admin.chat;
 
 public class ChatMessage {
-    private String from;
-    private String text;
-    private String recipient;
+    private String sender;
+    private String content;
     private MessageType type;
 
     public enum MessageType {
@@ -12,29 +11,20 @@ public class ChatMessage {
         LEAVE
     }
 
-    // Getters and Setters
-    public String getFrom() {
-        return from;
+    public String getSender() {
+        return sender;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setSender(String sender) {
+        this.sender = sender;
     }
 
-    public String getText() {
-        return text;
+    public String getContent() {
+        return content;
     }
 
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getRecipient() {
-        return recipient;
-    }
-
-    public void setRecipient(String recipient) {
-        this.recipient = recipient;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public MessageType getType() {
@@ -45,3 +35,4 @@ public class ChatMessage {
         this.type = type;
     }
 }
+

@@ -2,7 +2,7 @@ package com.house.dragonfly.domain;
 
 public class CS {
 	private int cs_id;
-	private String member_email;
+	private String email;
 	private String cs_title;
 	private String cs_text;
 	private String cs_date;
@@ -10,9 +10,9 @@ public class CS {
 	
 	public CS() {}
 
-	public CS(int cs_id, String member_email, String cs_title, String cs_text, String cs_date, String cs_response) {
+	public CS(int cs_id, String email, String cs_title, String cs_text, String cs_date, String cs_response) {
 		this.cs_id = cs_id;
-		this.member_email = member_email;
+		this.email = email;
 		this.cs_title = cs_title;
 		this.cs_text = cs_text;
 		this.cs_date = cs_date;
@@ -28,11 +28,11 @@ public class CS {
 	}
 
 	public String getMember_email() {
-		return member_email;
+		return email;
 	}
 
 	public void setMember_email(String member_email) {
-		this.member_email = member_email;
+		this.email = member_email;
 	}
 
 	public String getCs_title() {
@@ -69,7 +69,7 @@ public class CS {
 
 	@Override
 	public String toString() {
-		return "CS [cs_id=" + cs_id + ", member_email=" + member_email + ", cs_title=" + cs_title + ", cs_text="
+		return "CS [cs_id=" + cs_id + ", email=" + email + ", cs_title=" + cs_title + ", cs_text="
 				+ cs_text + ", cs_date=" + cs_date + ", cs_response=" + cs_response + "]";
 	}
 

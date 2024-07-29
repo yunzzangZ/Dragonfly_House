@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 	<%@include file="../include/header.jsp"%>
 	<%@include file="../include/nav.jsp"%>
 	<h3>회원정보수정</h3>
-	<form action="Update" method="post">
+	<form action="${contextPath }/member/InfoUpdate" method="post">
 		<table border="1">
 			<tr>
 				<td>회원 이메일</td>
@@ -35,7 +36,7 @@
 				<td colspan="2" align="right"><input type="submit" value="수정" id = "Btnupdate" onclick="alert('수정 완료')"></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="right"><input type="button" value="뒤로가기" onclick="location.href=myInfo?email=${mem.email}"></td>
+				<td colspan="2" align="right"><a href="myInfo?email=${mem.email}">뒤로가기1</a>
 			</tr>
 		</table>
 	</form>

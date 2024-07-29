@@ -23,6 +23,6 @@ public class FindDAOImpl implements FindDAO{
 
 	public MEMBER findPassword(MEMBER member) {
 		System.out.println("findPassword() 기능 처리");
-		return mybatis.selectOne(nameSpace + "FindDAO.findPassword", member);
+		return mybatis.selectOne(nameSpace + "findPassword", member);
 	}
 }

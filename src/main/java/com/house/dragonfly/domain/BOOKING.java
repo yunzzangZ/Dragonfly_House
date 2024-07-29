@@ -23,7 +23,6 @@ public class BOOKING {
 		this.bo_paymethod = bo_paymethod;
 		this.bo_price = bo_price;
 	}
-	
 
 	public BOOKING(String member_email, int room_ro_num, String bo_checkin, String bo_checkout, String bo_status,
 			String bo_paymethod, double bo_price) {
@@ -106,12 +105,7 @@ public class BOOKING {
 				+ ", bo_checkin=" + bo_checkin + ", bo_checkout=" + bo_checkout + ", bo_status=" + bo_status
 				+ ", bo_paymethod=" + bo_paymethod + ", bo_price=" + bo_price + "]";
 	}
-
 	
-
 	
 
-	
-	
-	
 }//end class

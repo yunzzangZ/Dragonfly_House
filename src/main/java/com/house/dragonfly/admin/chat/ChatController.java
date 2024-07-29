@@ -1,13 +1,11 @@
 package com.house.dragonfly.admin.chat;
 
+
+import com.house.dragonfly.admin.chat.ChatMessage;
 import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.Payload;
-import org.springframework.messaging.simp.annotation.SendToUser;
-import org.springframework.messaging.simp.annotation.SubscribeMapping;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.stereotype.Controller;
 
 @Controller
 public class ChatController {
@@ -18,25 +16,17 @@ public class ChatController {
         this.messagingTemplate = messagingTemplate;
     }
 
-    @GetMapping("/chat")
-    public String chat() {
-        return "chat";
-    }
-
     @MessageMapping("/chat.sendMessage")
-    public void sendMessage(@Payload ChatMessage chatMessage, @SessionAttribute("email") String email) {
-        if (email == null || !email.equals(chatMessage.getFrom())) {
-            throw new IllegalArgumentException("Unauthorized user");
-        }
-        messagingTemplate.convertAndSendToUser(chatMessage.getRecipient(), "/queue/reply", chatMessage);
+    @SendTo("/topic/public")
+    public ChatMessage sendMessage(ChatMessage chatMessage) {
+        return chatMessage;
     }
 
     @MessageMapping("/chat.addUser")
-    public void addUser(@Payload ChatMessage chatMessage, @SessionAttribute("email") String email) {
-        if (email == null || !email.equals(chatMessage.getFrom())) {
-            throw new IllegalArgumentException("Unauthorized user");
-        }
+    @SendTo("/topic/public")
+    public ChatMessage addUser(ChatMessage chatMessage) {
         chatMessage.setType(ChatMessage.MessageType.JOIN);
-        messagingTemplate.convertAndSend("/topic/messages", chatMessage);
+        chatMessage.setContent(chatMessage.getSender() + " joined the chat");
+        return chatMessage;
     }
 }

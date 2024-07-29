@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
 		<div>
 			<h1>${mem.email}님의 비밀번호 재설정 화면</h1>
 		</div>
-	<form action="UpPw" method="post">
+	<form action="${contextPath }/member/UpPw" method="post">
 		<input type = "hidden" name = "email" value = "${mem.email}">
 		<table border="1">
 			<tr>

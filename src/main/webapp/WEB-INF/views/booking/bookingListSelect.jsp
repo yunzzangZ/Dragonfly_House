@@ -12,7 +12,7 @@
 	<%@include file="../include/header.jsp"%>
 	<%@include file="../include/nav.jsp"%>
 	<div>
-	${email } / ${member_email }/ ${bo.email }
+	${email.name }님의 전체예약내역
 	</div>
 	<table border="1">
 		<tr>

@@ -1,6 +1,7 @@
 package com.house.dragonfly.member;
 
 import java.util.List;
+import java.util.Map;
 
 import com.house.dragonfly.domain.MEMBER;
 
@@ -19,8 +20,6 @@ public interface MemberService {
 	public void updatePw(MEMBER mem);
 	
 //	회원탈퇴
-	public void memberDelete(String email);
-	
-	
+	public void memberDelete(String email);	
 	
 }//end

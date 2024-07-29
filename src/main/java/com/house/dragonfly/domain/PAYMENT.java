@@ -1,67 +1,125 @@
 package com.house.dragonfly.domain;
 
 public class PAYMENT {
-	private String payment_id;
-	private double amount;
-	private String payment_method;
-	private String payment_status;
-	private String email;
+	private int pay_id;
+	private int booking_bo_num;
+	private double card_card_number;
+	private String pay_name;
+	private String pay_method;
+	private String pay_date;	
+	private double pay_amount;
+	private String pay_status;
 	
 	public PAYMENT() {}
 
-	public PAYMENT(String payment_id, double amount, String payment_method, String payment_status, String email) {
-		this.payment_id = payment_id;
-		this.amount = amount;
-		this.payment_method = payment_method;
-		this.payment_status = payment_status;
-		this.email = email;
+	public PAYMENT(int booking_bo_num, double card_card_number, String pay_name, String pay_method, String pay_date,
+			double pay_amount, String pay_status) {
+		this.booking_bo_num = booking_bo_num;
+		this.card_card_number = card_card_number;
+		this.pay_name = pay_name;
+		this.pay_method = pay_method;
+		this.pay_date = pay_date;
+		this.pay_amount = pay_amount;
+		this.pay_status = pay_status;
 	}
 
-	public String getPayment_id() {
-		return payment_id;
+	public PAYMENT(int pay_id, int booking_bo_num, double card_card_number, String pay_name, String pay_method,
+			String pay_date, double pay_amount, String pay_status) {
+		this.pay_id = pay_id;
+		this.booking_bo_num = booking_bo_num;
+		this.card_card_number = card_card_number;
+		this.pay_name = pay_name;
+		this.pay_method = pay_method;
+		this.pay_date = pay_date;
+		this.pay_amount = pay_amount;
+		this.pay_status = pay_status;
 	}
 
-	public void setPayment_id(String payment_id) {
-		this.payment_id = payment_id;
+	
+	
+	public PAYMENT(int pay_id, double card_card_number, String pay_method, String pay_date) {
+		this.pay_id = pay_id;
+		this.card_card_number = card_card_number;
+		this.pay_method = pay_method;
+		this.pay_date = pay_date;
 	}
 
-	public double getAmount() {
-		return amount;
+	public PAYMENT(int pay_id, String pay_name, String pay_method, String pay_date) {
+		this.pay_id = pay_id;
+		this.pay_name = pay_name;
+		this.pay_method = pay_method;
+		this.pay_date = pay_date;
 	}
 
-	public void setAmount(double amount) {
-		this.amount = amount;
+	public int getPay_id() {
+		return pay_id;
 	}
 
-	public String getPayment_method() {
-		return payment_method;
+	public void setPay_id(int pay_id) {
+		this.pay_id = pay_id;
 	}
 
-	public void setPayment_method(String payment_method) {
-		this.payment_method = payment_method;
+	public int getBooking_bo_num() {
+		return booking_bo_num;
 	}
 
-	public String getPayment_status() {
-		return payment_status;
+	public void setBooking_bo_num(int booking_bo_num) {
+		this.booking_bo_num = booking_bo_num;
 	}
 
-	public void setPayment_status(String payment_status) {
-		this.payment_status = payment_status;
+	public double getCard_card_number() {
+		return card_card_number;
 	}
 
-	public String getEmail() {
-		return email;
+	public void setCard_card_number(double card_card_number) {
+		this.card_card_number = card_card_number;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public String getPay_name() {
+		return pay_name;
 	}
 
-	@Override
-	public String toString() {
-		return "PAYMENT [payment_id=" + payment_id + ", amount=" + amount + ", payment_method=" + payment_method
-				+ ", payment_status=" + payment_status + ", email=" + email + "]";
+	public void setPay_name(String pay_name) {
+		this.pay_name = pay_name;
 	}
+
+	public String getPay_method() {
+		return pay_method;
+	}
+
+	public void setPay_method(String pay_method) {
+		this.pay_method = pay_method;
+	}
+
+	public String getPay_date() {
+		return pay_date;
+	}
+
+	public void setPay_date(String pay_date) {
+		this.pay_date = pay_date;
+	}
+
+	public double getPay_amount() {
+		return pay_amount;
+	}
+
+	public void setPay_amount(double pay_amount) {
+		this.pay_amount = pay_amount;
+	}
+
+	public String getPay_status() {
+		return pay_status;
+	}
+
+	public void setPay_status(String pay_status) {
+		this.pay_status = pay_status;
+	}
+
+	
+
+	
+	
+
 	
 	
 	
