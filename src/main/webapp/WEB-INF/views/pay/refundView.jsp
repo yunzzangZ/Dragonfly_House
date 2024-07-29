@@ -9,8 +9,7 @@
 <title>환불 요청 상세 보기</title>
 </head>
 <body>
-   <%@include file="../include/header.jsp"%>
-   <%@include file="../include/adminNav.jsp"%>
+   <%@include file="../include/adminHeader.jsp"%>
 
    <div class="container mt-5">
        <h2>환불 요청 상세 보기</h2>
@@ -37,7 +36,5 @@
            </tr>
        </table>
    </div>
-   
-   <%@include file="../include/footer.jsp"%>
 </body>
 </html>

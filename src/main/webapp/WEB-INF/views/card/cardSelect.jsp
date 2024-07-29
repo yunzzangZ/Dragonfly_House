@@ -2,14 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
-
 <section>
 <h3>카드정보</h3>
 	<table border="1">
 		<tr>
-			<td>card_number</td>
-			<td>card_password</td>
-			<td>card_duodate</td>
+			<th>카드번호</th>
+			<th>카드비밀번호</th>
+			<th>카드유효기간</th>
 		</tr>
 		<c:forEach var="card" items="${cardList}">
 			<tr>
