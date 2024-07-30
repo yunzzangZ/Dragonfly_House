@@ -422,8 +422,24 @@ footer span{
 }
 
 /*어드민 페이지*/
-
-
+.manager-container{
+	padding: 30px;
+}
+.manager-container table{
+	width: 100%;
+}
+.manager-container .manager-btn{
+	text-align: right;
+}
+.manager-container .form-group{
+	margin-bottom: 1rem;
+}
+.manager-container .manager-btn form{
+	display: contents;
+}
+.manager-container .manager-btn form textarea{
+	margin-top: 15px;
+}
 
 
 
