@@ -2,8 +2,6 @@ package com.house.dragonfly.reserved;
 
 import java.util.List;
 
-import com.house.dragonfly.domain.BusinessVO;
-import com.house.dragonfly.domain.FacilityVO;
 import com.house.dragonfly.domain.ReservedVO;
 
 public interface ReservedService {

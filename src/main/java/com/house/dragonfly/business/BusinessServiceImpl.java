@@ -13,35 +13,35 @@ public class BusinessServiceImpl implements BusinessService{
 	private BusinessDAO dao;
 
 	@Override
-	public List<BusinessVO> listAll() {
+	public List<BusinessVO> bu_listAll() {
 		// TODO Auto-generated method stub
-		return dao.listAll();
+		return dao.bu_listAll();
 	}
 
 	@Override
-	public BusinessVO selectOne(String bu_email) {
+	public BusinessVO bu_selectOne(String bu_email) {
 		// TODO Auto-generated method stub
-		return dao.selectOne(bu_email);
+		return dao.bu_selectOne(bu_email);
 	}
 
 	@Override
-	public boolean insert(BusinessVO bu_insert) {
+	public boolean bu_insert(BusinessVO bu_insert) {
 		// TODO Auto-generated method stub
-		return dao.insert(bu_insert);
+		return dao.bu_insert(bu_insert);
 	}
 
 	@Override
-	public boolean update(BusinessVO bu_update) {
+	public boolean bu_update(BusinessVO bu_update) {
 		// TODO Auto-generated method stub
-		return dao.update(bu_update);
+		return dao.bu_update(bu_update);
 	}
 
 	@Override
-	public boolean delete(String bu_email) {
-		// TODO Auto-generated method stub
-		return dao.delete(bu_email);
+	public boolean bu_delete(String bu_email) {
+	
+	    return dao.bu_delete(bu_email);
 	}
-
+	
 
 
 	//======================
