@@ -10,7 +10,6 @@
 </head>
 <body>
 	<%@include file="../include/header.jsp"%>
-	<%@include file="../include/nav.jsp"%>
 	<h1>회원탈퇴확인</h1>
 	<div>
 	<h3>회원탈퇴 완료되었습니다.</h3>

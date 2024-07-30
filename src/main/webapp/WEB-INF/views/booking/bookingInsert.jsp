@@ -2,15 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>예약추가</title>
-</head>
-<body>
 	<%@include file="../include/header.jsp"%>
-	<%@include file="../include/nav.jsp"%>
 
 	<div class="content-wrapper">
 
@@ -52,9 +44,4 @@
 			</form>
 		</section>
 	</div>
-
-
-
 	<%@include file="../include/footer.jsp"%>
-</body>
-</html>

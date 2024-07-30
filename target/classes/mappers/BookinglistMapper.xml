@@ -5,8 +5,10 @@
 <mapper namespace="com.house.dragonfly.BookinglistMapper">
 
 	<!-- 예약상황전체보기 -->
-	<select id="bookingListAll" resultType="com.house.dragonfly.domain.BOOKING"> 
-		select * from booking </select>
+	<select id="bookingListAll"
+		resultType="com.house.dragonfly.domain.BOOKING">
+		select * from booking
+	</select>
 
 	<!-- 예약상황 회원별 -->
 	<select id="bookingListSelect"
@@ -26,30 +28,36 @@
 	<select id="bookingCancleSelect"
 		resultType="com.house.dragonfly.domain.BOOKING">
 		select * from booking
-		where member_email = #{email} and bo_status like '예약취소%'
+		where member_email =#{email.email} and bo_status like '예약취소%';
 	</select>
 
 	<!-- 예약 취소요청 -->
 	<update id="bookingCancleUpdate" parameterType="int">
-		update booking set
+		update booking
+		set
 		bo_status = '예약취소요청'
 		where bo_num = #{bo_num}
 	</update>
-	
+
 	<!-- 예약추가 -->
 	<insert id="bookingInsert"
 		parameterType="com.house.dragonfly.domain.BOOKING">
 		insert into booking
-		(`bo_checkin`, `bo_checkout`, `bo_status`, `bo_paymethod`, `bo_price`, `member_email`, `room_ro_num`) values
-		(#{bo_checkin}, #{bo_checkout}, '예약대기', #{bo_paymethod}, #{bo_price}, #{email}, #{room_ro_num})
+		(`bo_checkin`, `bo_checkout`,
+		`bo_status`, `bo_paymethod`, `bo_price`, `member_email`,
+		`room_ro_num`) values
+		(#{bo_checkin}, #{bo_checkout}, '예약대기',
+		#{bo_paymethod}, #{bo_price}, #{email}, #{room_ro_num})
 	</insert>
 
 	<!-- 예약을 하면 바로 결제pay_id생성 -->
 	<insert id="payInsert"
 		parameterType="com.house.dragonfly.domain.BOOKING">
 		insert into payment
-		(`booking_bo_num`, `pay_method`, `pay_amount`, `pay_status`) values
-		(#{bo_num}, #{bo_paymethod}, #{bo_price}, '결제 대기');
+		(`booking_bo_num`, `pay_method`,
+		`pay_amount`, `pay_status`) values
+		(#{bo_num}, #{bo_paymethod},
+		#{bo_price}, '결제 대기');
 	</insert>
 
 

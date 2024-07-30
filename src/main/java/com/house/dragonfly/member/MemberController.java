@@ -2,7 +2,7 @@ package com.house.dragonfly.member;
 
 import java.util.List;
 
-import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,15 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.house.dragonfly.card.CardService;
-import com.house.dragonfly.domain.CARD;
 import com.house.dragonfly.domain.MEMBER;
 
 @Controller
 public class MemberController {
-	@Inject
+	@Autowired
 	private MemberService service;
-
+	
 //	임시 myInfoAll이동 및 정보 list가져오기
 	@GetMapping(value = "member/myInfoAll")
 	public ModelAndView myInfoAll() {
@@ -114,9 +112,10 @@ public class MemberController {
 
 //	memberDeleteDone이동
 	@GetMapping(value = "member/memberDeleteDone")
-	public String memberDeleteDone(String email) {
+	public String memberDeleteDone(String email, HttpSession session) {
 		System.out.println("삭제완료");
 		service.memberDelete(email);
+		session.invalidate();
 		return "member/memberDeleteDone";
 	}// end
 

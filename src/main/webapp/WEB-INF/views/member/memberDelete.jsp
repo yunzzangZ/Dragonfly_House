@@ -2,39 +2,102 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>회원탈퇴 페이지</title>
 <script type="text/javascript">
-	
-	
+	function randomNum() {
+		var randomNum = Math.floor(Math.random() * 1000000); // 0부터 999999까지의 랜덤 숫자 생성
+		var formattedNum = randomNum.toString().padStart(6, '0'); // 6자리로 포맷팅
+		$('#randomNum').val(formattedNum);
+	};//end randomNum
 
+	window.onload = function() {
+		randomNum();
+	};
 
-	var checknum = Math.floor(Math.random() * 101);
-	document.write('checknum : ' + checknum + '<br>');
+	function checkNum() {
+		var randomNum = $("#randomNum").val();
+		var input_number = $("#input_number").val();
+
+		if (randomNum != input_number) {
+			alert("인증번호와 일치하지 않습니다.");
+			$("#input_number").focus();
+			return;
+		} else {
+			$('#BtncheckNum').hide();//버튼 숨기기
+			$('#Result_number').val('Y');
+		}//end if
+	};//end checkNum
+
+	function checkEmail() {
+		var email = $("#email").val();
+		var check_email = $("#check_email").val();
+
+		if (email != check_email) {
+			alert("현재 이메일과 일치하지 않습니다.");
+			$("#check_email").focus();
+			return;
+		} else {
+			$('#BtncheckEmail').hide();//버튼 숨기기
+			$('#Result_email').val('Y');
+		}//end if
+
+	};//end checkEmail
+
+	function checkDelete() {
+		if ($('#Result_email').val() == 'Y' && $('#Result_number').val() == 'Y') {
+			if (!confirm('탈퇴 하시겠습니까?')) {
+				window.history.back;
+				alert("탈퇴취소");
+				location.href = "myInfo?email=${email.email}"
+			} else {
+				var form = document.getElementById("memberDeleteForm");
+				form.submit();
+				alert("탈퇴가 완료되었습니다.");
+			}
+		} else {
+			if ($('#Result_email').val() != 'Y') {
+				alert("이메일 인증을 진행해주세요.");
+				$("#input_number").focus();
+			} else{
+				alert("인증번호 인증을 진행해주세요.");
+				$("#check_email").focus();
+			}
+		}//end
+
+	};//end checkUpdate
 </script>
 </head>
 <body>
 	<%@include file="../include/header.jsp"%>
 	<%@include file="../include/nav.jsp"%>
 	<h1>${mem.email }회원탈퇴페이지</h1>
-	<form action="${contextPath }/member/memberDeleteDone" method="get">
+	<form action="memberDeleteDone" method="get" name="memberDeleteForm"
+		id="memberDeleteForm">
+		<input type="hidden" value=${mem.email } name="email" id="email"
+			readonly> <input type="text" name="Result_email"
+			id="Result_email" value="N"> <input type="text"
+			name="Result_number" id="Result_number" value="N">
 		<table>
 			<tr>
-			<td>회원이메일 입력</td>
-				<td><input type="text" value=${mem.email } name="email" readonly></td>
-				<td><input type="text" name = "check_email">
+				<td>회원이메일 입력</td>
+				<td><input type="text" name="check_email" id="check_email"></td>
+				<td><button type="button" onclick="checkEmail();"
+						id="BtncheckEmail" name="BtncheckEmail">이메일 확인</button></td>
 			</tr>
 			<tr>
 				<td>인증번호 입력</td>
-				<td><input type = "text" readonly id = "checknum"></td>
-				<td><input type="number" name="check_number"></td>
+				<td><input type="text" id="randomNum" name="randomNum" readonly></td>
+				<td><input type="number" name="input_number" id="input_number"></td>
+				<td><button type="button" onclick="checkNum();"
+						id="BtncheckNum" name="BtncheckNum">인증번호 확인</button></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="이메일인증 확인" id="Btnemail" onclick="location.href='${contextPath}/member/memberDeleteDone'">
+				<td>
+					<button type="button" onclick="checkDelete();">탈퇴하기</button>
 				</td>
 			</tr>
 		</table>

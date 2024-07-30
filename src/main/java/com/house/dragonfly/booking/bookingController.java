@@ -22,17 +22,6 @@ public class bookingController {
 	@Autowired
     private RoomService roomservice;
 	
-//	예약전체이동
-	@GetMapping(value = "bookingListAll")
-	public ModelAndView bookingListAll() {
-		System.out.println("예약전체");
-		List<BOOKING> bolist = bookingservice.bookingListAll();
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("bolist", bolist);
-		mav.setViewName("booking/bookingListAll");
-		return mav;
-	}//end
-	
 //	예약전체_회원별 이동
 	@GetMapping(value = "bookingListSelect")
 	public ModelAndView bookingListSelect(String email) {
@@ -47,7 +36,7 @@ public class bookingController {
 //	예약 상세보기 이동
 	@GetMapping(value = "bookingListDetails")
 	public ModelAndView bookingListDetails(int bo_num) {
-		System.out.println("예약 취소 상세");
+		System.out.println("예약상세보기");
 		BOOKING bo = bookingservice.bookingListDetails(bo_num);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("bo", bo);
@@ -66,23 +55,11 @@ public class bookingController {
 		return mav;
 	}//end
 	
-//	예약취소상세보기 이동
-	@GetMapping(value = "bookingCancleDetails")
-	public ModelAndView bookingCancleDetails(int bo_num) {
-		System.out.println("예약 취소 상세");
-		BOOKING bo = bookingservice.bookingListDetails(bo_num);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("bo", bo);
-		mav.setViewName("booking/bookingCancleDetails");
-		return mav;
-	}//end
-	
-	
 //	예약취소요청 이동_get
 	@GetMapping(value = "bookingCancleUpdate")
 	public ModelAndView bookingCancleUpdate(int bo_num) {
 		System.out.println("예약취소요청 폼이동");
-		ModelAndView mav = bookingCancleDetails(bo_num);
+		ModelAndView mav = bookingListDetails(bo_num);
 		mav.setViewName("booking/bookingCancleUpdate");
 		return mav;
 	}//end
