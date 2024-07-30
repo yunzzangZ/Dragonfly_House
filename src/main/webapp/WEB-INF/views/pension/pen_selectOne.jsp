@@ -30,8 +30,8 @@
 		</table>
 
 		<div>
-			<a href="pen_update?pen_name=${pen.pen_name}">수정하기</a> <br><br> 
-			<a href="pen_delete?pen_name=${pen.pen_name}">삭제하기</a>		
+			<a href="pen_update?pen_addr=${pen.pen_addr}">수정하기</a> <br><br> 
+			<a href="pen_delete?pen_addr=${pen.pen_addr}">삭제하기</a>		
 		</div>
 	</section>
 </div>

@@ -13,11 +13,11 @@
 	<P>The time on the server is ${serverTime}.</P>
 	<h1>${msg }</h1>
 	<a href ="index">index이동</a>
-	<div><a href="bu_listall">전체 사업장 가입자 조회</a></div>
-	<div><a href="fac_listall">전체 시설명 조회</a></div>
-	<div><a href="res_listall">전체 예약현황 조회</a></div>
-	<div><a href="ro_listall">전체 방 조회</a></div>
-	<div><a href="rofac_listall">전체 방 시설 조회</a></div>
-	<div><a href="pen_listall">전체 펜션 조회</a></div>
+	<div><a href="business/bu_listall">전체 사업장 가입자 조회</a></div>
+	<div><a href="facility/fac_listall">전체 시설명 조회</a></div>
+	<div><a href="reserved/res_listall">전체 예약현황 조회</a></div>
+	<div><a href="room/ro_listall">전체 방 조회</a></div>
+	<div><a href="rofac/rofac_listall">전체 방 시설 조회</a></div>
+	<div><a href="pension/pen_listall">전체 펜션 조회</a></div>
 </body>
 </html>

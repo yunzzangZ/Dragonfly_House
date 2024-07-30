@@ -20,8 +20,8 @@ public class ReservedController {
     @Autowired
     private ReservedService service;
 
-    // 전체 사원 조회
-    @GetMapping(value = "res_listall")
+    // 전체 예약 조회
+    @GetMapping(value = "reserved/res_listall")
     public ModelAndView res_listall() {
         List<ReservedVO> list = service.res_listAll();
         ModelAndView mav = new ModelAndView();
@@ -31,9 +31,9 @@ public class ReservedController {
     }
     
     // 상세 조회
-    @GetMapping(value = "res_selectOne")
-    public ModelAndView res_selectOne(int booking_bo_num) {
-    	ReservedVO fac = service.res_selectOne(booking_bo_num);
+    @GetMapping(value = "reserved/res_selectOne")
+    public ModelAndView res_selectOne(@RequestParam("booking_bo_num") int booking_bo_num) { // @RequestParam 추가
+        ReservedVO fac = service.res_selectOne(booking_bo_num);
         ModelAndView mav = new ModelAndView();
         mav.addObject("fac", fac);
         mav.setViewName("reserved/res_selectOne");
@@ -41,52 +41,50 @@ public class ReservedController {
     }
     
     // 추가 페이지 이동
-    @GetMapping (value = "res_insert")
-    public String fac_insertForm(Model model) {
-    	model.addAttribute("FacilityVO", new ReservedVO());
-		return "reserved/fac_insert";    	
+    @GetMapping(value = "reserved/res_insert")
+    public String res_insertForm(Model model) { // 메소드 이름 수정
+        model.addAttribute("ReservedVO", new ReservedVO());
+        return "reserved/res_insert"; // 뷰 이름 수정
     }
     
     // 추가
-    @PostMapping(value = "res_insert")
-    public String fac_insert(ReservedVO res_insert, RedirectAttributes rttr) {
-    	boolean result = service.res_insert(res_insert);
-    	if(result) {
-    		rttr.addFlashAttribute("message", "시설 등록 완료");
-    	} else {
-    		rttr.addFlashAttribute("message", "시설 등록 완료");
-    	}
-		return "redirect: res_listall";  	
+    @PostMapping(value = "reserved/res_insert")
+    public String res_insert(ReservedVO res_insert, RedirectAttributes rttr) {
+        boolean result = service.res_insert(res_insert);
+        if(result) {
+            rttr.addFlashAttribute("message", "시설 등록 완료");
+        } else {
+            rttr.addFlashAttribute("message", "시설 등록 실패"); // 실패 메시지 수정
+        }
+        return "redirect:/reserved/res_listall"; // 공백 제거
     }
     
-    // 수정 이동
-    @GetMapping(value = "res_update")
+    // 수정 페이지 이동
+    @GetMapping(value = "reserved/res_update")
     public ModelAndView res_update(@RequestParam("bo_num") int booking_bo_num) {
-    	ModelAndView mav = res_selectOne(booking_bo_num);
-    	mav.setViewName("reserved/res_update");
-		return mav;    	
+        ModelAndView mav = res_selectOne(booking_bo_num);
+        mav.setViewName("reserved/res_update");
+        return mav;     
     }
     
     // 수정
-    @PostMapping(value = "res_update")
+    @PostMapping(value = "reserved/res_update")
     public String res_update(@ModelAttribute("reserved") ReservedVO res_update, RedirectAttributes rttr) {
-//    	boolean result = service.fac_update(fac_update);
-    	 boolean result;
-             result = service.res_update(res_update);
-             if (result) {
-                 rttr.addFlashAttribute("message", "수정이 완료되었습니다.");
-             } else {
-                 rttr.addFlashAttribute("message", "수정에 실패했습니다.");
-             }
-			return "redirect:res_listall";  	
+        boolean result = service.res_update(res_update);
+        if (result) {
+            rttr.addFlashAttribute("message", "수정이 완료되었습니다.");
+        } else {
+            rttr.addFlashAttribute("message", "수정에 실패했습니다.");
+        }
+        return "redirect:/reserved/res_listall";  	
     }
     
     // 삭제
-    @GetMapping(value = "res_delete")
-    public String res_delete(int booking_bo_num, RedirectAttributes rttr) {
+    @PostMapping(value = "reserved/res_delete") // POST 메소드로 변경
+    public String res_delete(@RequestParam("booking_bo_num") int booking_bo_num, RedirectAttributes rttr) {
         service.res_delete(booking_bo_num);
-        rttr.addFlashAttribute("message", " 삭제 완료!");
-        return "redirect: redirect:res_listall";
+        rttr.addFlashAttribute("message", "삭제 완료!"); // 공백 제거
+        return "redirect:/reserved/res_listall";
     }
 
     // =====
