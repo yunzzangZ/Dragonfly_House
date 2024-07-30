@@ -15,7 +15,7 @@ public interface RoomService {
 	   // 방 추가
 	   public boolean ro_insert(RoomVO ro_insert);
 	   
-	   //가수정
+	   //수정
 	   public boolean ro_update(RoomVO ro_update);
 	   
 	   // 삭제_방번호 기준
