@@ -2,20 +2,13 @@
    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>자주 묻는 질문 목록</title>
-</head>
-<body>
-   <%@include file="../include/header.jsp"%>
-   <div class="container mt-5">
-       <h2>자주 묻는 질문 목록</h2>
+<%@include file="../../include/adminHeader.jsp" %>
+   <div>
+       <h2>Q&A 목록</h2>
        <table class="table table-striped">
            <thead>
                <tr>
-                   <th>ID</th>
+                   <th>번호</th>
                    <th>질문</th>
                </tr>
            </thead>
@@ -28,8 +21,8 @@
                </c:forEach>
            </tbody>
        </table>
-       <a href="${pageContext.request.contextPath}/admin/faq/faqAdd" class="btn btn-primary">새 질문 추가</a>
+       <div class="manager-btn">           
+       		<a href="${pageContext.request.contextPath}/admin/faq/faqAdd" class="btn btn-primary">새 질문 추가</a>
+       </div>
    </div>
-   <%@include file="../include/footer.jsp"%>
-</body>
-</html>
+<%@include file="../../include/adminFooter.jsp" %>

@@ -17,7 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
 
 	<link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-	<link href="${contextPath}/resources/admin/css/styles.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="${contextPath}/resources/admin/css/styles.css" type="text/css"/>
+	<link rel="stylesheet" href="${contextPath}/resources/css/style.css" type="text/css"/>
 </head>
 <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -59,29 +60,23 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <!--  <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                                </nav>
-                            </div> -->
-                            <a class="nav-link" href="${contextPath}/admin/index">HOME</a>
-                            <a class="nav-link" href="${contextPath}/pay/statistic">결제 통계</a>
-                            <a class="nav-link" href="${contextPath}/pay/payList">결제 내역</a>
-                            <a class="nav-link" href="${contextPath}/pay/payCard">카드 결제</a>
-                            <a class="nav-link" href="${contextPath}/pay/payBank">계좌 입금</a>
-                            <a class="nav-link" href="${contextPath}/pay/refundList">환불 요청</a>                           
-                        </div>
+                            <a class="nav-link" href="${contextPath}/admin/index">HOME</a>                        
+                            <div class="sb-sidenav-menu-heading">결제내역</div>
+                            <a class="nav-link" href="${contextPath}/business/index">결제내역</a> 
+                            <a class="nav-link" href="${contextPath}/business/index">결제내역 통계</a>    
+                            <a class="nav-link" href="${contextPath}/business/index">환불요청</a>     
+                            <div class="sb-sidenav-menu-heading">공지사항</div>
+                            <a class="nav-link" href="${contextPath}/admin/notice/noticeList">공지사항</a>   
+                            <a class="nav-link" href="${contextPath}/admin/faq/faqList">Q&A</a>
+                           <div class="sb-sidenav-menu-heading">1:1문의</div>
+                            <a class="nav-link" href="${contextPath}/admin/cs/csList">1:1문의내역</a>                             
+                            <div class="sb-sidenav-menu-heading">통계</div>
+                            <a class="nav-link" href="${contextPath}/business/index">정산관리</a>                                                                                                                
+                        </div>  
                     </div>
                 </nav>
             </div>
             
             <div id="layoutSidenav_content">
-            	<div class="container-fluid px-4">
+            	<div class="container-fluid manager-container">
 
