@@ -31,8 +31,8 @@
                     <td>
                     
                        <div>
-                            <a href="update?bu_email=${bu.bu_email}">정보수정</a><br><br>
-                            <a href="delete?bu_email=${bu.bu_email}">삭제</a>
+                            <a href="bu_update?bu_email=${bu.bu_email}">정보수정</a><br><br>
+                            <a href="bu_delete?bu_email=${bu.bu_email}">삭제</a>
                         </div>
                    
                       

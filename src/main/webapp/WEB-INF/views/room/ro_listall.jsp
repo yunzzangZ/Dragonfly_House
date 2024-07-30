@@ -35,7 +35,7 @@
             </c:forEach>
             <tr>
                 <td colspan="4">
-                    <div><a href="ro_insert" class="btn btn-primary">방 추가</a></div> 
+                    <div><a href="ro_insert">방 추가</a></div> 
                 </td>
             </tr>
         </table>

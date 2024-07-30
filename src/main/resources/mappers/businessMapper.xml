@@ -5,18 +5,18 @@
 <mapper namespace="com.house.dragonfly.businessMapper">
 
 	<!-- 전체 사업자 가입자 조회 -->
-	<select id="listAll" resultType="com.house.dragonfly.domain.BusinessVO">
+	<select id="bu_listAll" resultType="com.house.dragonfly.domain.BusinessVO">
 		select * from business
 	</select>
 
 	  <!-- 이메일로 조회 -->
-   <select id="selectOne" resultType="com.house.dragonfly.domain.BusinessVO">
+   <select id="bu_selectOne" resultType="com.house.dragonfly.domain.BusinessVO">
       select * from business
        where bu_email = #{bu_email}
    </select>
 
    <!-- 회원추가 -->
-   <insert id="insert">
+   <insert id="bu_insert">
 	    insert into business 
 	    	(bu_email, bu_password, bu_tel, bu_name, bu_code, bu_approval, bu_account_num)
         values 
@@ -24,7 +24,7 @@
 	</insert>
 	
 	<!-- 정보수정 -->
-	<update id="update">
+	<update id="bu_update">
 	    update business set
 		    bu_password=#{bu_password}, 
 		    bu_tel=#{bu_tel}, 
@@ -36,7 +36,7 @@
 	</update>
 		
 	<!-- 회원탈퇴 -->
-	<delete id="delete">
+	<delete id="bu_delete">
 		delete from business where bu_email = #{bu_email}
 	</delete>
 
