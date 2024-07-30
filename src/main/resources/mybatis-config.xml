@@ -3,8 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-  <typeAliases>
-    <typeAlias type="com.house.dragonfly.domain.MEMBER" alias="MEMBER"/>
-    <typeAlias type="com.house.dragonfly.domain.BUSINESS" alias="BUSINESS"/>
-  </typeAliases>
+<typeAliases>
+<typeAlias type="com.house.dragonfly.domain.MEMBER" alias="MEMBER"/>
+<typeAlias type="com.house.dragonfly.domain.BUSINESS" alias="BUSINESS"/>
+</typeAliases>
 </configuration>

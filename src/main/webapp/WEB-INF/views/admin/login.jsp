@@ -31,7 +31,7 @@
     
     <link rel="stylesheet" href="${contextPath}/resources/css/style.css" type="text/css">    
 </head>
-<body>
+<body style="height:auto;">
 	<div class="container">
 		<div class="login">
 		    <div class="login-container">

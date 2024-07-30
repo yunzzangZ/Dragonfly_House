@@ -10,7 +10,7 @@
 <meta
    content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
    name='viewport'>
-   <title>admin</title>
+   <title>잠자리하우스 관리자</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
@@ -39,9 +39,16 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#">로그아웃</a></li>
+						<c:if test="${email==null }">
+							<li>로그인을 해주세요</li>
+							<li><hr class="dropdown-divider" /></li>
+                        	<li><a class="dropdown-item" href="${contextPath}/admin/login">로그인</a></li>							
+						</c:if>                      
+						<c:if test="${email!=null }">
+							<li>${email.name } 관리자님</li>
+							<li><hr class="dropdown-divider" /></li>
+                        	<li><a class="dropdown-item" href="${contextPath}/user/login/adminLogout">로그아웃</a></li>							
+						</c:if>  
                     </ul>
                 </li>
             </ul>

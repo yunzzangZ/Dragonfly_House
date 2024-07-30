@@ -8,7 +8,7 @@
 <title>1:1 문의 상세 보기</title>
 </head>
 <body>
-    <%@include file="../include/header.jsp"%>
+   <%@include file="/WEB-INF/views/include/header.jsp"%>
     <div class="container mt-5">
         <h2>1:1 문의 상세 보기</h2>
         <table class="table table-striped">
@@ -42,6 +42,6 @@
             </form>
         </c:if>
     </div>
-    <%@include file="../include/footer.jsp"%>
+   <%@include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
 </html>
