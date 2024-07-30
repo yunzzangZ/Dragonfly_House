@@ -98,5 +98,12 @@ public class LoginController {
 			return "redirect:/admin/index";
 		}
 	}	
+	
+	// 관리자 로그아웃
+	@GetMapping(value = "user/login/adminLogout")
+	public String adminLogout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/admin/login";
+	}
 
 }
