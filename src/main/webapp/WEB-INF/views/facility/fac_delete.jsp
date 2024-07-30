@@ -7,11 +7,11 @@
 <div class="content-wrapper">
     <section class="content">
         <div>
-            <h2>사원 삭제</h2>
+            <h2>시설 삭제</h2>
             <form action="${pageContext.request.contextPath}/fac_delete" method="get">
 
                 <input type="hidden" id="fac_id" name="fac_id" value="<c:out value='${fac.fac_id}'/>">
-                <p>정말로 회원 <c:out value='${fac.fac_name}'/> (<c:out value='${fac.fac_name}'/>)을 삭제하시겠습니까?</p>
+                <p>정말로 시설 <c:out value='${fac.fac_name}'/>을 삭제하시겠습니까?</p>
                 <div>
                     <input type="submit" value="삭제">
                     <a href="${pageContext.request.contextPath}/fac_listall">취소</a>

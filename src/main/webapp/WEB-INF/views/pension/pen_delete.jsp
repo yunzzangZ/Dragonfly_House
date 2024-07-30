@@ -13,7 +13,7 @@
 			<h1>펜션 삭제</h1>
 		</div>
 
-		<form action="${contextPath}/pen_delete" method="post">
+		<form action="${contextPath}/pen_delete" method="get">
 			<input type="hidden" name="pen_name" value="${pen.pen_name}"> <!-- 삭제할 펜션 ID를 숨겨서 전송 -->
 			<p>정말로 이 펜션을 삭제하시겠습니까?</p>
 			<p>펜션 이름: ${pen.pen_name}</p> <!-- 삭제할 펜션 이름 확인 -->

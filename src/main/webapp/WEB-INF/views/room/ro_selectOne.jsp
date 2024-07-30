@@ -13,13 +13,13 @@
         </div>
         <table class="table table-hover">
             <tr>
-                <th scope="col">방 번호</th>
-                <th scope="col">방 이름</th>
-                <th scope="col">방 주소</th> 
-                <th scope="col">방 금액</th>    
-                <th scope="col">방 정보</th>
-                <th scope="col">최대 인원</th>
-                <th scope="col">방 사진번호</th>
+                <th>방 번호</th>
+                <th>방 이름</th>
+                <th>방 주소</th> 
+                <th>방 금액</th>    
+                <th>방 정보</th>
+                <th >최대 인원</th>
+                <th>방 사진번호</th>
             </tr>
 
             <tr>
@@ -33,8 +33,8 @@
                 
                 <td>
                     <div>
-                        <a href="ro_update?ro_num=${ro.ro_num}" class="btn btn-warning">정보수정</a><br><br>
-                        <a href="ro_delete?ro_num=${ro.ro_num}" class="btn btn-danger">삭제</a>
+                        <a href="ro_update?ro_num=${ro.ro_num}">정보수정</a><br><br>
+                        <a href="ro_delete?ro_num=${ro.ro_num}" >삭제</a>
                     </div>
                 </td>
             </tr>

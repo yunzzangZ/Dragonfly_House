@@ -8,13 +8,12 @@
     <section class="content">
         <div>
             <h2>사원 삭제</h2>
-            <form action="${pageContext.request.contextPath}/delete" method="get">
-
+            <form action="${pageContext.request.contextPath}/bu_delete" method="get">
                 <input type="hidden" id="bu_email" name="bu_email" value="<c:out value='${bu.bu_email}'/>">
-                <p>정말로 회원 <c:out value='${bu.bu_email}'/> (<c:out value='${bu.bu_email}'/>)을 삭제하시겠습니까?</p>
+                <p>정말로 회원 <c:out value='${bu.bu_email}'/>을 삭제하시겠습니까?</p>
                 <div>
-                    <input type="submit" value="삭제">
-                    <a href="${pageContext.request.contextPath}/bu_listall">취소</a>
+                    <input type="submit" value="삭제" class="btn btn-danger">
+                    <a href="${pageContext.request.contextPath}/bu_listall" >취소</a>
                 </div>
             </form>
         </div>

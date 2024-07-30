@@ -18,20 +18,20 @@ public class BusinessDAOImpl implements BusinessDAO {
     private final static String nameSpace = "com.house.dragonfly.businessMapper";
 
     @Override
-    public List<BusinessVO> listAll() {
-        return sqlSession.selectList(nameSpace + ".listAll");
+    public List<BusinessVO> bu_listAll() {
+        return sqlSession.selectList(nameSpace + ".bu_listAll");
     }
 
     @Override
-    public BusinessVO selectOne(String bu_email) {
-        return sqlSession.selectOne(nameSpace + ".selectOne", bu_email);
+    public BusinessVO bu_selectOne(String bu_email) {
+        return sqlSession.selectOne(nameSpace + ".bu_selectOne", bu_email);
     }
 
     @Override
     @Transactional
-    public boolean insert(BusinessVO bu_insert) {
+    public boolean bu_insert(BusinessVO bu_insert) {
         try {
-            sqlSession.insert(nameSpace + ".insert", bu_insert);
+            sqlSession.insert(nameSpace + ".bu_insert", bu_insert);
             return true; // 성공적으로 삽입
         } catch (Exception e) {
             // 예외 처리 (로그 기록 등)
@@ -41,9 +41,9 @@ public class BusinessDAOImpl implements BusinessDAO {
 
     @Override
     @Transactional
-    public boolean update(BusinessVO bu_update) {
+    public boolean bu_update(BusinessVO bu_update) {
         try {
-            sqlSession.update(nameSpace + ".update", bu_update);
+            sqlSession.update(nameSpace + ".bu_update", bu_update);
             return true; // 성공적으로 업데이트
         } catch (Exception e) {
             // 예외 처리 (로그 기록 등)
@@ -53,15 +53,16 @@ public class BusinessDAOImpl implements BusinessDAO {
 
     @Override
     @Transactional
-    public boolean delete(String bu_email) {
+    public boolean bu_delete(String bu_email) {
         try {
-            sqlSession.delete(nameSpace + ".delete", bu_email);
+            sqlSession.delete(nameSpace + ".bu_delete", bu_email);
             return true; // 성공적으로 삭제
         } catch (Exception e) {
             // 예외 처리 (로그 기록 등)
             return false; // 삭제 실패
         }
     }
+    //====================
 }
 
     

@@ -7,11 +7,11 @@
 <div class="content-wrapper">
     <section class="content">
         <div>
-            <h2>사원 삭제</h2>
+            <h2>예약 삭제</h2>
             <form action="${pageContext.request.contextPath}/res_delete" method="get">
 
                 <input type="hidden" id="booking_bo_num" name="booking_bo_num" value="<c:out value='${res.booking_bo_num}'/>">
-                <p>정말로 회원 <c:out value='${res.booking_bo_num}'/> (<c:out value='${res.booking_bo_num}'/>)을 삭제하시겠습니까?</p>
+                <p>정말로 예약 <c:out value='${res.booking_bo_num}'/>을 삭제하시겠습니까?</p>
                 <div>
                     <input type="submit" value="삭제">
                     <a href="${pageContext.request.contextPath}/res_listall">취소</a>
