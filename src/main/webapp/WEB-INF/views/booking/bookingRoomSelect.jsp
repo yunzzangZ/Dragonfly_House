@@ -4,12 +4,19 @@
 <%@ page session="true"%>
 <%@ include file="../include/header.jsp" %>
 <script>
+function bookingInsert() {
+	
+	if (confirm('예약하시겠습니까?')) {
+		var form = document.getElementById("bookingInsertForm");
+		form.submit();
+		alert("예약창으로 이동");
+	}
+		
+}//end checkUpdate
+
 
 
 </script>
-
-
-
 <div class="content-wrapper">
 
     <section class="content">
@@ -38,7 +45,11 @@
                 
                 <td>
                     <div>
-                        <a href="bookingInsert?ro_num=${ro.ro_num}">예약하기</a>
+                    
+                    <form action="bookingInsert" method = "get" name = "bookingInsertForm" id = "bookingInsertForm">
+                    <input type = "hidden" name = "ro_num" id = "ro_num" value = "${ro.ro_num}">
+                    <button type = "button" onclick="bookingInsert();">예약하기</button>
+                    </form>
                     </div>
                 </td>
             </tr>

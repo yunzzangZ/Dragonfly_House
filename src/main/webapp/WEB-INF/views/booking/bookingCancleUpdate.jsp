@@ -9,7 +9,7 @@
 			<div class="mypage-content">
 				<div>
 					<h3>${bo.bo_num } 예약취소</h3>
-					<form action="caInsert" method="post">
+					<form action="bocaUpdate" method="post">
 						<div class="mypage-form-one">
 							<p>취소할 예약번호</p>
 							<input type = "text" name = "bo_num" value="${bo.bo_num }">

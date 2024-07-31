@@ -33,7 +33,7 @@
 		<div class="room-list">
 			<ul class="row">
 				<li class="col-lg-4">
-					<a href="#">
+					<a href="${contextPath}/bookingRoomSelect?ro_num=101">
 						<div class="room-list-img">
 							<img alt="숙소이미지" src="${contextPath}/resources/images/room.jpg">
 						</div>

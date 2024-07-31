@@ -32,29 +32,26 @@
 		bo_status like '예약취소%';
 	</select>
 
-	<!-- 예약추가 + 결제추가 -->
+	<!-- 예약추가 -->
 	<insert id="bookingInsert"
 		parameterType="com.house.dragonfly.domain.BOOKING">
 		insert into booking (bo_checkin, bo_checkout, bo_status,
 		bo_paymethod, bo_price, member_email, room_ro_num)
-		values (#{bo_checkin}, #{bo_checkout}, '예약전', #{bo_paymethod}, #{bo_price},
-		#{email}, #{room_ro_num});
-
-		insert into payment (booking_bo_num, pay_method, pay_amount, pay_status)
-		values (#{bo_num}, #{bo_paymethod}, #{bo_price}, '결제전');
+		values
+		(#{bo_checkin}, #{bo_checkout}, '예약전', #{bo_paymethod}, #{bo_price},
+		#{member_email}, #{room_ro_num});
 	</insert>
 
-	<!-- 예약을 하면 바로 결제pay_id생성 -->
-	<!-- 
-	<insert id="payInsert"
-		parameterType="com.house.dragonfly.domain.BOOKING">
-		insert into payment
-		(`booking_bo_num`, `pay_method`,
-		`pay_amount`, `pay_status`) values
-		(#{bo_num}, #{bo_paymethod},
-		#{bo_price}, '결제전');
-	</insert>
-	-->
+	<!-- 결제하면 바로바뀌도록 -->
+	<update id="bookingpayUpdate"
+		parameterType="com.house.dragonfly.domain.PAYMENT">
+		update booking set
+		bo_status='예약확인요청',
+		bo_paymethod =
+		#{pay_method}
+		where
+		bo_num =#{booking_bo_num};
+	</update>
 
 	<!-- 예약 취소요청 & 결제내역 결제환불요청으로 변경 -->
 	<update id="bookingCancleUpdate" parameterType="int">

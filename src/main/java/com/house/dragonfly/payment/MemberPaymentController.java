@@ -6,15 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.house.dragonfly.admin.pay.PayService;
 import com.house.dragonfly.booking.bookingService;
 import com.house.dragonfly.card.CardService;
 import com.house.dragonfly.domain.BOOKING;
 import com.house.dragonfly.domain.CARD;
 import com.house.dragonfly.domain.PAYMENT;
-
 
 @Controller
 public class MemberPaymentController {
@@ -24,18 +23,7 @@ public class MemberPaymentController {
 	private bookingService bookingservice;
 	@Autowired
 	private CardService cardservice;
-	@Autowired
-	private PayService adminpayservice;
-	
-//	payAll 전체보기_임시
-	@GetMapping(value = "payAll")
-	public String payAll() {
-		List<PAYMENT> paylist = adminpayservice.payList();
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("paylist", paylist);
-		return "payment/payAll";
-	}//end
-	
+
 //	payScrean(결제하기) 이동 및 예약정보 가져오기
 	@GetMapping(value = "payment/payScreen")
 	public ModelAndView payScreen(int booking_bo_num) {
@@ -48,38 +36,39 @@ public class MemberPaymentController {
 		mav.setViewName("payment/payScreen");
 		return mav;
 	}// end
-	
+
+//	결제하기_post
 	@PostMapping(value = "payment/payInsert")
 	public String payInsert(PAYMENT pay) {
-		System.out.println("payInsert이동");
-		System.out.println("방법 : "+pay.getPay_method());
+		if (pay.getCard_card_number() != null && pay.getCard_card_number().isNaN()) {
+	        pay.setCard_card_number(null);
+	    }
 		mempayservice.payInsert(pay);
-		return "redirect:/bookingListDetails?bo_num="+pay.getBooking_bo_num();
-	}//end
-	
-//	payDetails_bo_num 이동
-	@GetMapping(value = "payment/payDetails_bo_num")
-	public ModelAndView payDetails_bo_num(int booking_bo_num) {
-		PAYMENT pay = new PAYMENT();
+		bookingservice.bookingpayUpdate(pay);
+		return "redirect:/index";
+	}// end
+
+	@GetMapping(value = "payment/payDetails")
+	public ModelAndView payDetails(@RequestParam(required = false) Integer booking_bo_num,
+			@RequestParam(required = false) Integer pay_id) {
+		System.out.println("결제 상세 페이지 이동");
+
+		PAYMENT pay = null;
 		ModelAndView mav = new ModelAndView();
-		pay = mempayservice.payDetails_bo_num(booking_bo_num);
+
+		if (booking_bo_num != null) {
+			// 예약번호로 결제 상세 정보 가져오기
+			pay = mempayservice.payDetails_bo_num(booking_bo_num);
+		} else if (pay_id != null) {
+			// 결제 ID로 결제 상세 정보 가져오기
+			pay = mempayservice.payDetails_pay_id(pay_id);
+		} 
 		mav.addObject("pay", pay);
-		mav.setViewName("payment/payDetails_bo_num");
+		mav.setViewName("payment/payDetails");
 		return mav;
-	}//end
-	
-//	payDetails_pay_id 이동
-	@GetMapping(value = "payment/payDetails_pay_id")
-	public ModelAndView payDetails_pay_id(int pay_id) {
-		PAYMENT pay = new PAYMENT();
-		ModelAndView mav = new ModelAndView();
-		pay = mempayservice.payDetails_pay_id(pay_id);
-		mav.addObject("pay", pay);
-		mav.setViewName("payment/payDetails_pay_id");
-		return mav;
-	}//end
-	
-//	payScreenUpdate 이동 및 상세보기 & 카드, 현금
+	}
+
+//	payScreenUpdate 이동_결제내역 수정
 	@GetMapping(value = "payment/payScreenUpdate")
 	public ModelAndView payScreenUpdate(int pay_id) {
 		System.out.println("payScreenUpdate 이동");
@@ -93,15 +82,14 @@ public class MemberPaymentController {
 //	payUpdate_post
 	@PostMapping(value = "payment/payUpdate")
 	public String payUpdate(PAYMENT pay) {
-		System.out.println("카드, 현금 수정");
 		if (pay.getPay_method().equals("신용카드")) {
 			mempayservice.payUpdateCard(pay);
-			return "redirect:/payment/payDetails_pay_id?pay_id="+pay.getPay_id();
+			return "redirect:/payment/payDetails?pay_id=" + pay.getPay_id();
 		} else if (pay.getPay_method().equals("계좌이체")) {
 			mempayservice.payUpdateCash(pay);
-			return "redirect:/payment/payDetails_pay_id?pay_id="+pay.getPay_id();
+			return "redirect:/payment/payDetails?pay_id=" + pay.getPay_id();
 		}
-		return "redirect:/payment/payDetails_pay_id?pay_id="+pay.getPay_id();
+		return "redirect:/payment/payDetails?pay_id=" + pay.getPay_id();
 	}// end
 
 }// end

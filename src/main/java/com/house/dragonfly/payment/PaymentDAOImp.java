@@ -23,12 +23,11 @@ public class PaymentDAOImp implements PaymentDAO{
 	public PAYMENT payDetails_pay_id(int pay_id) {
 		return sqlSession.selectOne(nameSpace+".payDetails_pay_id", pay_id);
 	}
-
+	
 	@Override
 	public void payInsert(PAYMENT pay) {
 		sqlSession.selectOne(nameSpace+".payInsert", pay);
 	}
-	
 	
 	@Override
 	public void payUpdateCard(PAYMENT pay) {
@@ -39,6 +38,7 @@ public class PaymentDAOImp implements PaymentDAO{
 	public void payUpdateCash(PAYMENT pay) {
 		sqlSession.selectOne(nameSpace+".payUpdateCash",pay);
 	}
+
 
 
 

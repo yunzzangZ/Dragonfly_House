@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -54,33 +55,22 @@ public class bookingController {
 		mav.setViewName("booking/bookingCancleSelect");
 		return mav;
 	}// end
-
-//	예약할 방 리스트이동
-	@GetMapping(value = "bookingRoomAll")
-	public String bookingRoomAll() {
-		List<RoomVO> roomlist = roomservice.ro_listAll();
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("roomlist", roomlist);
-		return "booking/bookingRoomAll";
-	}//end
 	
 //	예약할 방으로 이동
 	@GetMapping(value = "bookingRoomSelect")
-	public String bookingRoomSelect(int ro_num) {
-		System.out.println("예약룸으로 이동");
-		RoomVO ro = roomservice.ro_selectOne(ro_num);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("ro", ro);
-		return "booking/bookingRoomSelect";
-	}// end
+	public String bookingRoomSelect(int ro_num, Model model) {
+	    System.out.println("예약룸으로 이동");
+	    RoomVO ro = roomservice.ro_selectOne(ro_num);
+	    model.addAttribute("ro", ro); // Model에 데이터 추가
+	    return "booking/bookingRoomSelect"; // 뷰 이름 반환
+	}
 
 //	예약추가 이동
 	@GetMapping(value = "bookingInsert")
-	public String bookingInsert(int ro_num) {
+	public String bookingInsert(int ro_num, Model model) {
 		System.out.println("예약추가 폼이동");
 		RoomVO ro = roomservice.ro_selectOne(ro_num);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("ro", ro);
+		model.addAttribute("ro", ro);
 		return "booking/bookingInsert";
 	}// end
 
@@ -89,7 +79,7 @@ public class bookingController {
 	public String bookingInsert(BOOKING bo) {
 		System.out.println("예약추가");
 		bookingservice.bookingInsert(bo);
-		return "redirect:/bookingListDetails?bo_num=" + bo.getBo_num();
+		return "redirect:/bookingListSelect?email="+bo.getMember_email();
 	}// end
 	
 //	예약취소요청 이동_get
