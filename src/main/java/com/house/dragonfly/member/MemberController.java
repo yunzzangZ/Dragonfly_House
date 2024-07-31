@@ -11,18 +11,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.house.dragonfly.card.CardService;
+import com.house.dragonfly.domain.CARD;
 import com.house.dragonfly.domain.MEMBER;
 
 @Controller
 public class MemberController {
 	@Autowired
-	private MemberService service;
-	
+	private MemberService memberservice;
+	@Autowired
+	private CardService cardservice;
+
 //	임시 myInfoAll이동 및 정보 list가져오기
 	@GetMapping(value = "member/myInfoAll")
 	public ModelAndView myInfoAll() {
 		System.out.println("회원정보 전체 출력");
-		List<MEMBER> memberlist = service.myInfoAll();
+		List<MEMBER> memberlist = memberservice.myInfoAll();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("memberlist", memberlist);
 		mav.setViewName("member/myInfoAll");
@@ -40,12 +44,14 @@ public class MemberController {
 	@GetMapping(value = "member/myInfo")
 	public ModelAndView myInfo(String email) {
 		System.out.println(email + "의 정보 출력");
-		MEMBER mem = service.myInfo(email);
 		ModelAndView mav = new ModelAndView();
+		MEMBER mem = memberservice.myInfo(email);
 		mav.addObject("mem", mem);
+		List<CARD> cardlist = cardservice.cardSelect(email);
+		mav.addObject("cardlist", cardlist);
 		mav.setViewName("member/myInfo");
 		return mav;
-	}// end
+	}
 
 //	myInfoUpdate이동
 	@GetMapping(value = "member/myInfoUpdate")
@@ -55,15 +61,14 @@ public class MemberController {
 		mav.setViewName("member/myInfoUpdate");
 		return mav;
 	}// end
-	
+
 //	Update_회원수정
 	@RequestMapping(value = "member/InfoUpdate", method = RequestMethod.POST)
 	public String InfoUpdate(MEMBER mem) {
 		System.out.println("회원 수정");
-		service.myInfoUpdate(mem);
-		return "redirect:/member/myInfo?email="+mem.getEmail();
-	}//end
-	
+		memberservice.myInfoUpdate(mem);
+		return "redirect:/member/myInfo?email=" + mem.getEmail();
+	}// end
 
 //	updatePw이동
 	@GetMapping(value = "member/updatePw")
@@ -87,10 +92,10 @@ public class MemberController {
 	@RequestMapping(value = "member/UpPw", method = RequestMethod.POST)
 	public String updatePw(MEMBER mem) {
 		System.out.println("비번변경");
-		service.updatePw(mem);
-		return "redirect:/member/myInfo?email="+mem.getEmail();
-	}//end
-	
+		memberservice.updatePw(mem);
+		return "redirect:/member/myInfo?email=" + mem.getEmail();
+	}// end
+
 //	memberDelete이동
 	@GetMapping(value = "member/memberDelete")
 	public ModelAndView memberDelete(String email) {
@@ -114,7 +119,7 @@ public class MemberController {
 	@GetMapping(value = "member/memberDeleteDone")
 	public String memberDeleteDone(String email, HttpSession session) {
 		System.out.println("삭제완료");
-		service.memberDelete(email);
+		memberservice.memberDelete(email);
 		session.invalidate();
 		return "member/memberDeleteDone";
 	}// end

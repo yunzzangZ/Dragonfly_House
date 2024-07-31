@@ -23,25 +23,10 @@ public class PaymentDAOImp implements PaymentDAO{
 	public PAYMENT payDetails_pay_id(int pay_id) {
 		return sqlSession.selectOne(nameSpace+".payDetails_pay_id", pay_id);
 	}
-	
-	@Override
-	public void payInsertUpdate(PAYMENT pay) {
-		sqlSession.selectOne(nameSpace+".payInsertUpdate", pay);
-	}
-	
-//	@Override
-//	public void payInsertCard(PAYMENT pay) {
-//		sqlSession.selectOne(nameSpace+".payInsertCard", pay);
-//	}
-//
-//	@Override
-//	public void payInsertCash(PAYMENT pay) {
-//		sqlSession.selectOne(nameSpace+".payInsertCash", pay);
-//	}
 
 	@Override
-	public void payInsertDone(PAYMENT pay) {
-		sqlSession.selectOne(nameSpace+".payInsertDone", pay);
+	public void payInsert(PAYMENT pay) {
+		sqlSession.selectOne(nameSpace+".payInsert", pay);
 	}
 	
 	

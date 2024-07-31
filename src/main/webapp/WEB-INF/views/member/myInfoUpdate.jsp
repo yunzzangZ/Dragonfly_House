@@ -17,7 +17,7 @@
 
 	function checkName(nameInput) {
 		var nameValue = nameInput.value;
-		let names = nameValue.replace(/[^ㄱ-힣a-zA-Z0-9]/gi, "");
+		let names = nameValue.replace(/[^가-힣A-Za-z]/g, "");
 		nameInput.value = names;
 	}//end checkName
 

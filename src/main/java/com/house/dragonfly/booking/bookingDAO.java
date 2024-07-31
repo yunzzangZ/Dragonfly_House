@@ -18,14 +18,13 @@ public interface bookingDAO {
 //	예약 취소만보기_회원별
 	public List<BOOKING> bookingCancleSelect(String email);
 	
-//	예약취소요청
-	public void bookingCancleUpdate(int bo_num);
-	
 //	예약 추가
 	public void bookingInsert(BOOKING bo);
 	
 //	예약추가 후 바로 결제화면 추가
-	public void payInsert(BOOKING bo);
+//	public void payInsert(BOOKING bo);
 	
+//	예약취소요청
+	public void bookingCancleUpdate(int bo_num);
 	
 }//end

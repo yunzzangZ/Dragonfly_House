@@ -44,9 +44,9 @@ public class bookingServiceImp implements bookingService {
 		bodao.bookingInsert(bo);
 	}
 
-	@Override
-	public void payInsert(BOOKING bo) {
-		bodao.payInsert(bo);		
-	}
+//	@Override
+//	public void payInsert(BOOKING bo) {
+//		bodao.payInsert(bo);		
+//	}
 
 }//end

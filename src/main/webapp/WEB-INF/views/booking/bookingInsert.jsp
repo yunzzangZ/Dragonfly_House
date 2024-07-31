@@ -3,7 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
 	<%@include file="../include/header.jsp"%>
+<script>
 
+
+
+
+</script>
 	<div class="content-wrapper">
 
 		<section class="content">
@@ -37,8 +42,8 @@
 						<td><input type = "number" value = "${ro.ro_price }" name = "bo_price" readonly></td>
 					</tr>
 					<tr>
-						<td><input type="submit" value = "예약하기"></td>
-						<td><input type = "button" value = "뒤로가기" onclick="ro_selectOne?ro_num=${ro.ro_num}"></td>
+						<td><button type="button">예약하기</button></td>
+						<td><input type = "button" value = "뒤로가기" onclick="bookingRoom?ro_num=${ro.ro_num}"></td>
 					</tr>
 				</table>
 			</form>

@@ -49,17 +49,20 @@
 
 				<div class="mypage-booking">
 					<form action="payment/payScreen" method="get">
-						<c:if test="${(bo.bo_status eq '결제전' or bo.bo_status eq '예약전')}">
-							<input type="hidden" name="bo_num" value="${bo.bo_num}">
+						<c:if test="${bo.bo_status eq '예약전'}">
+							<input type="hidden" name="booking_bo_num" value="${bo.bo_num}">
 							<input type="submit" value="결제하기">
+							<a href="bookingCancleUpdate?bo_num=${bo.bo_num}">예약취소하기</a>
+						</c:if>
+						<c:if test="${bo.bo_status eq '예약확인요청'}">
 							<a href="bookingCancleUpdate?bo_num=${bo.bo_num}">예약취소하기</a>
 						</c:if>
 					</form>
 					<form action="payment/payDetails" method="get">
 						<c:if
-							test="${(bo.bo_status eq '결제확인요청' or bo.bo_status eq '예약완료' or bo.bo_status eq '예약취소')}">
+							test="${(bo.bo_status eq '예약완료' or bo.bo_status eq '예약확인요청' or bo.bo_status eq '예약취소완료' or bo.bo_status eq '예약취소요청')}">
 							<input type="hidden" name="booking_bo_num" value="${bo.bo_num}">
-							<input type = "hidden" name = "pay_id" value ="0">
+							<input type="hidden" name="pay_id" value="0">
 							<input type="submit" value="결제내역확인">
 						</c:if>
 					</form>

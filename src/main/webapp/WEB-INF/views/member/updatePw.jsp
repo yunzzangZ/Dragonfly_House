@@ -6,64 +6,53 @@
 	function checkPw() {
 		var bepassword = $("#bepassword").val();
 		var check_bepassword = $("#check_bepassword").val();
-		var password = $("#password").val();
-		var check_password = $("#check_password").val();
 
 		if (bepassword != check_bepassword) {
 			alert("현재비밀번호와 일치하지 않습니다.");
-			window.history.back;
+			window.history.back();
 			$("#check_bepassword").focus();
 			return;
-		}//end if
-		var regPw = /^(?=.*?[a-zA-Z])(?=.*?[0-9]).{8,}$/; // 비밀번호 유효성 검사식
-		if (!regPw.test(password)) {
-			alert("8이상 영대소문자, 숫자만 사용가능합니다.");
-			window.history.back;
-			$("#password").focus();
-			return;
-		}//end if
-
-		if (password != check_password) {
-			alert("변경할 비밀번호와 일치하지 않습니다.");
-			window.history.back;
-			return;
-		}//end if
+		}
 
 		if (!confirm('비밀번호 변경하시겠습니까?')) {
-			window.history.back;
 			alert("변경취소");
-			location.href = "myInfo?email=${email.email}"
+			location.href = "myInfo?email=${email.email}";
 		} else {
 			var form = document.getElementById("updatePw");
 			form.submit();
 			alert("변경성공");
 		}
+	}
 
-	}//end checkPw
+	function checkPassword(input) {
+		var inputValue = input.value;
+		// 숫자와 대소문자만 남기기
+		input.value = inputValue.replace(/[^0-9a-zA-Z]/g, "");
+	}
 </script>
-<%@include file="../include/header.jsp"%>
+
 <div class="container mypage-container">
 	<div>
 		<%@include file="../include/nav.jsp"%>
 		<div class="mypage-content">
 			<div>
-				<h3>${mem.name }님의비밀번호 변경</h3>
+				<h3>${mem.name }님의 비밀번호 변경</h3>
 				<form action="UpPw" method="post" id="updatePw" name="updatePw">
 					<div class="hidden">
-						<input type="hidden" name="email" value="${mem.email}"> <input
-							type="text" id="bepassword" value="${mem.password}" />
+						<input type="hidden" name="email" value="${mem.email}"> 
+						<input type="text" id="bepassword" value="${mem.password}" />
 					</div>
 					<div>
 						<p>현재 비밀번호</p>
-						<input type="text" id="check_bepassword" name="check_bepassword">
+						<input type="text" id="check_bepassword" name="check_bepassword" oninput="checkPassword(this);">
 					</div>
 					<div>
 						<p>변경 비밀번호</p>
-						<input type="text" id="password" name="password">
+						<input type="text" id="password" name="password" oninput="checkPassword(this);">
 					</div>
 					<div>
 						<p>변경 비밀번호 확인</p>
-						<input type="text" id="check_password" name="check_password">
+						<input type="text" id="check_password" name="check_password" oninput="checkPassword(this);">
 					</div>
 					<div class="mypage-btn">
 						<button type="button" onclick="checkPw();">비밀번호 변경</button>
