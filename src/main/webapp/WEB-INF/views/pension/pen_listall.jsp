@@ -21,8 +21,8 @@
 			</tr>
 			<c:forEach var="pen" items="${list}">
 				<tr>
-					<td><a href="${contextPath}/pen_selectOne?pen_name=${pen.pen_name}">${pen.pen_name}</a></td>
-					<td>${pen.pen_addr}</td>
+					<td>${pen.pen_name}</td>
+					<td><a href="pen_selectOne?pen_addr=${pen.pen_addr}">${pen.pen_addr}</a></td>
 					<td>${pen.pen_tel}</td>
 					<td>${pen.pen_description}</td>
 				</tr>

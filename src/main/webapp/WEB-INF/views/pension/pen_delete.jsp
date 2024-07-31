@@ -14,9 +14,9 @@
 		</div>
 
 		<form action="${contextPath}/pen_delete" method="get">
-			<input type="hidden" name="pen_name" value="${pen.pen_name}"> <!-- 삭제할 펜션 ID를 숨겨서 전송 -->
+			<input type="hidden" name="pen_name" value="${pen.pen_name}">
 			<p>정말로 이 펜션을 삭제하시겠습니까?</p>
-			<p>펜션 이름: ${pen.pen_name}</p> <!-- 삭제할 펜션 이름 확인 -->
+			<p>펜션 이름: ${pen.pen_name}</p> 
 			<input type="submit" value="삭제하기">
 		</form>
 

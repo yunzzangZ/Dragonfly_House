@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
 
     <!-- 방 추가 -->
-    <insert id="ro_insert">  
+    <insert id="ro_insert" parameterType="com.house.dragonfly.domain.RoomVO">  
         insert into room
             (ro_num, ro_name, pension_pen_addr, ro_price, ro_info, ro_max_person, business_bu_email, picture_pic_num)
         values 
@@ -23,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </insert>
 
     <!-- 방 정보 수정 -->
-    <update id="ro_update">
+    <update id="ro_update" parameterType="com.house.dragonfly.domain.RoomVO">
         update room set 
             ro_name = #{ro_name}, 
             pension_pen_addr = #{pension_pen_addr},
@@ -36,7 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </update>
 
     <!-- 방 삭제 -->
-    <delete id="ro_delete">
+    <delete id="ro_delete" parameterType="int">
         delete from room where ro_num = #{ro_num}
     </delete>
 

@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
- <!DOCTYPE mapper
- PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.house.dragonfly.businessMapper">
 
-	<!-- 전체 사업자 가입자 조회 -->
-	<select id="bu_listAll" resultType="com.house.dragonfly.domain.BusinessVO">
-		select * from business
-	</select>
+    <!-- 전체 사업자 가입자 조회 -->
+    <select id="bu_listAll" resultType="com.house.dragonfly.domain.BusinessVO">
+        select * from business
+    </select>
 
-	  <!-- 이메일로 조회 -->
-   <select id="bu_selectOne" resultType="com.house.dragonfly.domain.BusinessVO">
-      select * from business
-       where bu_email = #{bu_email}
-   </select>
+    <!-- 이메일로 조회 -->
+    <select id="bu_selectOne" resultType="com.house.dragonfly.domain.BusinessVO">
+        select * from business
+        where bu_email = #{bu_email}
+    </select>
 
-   <!-- 회원추가 -->
-   <insert id="bu_insert">
-	    insert into business 
-	    	(bu_email, bu_password, bu_tel, bu_name, bu_code, bu_approval, bu_account_num)
+    <!-- 회원 추가 -->
+    <insert id="bu_insert" parameterType="com.house.dragonfly.domain.BusinessVO">
+        insert into business 
+        (bu_email, bu_password, bu_tel, bu_name, bu_code, bu_approval, bu_account_num)
         values 
-        	(#{bu_email}, #{bu_password}, #{bu_tel}, #{bu_name}, #{bu_code}, "승인요청", #{bu_account_num})
-	</insert>
-	
-	<!-- 정보수정 -->
-	<update id="bu_update">
-	    update business set
-		    bu_password=#{bu_password}, 
-		    bu_tel=#{bu_tel}, 
-		    bu_name=#{bu_name}, 
-		    bu_code=#{bu_code}, 
-		    bu_approval=#{bu_approval}, 
-		    bu_account_num=#{bu_account_num}
-	    where bu_email=#{bu_email}
-	</update>
-		
-	<!-- 회원탈퇴 -->
-	<delete id="bu_delete">
-		delete from business where bu_email = #{bu_email}
-	</delete>
+        (#{bu_email}, #{bu_password}, #{bu_tel}, #{bu_name}, #{bu_code}, '승인요청', #{bu_account_num})
+    </insert>
+
+    <!-- 정보 수정 -->
+    <update id="bu_update" parameterType="com.house.dragonfly.domain.BusinessVO">
+        update business set
+            bu_password = #{bu_password}, 
+            bu_tel = #{bu_tel}, 
+            bu_name = #{bu_name}, 
+            bu_code = #{bu_code}, 
+            bu_approval = #{bu_approval}, 
+            bu_account_num = #{bu_account_num}
+        where bu_email = #{bu_email}
+    </update>
+
+    <!-- 회원 탈퇴 -->
+    <delete id="bu_delete" parameterType="string">
+        delete from business where bu_email = #{bu_email}
+    </delete>
 
 </mapper>

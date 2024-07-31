@@ -15,16 +15,18 @@
 		<table class="table table-hover">
 			<tr>
 				<th>방 번호</th>
-				<th>시설 번호</th>
+				<th>방 시설 이름</th>
+				<th>설명</th>
 			</tr>
 			<c:forEach var="rofac" items="${list}">
 				<tr>
-					<td><a href="ro_selectOne?ro_num=${rofac.room_ro_num}"> ${rofac.room_ro_num}</a></td>
-					<td>${rofac.facility_fac_id}</td>
+					<td><a href="rofac_selectOne?room_ro_num=${rofac.room_ro_num}">${rofac.room_ro_num}</a></td>
+					<td>${rofac.rofac_name}</td> 
+					<td>${rofac.rofac_description}</td> 
 				</tr>
 			</c:forEach>
 			<tr>
-				<td colspan="3">
+				<td colspan="3"> 
 					<div><a href="rofac_insert">시설 추가</a></div> 
 				</td>
 			</tr>
