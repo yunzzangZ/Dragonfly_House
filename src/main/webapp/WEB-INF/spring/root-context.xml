@@ -46,4 +46,22 @@
 		<property name="basePackage"
 			value="com.house.dragonfly.admin.register" />
 	</bean>
+
+<!-- JavaMailSender 설정 -->
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.naver.com" />
+		<property name="port" value="587" />
+		<property name="username" value="parkwasabi@naver.com" />
+		<property name="password" value="97RF5RFG48FL" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.ssl.trust">smtp.naver.com</prop>
+				<prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+			</props>
+		</property>
+	</bean>
+
 </beans>
