@@ -7,11 +7,11 @@ public class SENDING {
 	private int mail_txt_code;
 	private String email;
 	private Date send_date;
-	private int send_status;
+	private String send_status;
 	
 	public SENDING() {}
 
-	public SENDING(int mail_txt_code, String email, Date send_date, int send_status) {
+	public SENDING(int mail_txt_code, String email, Date send_date, String send_status) {
 		this.mail_txt_code = mail_txt_code;
 		this.email = email;
 		this.send_date = send_date;
@@ -42,11 +42,11 @@ public class SENDING {
 		this.send_date = send_date;
 	}
 
-	public int getSend_status() {
+	public String getSend_status() {
 		return send_status;
 	}
 
-	public void setSend_status(int send_status) {
+	public void setSend_status(String send_status) {
 		this.send_status = send_status;
 	}
 

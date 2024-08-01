@@ -8,7 +8,10 @@
 			<%@include file="../include/nav.jsp"%>
 			<div class="mypage-content">
 				<div>
-					<h3>삭제완료</h3>			
+					<h3>문의 사항 삭제완료</h3>			
+				</div>
+				<div class="mypage-btn">
+				<a href="mycsSelect?email=${email.email }">문의사항으로 돌아가기</a>
 				</div>
 			</div>
 		</div>

@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.house.dragonfly.domain.BOOKING;
+import com.house.dragonfly.domain.PAYMENT;
 
 @Repository
 public class bookingDAOImp implements bookingDAO {
@@ -17,10 +18,6 @@ public class bookingDAOImp implements bookingDAO {
 	
 	private final static String nameSpace = "com.house.dragonfly.BookinglistMapper";
 	
-	@Override
-	public List<BOOKING> bookingListAll() {
-		return SqlSession.selectList(nameSpace+".bookingListAll");
-	}
 
 	@Override
 	public List<BOOKING> bookingListSelect(String email) {
@@ -48,8 +45,8 @@ public class bookingDAOImp implements bookingDAO {
 	}
 
 	@Override
-	public void payInsert(BOOKING bo) {
-		SqlSession.selectOne(nameSpace+".payInsert", bo);
+	public void bookingpayUpdate(PAYMENT pay) {
+		SqlSession.selectOne(nameSpace+".bookingpayUpdate", pay);
 	}
 
 }//end

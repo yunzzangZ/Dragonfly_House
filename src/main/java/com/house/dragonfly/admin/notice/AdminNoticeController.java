@@ -81,7 +81,7 @@ public class AdminNoticeController {
     
     @GetMapping("/admin/notice/index")
     public String noticeIndex() {
-        return "redirect:/admin/index";
+        return "redirect:/index";
     }
 
 }

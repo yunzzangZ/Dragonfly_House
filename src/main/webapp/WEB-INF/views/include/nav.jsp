@@ -23,7 +23,7 @@
 			<a href="${contextPath}/bookingListSelect?email=${email.email}">예약내역</a>
 		</dd>
 		<dd>
-			<a href="${contextPath}/booking/bookingCancleSelect?email=${email.email}">취소내역</a>
+			<a href="${contextPath}/bookingCancleSelect?email=${email.email}">취소내역</a>
 		</dd>
 	</dl>		
 	<dl>		
@@ -32,7 +32,7 @@
 			<a href="${contextPath}/cs/mycsSelect?email=${email.email}">1:1문의내역</a>
 		</dd>
 		<dd>
-			<a href="${contextPath}/cs/mycsSelect?email=${email.email}">1:1문의작성</a>
+			<a href="${contextPath}/cs/mycsInsert?email=${email.email}">1:1문의작성</a>
 		</dd>		
 	</dl>
 </nav>

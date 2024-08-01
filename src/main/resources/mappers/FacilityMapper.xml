@@ -11,12 +11,12 @@
 
     <!-- 단일 시설물 조회 -->
     <select id="fac_selectOne" parameterType="int" resultType="com.house.dragonfly.domain.FacilityVO">
-        select * from facility 
-        where fac_id = #{fac_id}
+       select * from  facility 
+       where fac_id = #{fac_id}
     </select>
 
     <!-- 시설 추가 -->
-    <insert id="fac_insert" parameterType="com.house.dragonfly.domain.FacilityVO">  
+    <insert id="fac_insert" >  
         insert into facility 
             (fac_id, fac_name, fac_description, pension_pen_addr)
         values 
@@ -24,7 +24,7 @@
     </insert>
 
     <!-- 시설 정보 수정 -->
-    <update id="fac_update" parameterType="com.house.dragonfly.domain.FacilityVO">
+    <update id="fac_update" >
         update facility set
             fac_name = #{fac_name}, 
             fac_description = #{fac_description}, 
@@ -33,7 +33,7 @@
     </update>
 
     <!-- 시설 삭제 -->
-    <delete id="fac_delete" parameterType="int">
+    <delete id="fac_delete" >
         delete from facility where fac_id = #{fac_id}
     </delete>
 
