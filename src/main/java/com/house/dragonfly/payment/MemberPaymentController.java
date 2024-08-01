@@ -1,5 +1,6 @@
 package com.house.dragonfly.payment;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +41,6 @@ public class MemberPaymentController {
 //	결제하기_post
 	@PostMapping(value = "payment/payInsert")
 	public String payInsert(PAYMENT pay) {
-		if (pay.getCard_card_number() != null && pay.getCard_card_number().isNaN()) {
-	        pay.setCard_card_number(null);
-	    }
 		mempayservice.payInsert(pay);
 		bookingservice.bookingpayUpdate(pay);
 		return "redirect:/index";
@@ -75,6 +73,9 @@ public class MemberPaymentController {
 		PAYMENT pay = mempayservice.payDetails_pay_id(pay_id);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pay", pay);
+		BOOKING bo = bookingservice.bookingListDetails(pay.getBooking_bo_num());
+		List<CARD> cardlist = cardservice.cardSelect(bo.getMember_email());
+		mav.addObject("cardlist", cardlist);
 		mav.setViewName("payment/payScreenUpdate");
 		return mav;
 	}// end
@@ -83,6 +84,9 @@ public class MemberPaymentController {
 	@PostMapping(value = "payment/payUpdate")
 	public String payUpdate(PAYMENT pay) {
 		if (pay.getPay_method().equals("신용카드")) {
+			// 카드 번호를 BigDecimal로 변환
+	        BigDecimal cardNumber = new BigDecimal(pay.getCard_card_number());
+	        pay.setCard_card_number(cardNumber.toPlainString());// 필요한 경우 문자열로 변환하여 저장
 			mempayservice.payUpdateCard(pay);
 			return "redirect:/payment/payDetails?pay_id=" + pay.getPay_id();
 		} else if (pay.getPay_method().equals("계좌이체")) {
