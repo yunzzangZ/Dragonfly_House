@@ -1,13 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="true" %>
-<%@ include file="../include/header.jsp" %>
-
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <section class="content">
-        <div>
-            <h2>방 삭제</h2>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="true"%>
+<%@include file="../../include/businessHeader.jsp" %>
+   <div>
+        <h2>방 삭제</h2> 
             <form action="${pageContext.request.contextPath}ro_delete" method="get">
 
                 <input type="hidden" id="ro_num" name="ro_num" value="<c:out value='${ro.ro_num}'/>">
@@ -18,7 +15,5 @@
                 </div>
             </form>
         </div>
-    </section>
-</div>
-
-<%@ include file="../include/footer.jsp" %>
+	</div>
+<%@include file="../../include/adminFooter.jsp" %>

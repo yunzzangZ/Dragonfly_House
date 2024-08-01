@@ -5,41 +5,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.house.dragonfly.rofacMapper">
 
 	<!-- 전체 방 시설 조회 -->
-	<select id="rofac_listAll"
-		resultType="com.house.dragonfly.domain.RoomFacilityVO">
+	<select id="rofac_listAll" resultType="com.house.dragonfly.domain.RoomFacilityVO">
 		select room_ro_num, rofac_name, rofac_description from room_facility
 	</select>
 
 	<!-- 시설 코드로 조회 -->
-	<select id="rofac_selectOne"
-		resultType="com.house.dragonfly.domain.RoomFacilityVO">
-		select 
-			room_ro_num, rofac_name, rofac_description from room_facility
+	<select id="rofac_selectOne" resultType="com.house.dragonfly.domain.RoomFacilityVO">
+		select room_ro_num, rofac_name, rofac_description from room_facility
 		where room_ro_num = #{room_ro_num}
 	</select>
 
 	<!-- 방 시설 추가 -->
-	<insert id="rofac_insert"
-		parameterType="com.house.dragonfly.domain.RoomFacilityVO">
-		insert into room_facility
-			(room_ro_num, rofac_name, rofac_description)
-		values
-			(#{room_ro_num}, #{rofac_name}, #{rofac_description})
+	<insert id="rofac_insert" parameterType="com.house.dragonfly.domain.RoomFacilityVO">
+		insert into room_facility (room_ro_num, rofac_name, rofac_description)
+		values (#{room_ro_num}, #{rofac_name}, #{rofac_description})
 	</insert>
 
 	<!-- 방 시설 수정 -->
-	<update id="rofac_update"
-		parameterType="com.house.dragonfly.domain.RoomFacilityVO">
-		update room_facility set
-			 rofac_name = #{rofac_name},
-			rofac_description = #{rofac_description}
+	<update id="rofac_update" parameterType="com.house.dragonfly.domain.RoomFacilityVO">
+		update room_facility set rofac_name = #{rofac_name}, rofac_description = #{rofac_description}
 		where room_ro_num = #{room_ro_num}
 	</update>
 
 	<!-- 방 시설 삭제 -->
 	<delete id="rofac_delete" parameterType="int">
-		delete from room_facility
-			where room_ro_num = #{room_ro_num}
+		delete from room_facility where room_ro_num = #{room_ro_num}
 	</delete>
 
 </mapper>

@@ -46,7 +46,7 @@
                         	<li><a class="dropdown-item" href="${contextPath}/admin/login">로그인</a></li>							
 						</c:if>                      
 						<c:if test="${email!=null }">
-							<li>${email.name } 관리자님</li>
+							<li>${email.name }님 환영합니다.</li>
 							<li><hr class="dropdown-divider" /></li>
                         	<li><a class="dropdown-item" href="${contextPath}/user/login/adminLogout">로그아웃</a></li>							
 						</c:if>  
