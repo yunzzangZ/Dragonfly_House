@@ -2,15 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>결제전 수정화면</title>
-<script type="text/javascript">
-</script>
-</head>
-<body>
+
 	<%@include file="../include/header.jsp"%>
 
 	<h3>결제 수단 수정화면</h3>
@@ -46,11 +38,9 @@
 	</form>
 	<form action="payDetails" method="get">
 		<input type="hidden" name="booking_bo_num" value="0" readonly>
-		<input type="submit" name="pay_id" value="${pay.pay_id }"">
+		<input type="submit" name="pay_id" value="${pay.pay_id }">
 	</form>
 
 
 
 	<%@include file="../include/footer.jsp"%>
-</body>
-</html>

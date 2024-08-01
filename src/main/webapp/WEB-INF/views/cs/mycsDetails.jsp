@@ -4,15 +4,6 @@
 <%@ page session="true"%>
 <%@include file="../include/header.jsp"%>
 <script>
-	function check_response() {
-		var placeholder_cs_response = $("#cs_response").attr("cs_response");
-
-		if (placeholder_cs_response === undefined
-				|| placeholder_cs_response === "") {
-			$('#cs_response').val('관리자가 응답을 입력 중입니다. 잠시 기다려주세요.');
-		}
-	} // end check_response
-
 	// 페이지가 로드될 때 check_response() 호출
 	window.onload = function() {
 		check_response();
