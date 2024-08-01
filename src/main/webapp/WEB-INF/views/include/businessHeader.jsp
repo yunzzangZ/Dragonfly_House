@@ -18,6 +18,7 @@
 
 	<link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
 	<link href="${contextPath}/resources/admin/css/styles.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="${contextPath}/resources/css/style.css" type="text/css"/>	
 </head>
 <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -45,7 +46,7 @@
                         	<li><a class="dropdown-item" href="${contextPath}/user/login/login">로그인</a></li>							
 						</c:if>                      
 						<c:if test="${bu_email!=null }">
-							<li>${bu_email.bu_name }님</li>
+							<li>${bu_email.bu_name }님 환영합니다.</li>
 							<li><hr class="dropdown-divider" /></li>
                         	<li><a class="dropdown-item" href="${contextPath}/user/login/businessLogout">로그아웃</a></li>							
 						</c:if>                             
@@ -60,10 +61,11 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <a class="nav-link" href="${contextPath}/business/index">HOME</a>                        
-                            <div class="sb-sidenav-menu-heading">숙소관리</div>
-                            <a class="nav-link" href="${contextPath}/business/index">숙소정보</a> 
-                            <a class="nav-link" href="${contextPath}/business/index">객실관리</a>    
-                            <a class="nav-link" href="${contextPath}/business/index">부가서비스 관리</a>     
+                            <div class="sb-sidenav-menu-heading">펜션관리</div>
+                            <a class="nav-link" href="${contextPath}/business/pension/pen_listall">펜션정보</a> 
+                            <a class="nav-link" href="${contextPath}/business/room/ro_listall">객실관리</a>     
+                            <a class="nav-link" href="${contextPath}/business/facility/fac_listall">시설관리</a>
+                            <a class="nav-link" href="${contextPath}/business/rofac/rofac_listall">객실시설관리</a>                                
                             <div class="sb-sidenav-menu-heading">예약관리</div>
                             <a class="nav-link" href="${contextPath}/business/index">예약목록</a> 
                             <a class="nav-link" href="${contextPath}/business/index">예약캘린더</a>    
@@ -76,5 +78,5 @@
             </div>
             
             <div id="layoutSidenav_content">
-            	<div class="container-fluid px-4">
+            	<div class="container-fluid manager-container">
 

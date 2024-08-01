@@ -25,60 +25,60 @@ public class PensionController {
     private static final Logger logger = LoggerFactory.getLogger(PensionController.class);
 
     // 전체 펜션 목록 조회
-    @GetMapping("pension/pen_listall")
+    @GetMapping(value = "business/pension/pen_listall")
     public ModelAndView listAll() {
         List<PensionVO> list = service.pen_listAll();
         ModelAndView mav = new ModelAndView();
         mav.addObject("list", list);
-        mav.setViewName("pension/pen_listall");
+        mav.setViewName("business/pension/pen_listall");
         return mav;
     }
-
+    
     // 상세 조회
-    @GetMapping("pension/pen_selectOne")
+    @GetMapping(value = "business/pension/pen_selectOne")
     public ModelAndView selectOne(@RequestParam("pen_addr") String pen_addr) {
         PensionVO pen = service.pen_selectOne(pen_addr);
         ModelAndView mav = new ModelAndView();
         mav.addObject("pen", pen);
-        mav.setViewName("pension/pen_selectOne"); 
+        mav.setViewName("business/pension/pen_selectOne"); 
         return mav;
     }
 
     // 추가 페이지 이동
-    @GetMapping("pension/pen_insert")
+    @GetMapping(value = "business/pension/pen_insert")
     public String insertForm(Model model) {
         model.addAttribute("pensionVO", new PensionVO());
-        return "pension/pen_insert";
+        return "business/pension/pen_insert";
     }
 
     // 추가
-    @PostMapping("pension/pen_insert")
+    @PostMapping(value = "business/pension/pen_insert")
     public String insert(@ModelAttribute("pensionVO") PensionVO pensionVO, RedirectAttributes rttr) {
         boolean result = service.pen_insert(pensionVO);
         rttr.addFlashAttribute("message", result ? "펜션 등록 완료" : "펜션 등록 실패");
-        return "redirect:/pension/pen_listall"; 
+        return "redirect:/business/pension/pen_listall"; 
     }
 
     // 수정 페이지 이동
-    @GetMapping("pension/pen_update")
+    @GetMapping(value = "business/pension/pen_update")
     public ModelAndView updateForm(@RequestParam("pen_addr") String pen_addr) {
         PensionVO pen = service.pen_selectOne(pen_addr);
         ModelAndView mav = new ModelAndView();
         mav.addObject("pen", pen);
-        mav.setViewName("pension/pen_update");
+        mav.setViewName("business/pension/pen_update");
         return mav;
     }
 
     // 수정
-    @PostMapping("pension/pen_update")
+    @PostMapping(value = "business/pension/pen_update")
     public String update(@ModelAttribute("pen") PensionVO penUpdate, RedirectAttributes rttr) {
         boolean result = service.pen_update(penUpdate);
         rttr.addFlashAttribute("message", result ? "수정이 완료되었습니다." : "수정에 실패했습니다.");
-        return "redirect:/pension/pen_listall"; 
+        return "redirect:/business/pension/pen_listall"; 
     }
 
     // 삭제
-    @GetMapping(value = "pension/pen_delete") 
+    @GetMapping(value = "business/pension/pen_delete") 
     @Transactional
     public String delete(@RequestParam("pen_addr") String pen_addr, RedirectAttributes rttr) {
         try {
@@ -88,6 +88,6 @@ public class PensionController {
             rttr.addFlashAttribute("message", "시설 삭제 중 오류가 발생했습니다.");
             logger.error("펜션 삭제 중 오류 발생: {}", e.getMessage(), e); 
         }
-        return "redirect:/pension/pen_listall";
+        return "redirect:/business/pension/pen_listall";
     }
 }
