@@ -8,7 +8,7 @@
 			<%@include file="../include/nav.jsp"%>
 			<div class="mypage-content">
 				<div>
-					<h3>${mem.name }님의 전체예약내역</h3>
+					<h3>${email.name }님의 전체예약내역</h3>
 					<table border="1">
 						<tr>
 							<th>예약번호</th>

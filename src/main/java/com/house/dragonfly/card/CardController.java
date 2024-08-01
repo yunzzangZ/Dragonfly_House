@@ -54,11 +54,11 @@ public class CardController {
 	}//end
 	
 //	cardinsert_post
-	@PostMapping(value = "caInsert")
+	@PostMapping(value = "card/caInsert")
 	public String caInsert(CARD card) {
 		System.out.println("cardInsert");
 		caservice.cardInsert(card);
-		return "redirect:/cardSelect?email="+card.getMember_email();
+		return "redirect:/member/myInfo?email="+card.getMember_email();
 	}//end
 	
 //	cardDelete이동 및 진행

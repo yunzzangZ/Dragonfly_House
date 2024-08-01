@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.house.dragonfly.domain.BOOKING;
+import com.house.dragonfly.domain.PAYMENT;
 
 @Service
 public class bookingServiceImp implements bookingService {
@@ -14,10 +15,6 @@ public class bookingServiceImp implements bookingService {
 	@Inject
 	private bookingDAO bodao;
 	
-	@Override
-	public List<BOOKING> bookingListAll() {
-		return bodao.bookingListAll();
-	}
 
 	@Override
 	public List<BOOKING> bookingListSelect(String email) {
@@ -45,8 +42,8 @@ public class bookingServiceImp implements bookingService {
 	}
 
 	@Override
-	public void payInsert(BOOKING bo) {
-		bodao.payInsert(bo);		
+	public void bookingpayUpdate(PAYMENT pay) {
+		bodao.bookingpayUpdate(pay);
 	}
 
 }//end

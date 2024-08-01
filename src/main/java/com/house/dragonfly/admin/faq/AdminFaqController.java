@@ -20,7 +20,7 @@ public class AdminFaqController {
         List<FAQ> faqs = faqService.faqList();
         ModelAndView mav = new ModelAndView();
         mav.addObject("faqs", faqs);
-        mav.setViewName("/admin/faq/faqList");
+        mav.setViewName("faq/faqList");
         return mav;
     }
 
@@ -29,13 +29,13 @@ public class AdminFaqController {
         FAQ faq = faqService.faqView(faq_id);
         ModelAndView mav = new ModelAndView();
         mav.addObject("faq", faq);
-        mav.setViewName("/admin/faq/faqView");
+        mav.setViewName("faq/faqView");
         return mav;
     }
 
     @GetMapping("/admin/faq/faqAdd")
     public String faqAddForm() {
-        return "/admin/faq/faqAdd";
+        return "faq/faqAdd";
     }
 
     @PostMapping("/admin/faq/faqAdd")
@@ -53,7 +53,7 @@ public class AdminFaqController {
         FAQ faq = faqService.faqView(faq_id);
         ModelAndView mav = new ModelAndView();
         mav.addObject("faq", faq);
-        mav.setViewName("/admin/faq/faqUpdate");
+        mav.setViewName("faq/faqUpdate");
         return mav;
     }
 

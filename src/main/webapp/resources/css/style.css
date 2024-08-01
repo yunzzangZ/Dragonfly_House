@@ -1,449 +1,589 @@
 @charset "UTF-8";
 
-body{
+body {
 	color: #333;
 }
-li{
+
+li {
 	list-style: none;
 }
-button{
-    padding: 0;	
-    background: none;
-    border: 0;
-}
-.hidden{
-	display: none;
+
+button {
+	padding: 0;
+	background: none;
+	border: 0;
 }
 
+.hidden {
+	display: none;
+}
 /* 메인 페이지 */
-.header{
+.header {
 	border-bottom: 1px solid #e9e9e9;
 }
-.header:after{
-	content:"";
+
+.header:after {
+	content: "";
 	display: block;
 	clear: both;
 }
-.header .main-tab{
+
+.header .main-tab {
 	float: left;
 	margin-left: 90px;
-    line-height: 76px;	
+	line-height: 76px;
 }
-.header .main-tab a{
+
+.header .main-tab a {
 	margin-left: 30px;
 	color: #111;
 	font-size: 16px;
 	font-weight: bold;
 }
-.header .main-tab a img{
-	display:inline-block;
+
+.header .main-tab a img {
+	display: inline-block;
 	margin-right: 10px;
 }
-.header .main-tab a:first-child img{
+
+.header .main-tab a:first-child img {
 	width: 26px;
 }
-.header .main-tab a:last-child img{
+
+.header .main-tab a:last-child img {
 	width: 24px;
 }
-.header .right-menu{
+
+.header .right-menu {
 	position: absolute;
 	right: 0;
-    max-width: fit-content;	
+	max-width: fit-content;
 }
-.modal{
+
+.modal {
 	display: none;
-    position: absolute;
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: rgba(0,0,0,0.75);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.75);
 }
-.modal.on{
+
+.modal.on {
 	display: block;
 }
-.modal .modal-popup{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 10px;
+
+.modal .modal-popup {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 30px;
+	background: #ffffff;
+	border-radius: 10px;
 }
-.modal-popup > div{
+
+.modal-popup>div {
 	posiiton: relative;
 }
-.modal-popup-txt{	
+
+.modal-popup-txt {
 	font-size: 32px;
 }
-.searchLoca-modal-popup{
+
+.searchLoca-modal-popup {
 	width: 824px;
 }
-.search-input{
-    display: block;	
-    width: 100%;
-    padding: 10px 15px;
-    margin: 20px 0;
-    background: #e9e9e9;
-    border: 0;
+
+.search-input {
+	display: block;
+	width: 100%;
+	padding: 10px 15px;
+	margin: 20px 0;
+	background: #e9e9e9;
+	border: 0;
 }
-.searchLoca-list{
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -10px;
-    margin-left: -10px;
+
+.searchLoca-list {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-right: -10px;
+	margin-left: -10px;
 }
-.searchLoca-list li{
-    padding: 0 10px;
+
+.searchLoca-list li {
+	padding: 0 10px;
 	font-size: 18px;
 }
-.search-btn-box{
+
+.search-btn-box {
 	margin-top: 30px;
 	text-align: center;
 }
-.search-btn{
-    padding: 15px 80px;	
+
+.search-btn {
+	padding: 15px 80px;
 	background: #FFAD32;
 }
 
-.close-btn{
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    width: 40px;
+.close-btn {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 40px;
 }
 
-.room-list{
+.room-list {
 	width: 100%;
 	margin-bottom: 35px;
 }
-.room-list a{
+
+.room-list a {
 	position: relative;
-    display: block;
-    color: #333;
-}
-.room-list a:hover{
+	display: block;
 	color: #333;
 }
-.room-list-img{
-	width:100%;
+
+.room-list a:hover {
+	color: #333;
+}
+
+.room-list-img {
+	width: 100%;
 	height: 250px;
 }
-.room-list-img img{
-    display: inline-block;
-    width: 100%;
-    height: inherit;
-    object-fit: cover;
+
+.room-list-img img {
+	display: inline-block;
+	width: 100%;
+	height: inherit;
+	object-fit: cover;
 }
-.room-list-txt{
+
+.room-list-txt {
 	padding: 15px 0 25px;
 }
-.room-list-txt:after{
-	content:"";
+
+.room-list-txt:after {
+	content: "";
 	display: block;
-	clear: both;	
+	clear: both;
 }
-.room-list-txt-t{
+
+.room-list-txt-t {
 	float: left;
-    font-size: 15px;	
+	font-size: 15px;
 }
-.room-list-txt-t span:last-child{
-    font-size: 12px;	
+
+.room-list-txt-t span:last-child {
+	font-size: 12px;
 	color: #555;
 }
-.room-list-txt-p{
-    float: right;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 1.8;
+
+.room-list-txt-p {
+	float: right;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 1.8;
 }
 
-.login{
-    width: 500px;
-    margin: 80px auto;   
-}
-.login a{
-   font-weight: bold;
-   color: #333;
-}
-.login a:hover{
-   color: #333;
-}
-.login-tab{
-   margin-bottom: 35px;
-    border-radius: 5px;
-    overflow: hidden;
-}
-.login-tab:after{
-   content: "";
-   display: block;
-   clear: both;
-}
-.login-tab li{
-   float: left;
-   width: 50%;
-   text-align: center;
-}
-.login-tab li button{
-   display: inline-block;
-   width: 100%;
-   padding: 13px 0;
-   background: #E9E9E9;
-   color: #999;
-}
-.login-tab li.on button{
-   background: #FFAD32;
-   color: #333;   
-}
-.login-container input[type="text"],
-.login-container input[type="password"]{
-    width: 100%;
-    padding: 15px 25px;
-    margin-bottom: 10px;
-    border: 1px solid #E9E9E9;
-    border-radius: 5px;    
-}
-.login-btn input{
-   width: 100%;
-    padding: 13px 0;
-    background: #FFAD32;
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-    border: 0;
-    border-radius: 5px;
-}
-.login-remember{
-    margin: 5px 0 20px;   
-   font-size: 14px;
-}
-.login-remember:after{
-   content: "";
-   display: block;
-   clear: both;
-}
-.login-remember a:last-child{
-   float: right;
-}
-.login-join{
-    margin-top: 30px;   
-   text-align: center;
+.login {
+	width: 500px;
+	margin: 80px auto;
 }
 
-footer{
+.login a {
+	font-weight: bold;
+	color: #333;
+}
+
+.login a:hover {
+	color: #333;
+}
+
+.login-tab {
+	margin-bottom: 35px;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.login-tab:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.login-tab li {
+	float: left;
+	width: 50%;
+	text-align: center;
+}
+
+.login-tab li button {
+	display: inline-block;
+	width: 100%;
+	padding: 13px 0;
+	background: #E9E9E9;
+	color: #999;
+}
+
+.login-tab li.on button {
+	background: #FFAD32;
+	color: #333;
+}
+
+.login-container input[type="text"], .login-container input[type="password"]
+	{
+	width: 100%;
+	padding: 15px 25px;
+	margin-bottom: 10px;
+	border: 1px solid #E9E9E9;
+	border-radius: 5px;
+}
+
+.login-btn input {
+	width: 100%;
+	padding: 13px 0;
+	background: #FFAD32;
+	font-size: 20px;
+	font-weight: bold;
+	color: #333;
+	border: 0;
+	border-radius: 5px;
+}
+
+.login-remember {
+	margin: 5px 0 20px;
+	font-size: 14px;
+}
+
+.login-remember:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.login-remember a:last-child {
+	float: right;
+}
+
+.login-join {
+	margin-top: 30px;
+	text-align: center;
+}
+
+footer {
 	background: #F5F5F5;
 	padding: 30px 0;
 	font-size: 14px;
-	color: #555;	
+	color: #555;
 }
-footer .footer-logo{
+
+footer .footer-logo {
 	display: inline-block;
 	width: 165px;
 }
-footer .right-menu{
+
+footer .right-menu {
 	float: right;
 }
-footer .right-menu li{
+
+footer .right-menu li {
 	display: inline-block;
 }
-footer .right-menu li a{
+
+footer .right-menu li a {
 	margin-right: 10px;
 	color: #555;
 }
-footer .right-menu li:last-child a{
+
+footer .right-menu li:last-child a {
 	font-weight: bold;
 }
-footer div{
+
+footer div {
 	margin-top: 20px;
 	line-height: 2;
 }
-footer span{
+
+footer span {
 	color: #888;
 	font-size: 13px;
 }
 
 /*마이페이지*/
-.mypage-container > div{
+.mypage-container>div {
 	display: flex;
 }
-.mypage-container a, .mypage-container a:hover{
+
+.mypage-container a, .mypage-container a:hover {
 	color: #333;
 }
-.mypage-nav{
+
+.mypage-nav {
 	width: 260px;
 	padding: 35px 20px;
 	background: #ffd597;
 }
-.mypage-nav > div{
+
+.mypage-nav>div {
 	font-size: 18px;
 }
-.mypage-nav > dl{
-    margin: 20px 0 0;
-    font-size: 15px;
+
+.mypage-nav>dl {
+	margin: 20px 0 0;
+	font-size: 15px;
 }
-.mypage-nav > dl dd{
+
+.mypage-nav>dl dd {
 	margin-bottom: 0;
 }
-.mypage-content{
-    flex-grow: 1;	
-	width: calc(100% - 260px);    
+
+.mypage-content {
+	flex-grow: 1;
+	width: calc(100% - 260px);
 	padding: 35px 0 35px 20px;
 }
-.mypage-content h3{
+
+.mypage-content h3 {
 	font-size: 18px;
 	fontn-weight: 700;
 }
-.mypage-content table{
+
+.mypage-content table {
 	width: 100%;
 	font-size: 15px;
 	border-color: #e3e3e3;
 }
-.mypage-content table th{
+
+.mypage-content table th {
 	padding: 5px;
 	text-align: center;
-	background: #e9e9e9;	
+	background: #e9e9e9;
 }
-.mypage-content table td{
-	padding: 5px;	
-	text-align: center;	
+
+.mypage-content table td {
+	padding: 5px;
+	text-align: center;
 }
-.mypage-card{
-    position: relative;	
-    margin-top: 30px;		
+
+.mypage-card {
+	display: flex; /* Flexbox 레이아웃 */
+	justify-content: space-between; /* 양쪽 끝으로 정렬 */
+	align-items: center; /* 수직 가운데 정렬 */
+	margin-top: 20px; /* 위쪽 여백 추가 */
+	white-space: nowrap; /* 강제 줄 바꿈 방지 */
 }
-.mypage-card a{
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: #FFAD32;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 0 20px;
-    border: 1px solid #e9e9e9;
-    border-radius: 5px;
+
+.mypage-card h3 {
+	margin: 0; /* 기본 마진 제거 */
 }
-.mypage-content form{
+
+.mypage-card a {
+	background: #FFAD32;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 20px; /* 패딩 조정 */
+	border: 1px solid #e9e9e9;
+	border-radius: 5px;
+	text-decoration: none; /* 링크 밑줄 제거 */
+}
+
+.mypage-content form {
 	margin: 20px -10px 0;
 }
-.mypage-content form:after{
+
+.mypage-content form:after {
 	content: "";
 	display: block;
 	clear: both;
 }
-.mypage-content form div{
+
+.mypage-content form div {
 	float: left;
 	width: 50%;
-    padding: 0 10px;	
+	padding: 0 10px;
 	margin-bottom: 10px;
 }
-.mypage-content form .mypage-form-one{
+
+.mypage-content form .mypage-form-one {
 	width: 100%;
 }
-.mypage-content form div p{
+
+.mypage-content form div p {
 	margin-bottom: 10px;
-	font-size: 15px;	
+	font-size: 15px;
 	color: #333;
 }
-.mypage-content form div input,
-.mypage-content form div textarea{
-    width: 100%;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    font-size: 15px;
-    border: 1px solid #E9E9E9;
-    border-radius: 5px;
-    box-sizing: border-box;	
+
+.mypage-content form div input, .mypage-content form div textarea {
+	width: 100%;
+	padding: 10px 15px;
+	margin-bottom: 10px;
+	font-size: 15px;
+	border: 1px solid #E9E9E9;
+	border-radius: 5px;
+	box-sizing: border-box;
 }
-.mypage-content form .mypage-btn{
-    width: 100%;
-    margin-top: 10px;
+
+.mypage-content form .mypage-btn {
+	width: 100%;
+	margin-top: 10px;
 }
-.mypage-content form .mypage-btn input{
-    background: #FFAD32;
-    font-size: 16px;
-    font-weight: bold;	
-}
-.pw-update-btn{
-    display: inline-block;
-    width: 100%;
-    height: 49px;
-    font-size: 16px;
-    line-height: 48px;
+
+.mypage-content form .mypage-btn input, .mypage-content form .mypage-btn a,
+	.mypage-content form .mypage-btn button {
 	background: #FFAD32;
-    border: 1px solid #E9E9E9;
-    border-radius: 5px;
-    text-align: center;
+	font-size: 16px;
+	font-weight: bold;
 }
-.mypage-txt{
+
+.pw-update-btn {
+	display: inline-block;
+	width: 100%;
+	height: 49px;
+	font-size: 16px;
+	line-height: 48px;
+	background: #FFAD32;
+	border: 1px solid #E9E9E9;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.mypage-txt {
 	display: block;
 	margin-top: 5px;
 	text-align: right;
 	font-size: 14px;
 	color: #ff9900;
 }
-.mypage-content .mypage-booking form{
+
+.mypage-content .mypage-booking form {
 	margin: 20px 0 0;
 }
-.mypage-content .mypage-booking form input,
-.mypage-content .mypage-booking form a{
+
+.mypage-content .mypage-booking form input, .mypage-content .mypage-booking form a
+	{
 	display: block;
-    width: 100%;
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    background: #FFAD32;
-    border-radius: 5px;
-    border: 1px solid #E9E9E9;
+	width: 100%;
+	padding: 10px 15px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	background: #FFAD32;
+	border-radius: 5px;
+	border: 1px solid #E9E9E9;
 }
-.mypage-content .mypage-cs form{
+
+.mypage-content .mypage-cs form {
 	margin: 0;
 }
-.mypage-content form .mypage-cs-btn{
-    width: 100%;
-    padding: 0;
-    margin-top: 10px;
-    text-align: right;
-}
-.mypage-cs-btn a{
-    background: #FFAD32;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 5px 20px;
-    border: 1px solid #e9e9e9;
-    border-radius: 5px;	
-}
-.mypage-content form .mypage-cs-one{
-	width: 100%;
-}
 
-/*어드민 페이지*/
-.manager-container{
-	padding: 30px;
-}
-.manager-container table{
+.mypage-content form .mypage-cs-btn {
 	width: 100%;
-}
-.manager-container .manager-btn{
+	padding: 0;
+	margin-top: 10px;
 	text-align: right;
 }
-.manager-container .form-group{
-	margin-bottom: 1rem;
+
+.mypage-cs-btn a {
+	background: #FFAD32;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 5px 20px;
+	border: 1px solid #e9e9e9;
+	border-radius: 5px;
 }
-.manager-container .manager-btn form{
-	display: contents;
-}
-.manager-container .manager-btn form textarea{
-	margin-top: 15px;
+
+.mypage-content form .mypage-cs-one {
+	width: 100%;
 }
 
+.login {
+	width: 500px;
+	margin: 80px auto;
+}
 
+.login a {
+	font-weight: bold;
+	color: #333;
+}
 
+.login a:hover {
+	color: #333;
+}
 
+.login-tab {
+	margin-bottom: 35px;
+	border-radius: 5px;
+	overflow: hidden;
+}
 
+.login-tab:after {
+	content: "";
+	display: block;
+	clear: both;
+}
 
+.login-tab li {
+	float: left;
+	width: 50%;
+	text-align: center;
+}
 
+.login-tab li button {
+	display: inline-block;
+	width: 100%;
+	padding: 13px 0;
+	background: #E9E9E9;
+	color: #999;
+}
+
+.login-tab li.on button {
+	background: #FFAD32;
+	color: #333;
+}
+
+.login-container input[type="text"], .login-container input[type="password"]
+	{
+	width: 100%;
+	padding: 15px 25px;
+	margin-bottom: 10px;
+	border: 1px solid #E9E9E9;
+	border-radius: 5px;
+}
+
+.login-btn input {
+	width: 100%;
+	padding: 13px 0;
+	background: #FFAD32;
+	font-size: 20px;
+	font-weight: bold;
+	color: #333;
+	border: 0;
+	border-radius: 5px;
+}
+
+.login-remember {
+	margin: 5px 0 20px;
+	font-size: 14px;
+}
+
+.login-remember:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.login-remember a:last-child {
+	float: right;
+}
+
+.login-join {
+	margin-top: 30px;
+	text-align: center;
+}

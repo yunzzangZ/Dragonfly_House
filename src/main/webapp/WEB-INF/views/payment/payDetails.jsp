@@ -26,15 +26,15 @@
 			<th>결제 방법</th>
 			<td>${pay.pay_method}</td>
 		</tr>
-		<c:if test="${pay.pay_method eq '카드' }">
+		<c:if test="${pay.pay_method eq '신용카드' }">
 			<tr>
 				<th>카드번호</th>
 				<td>${pay.card_card_number}</td>
 			</tr>
 		</c:if>
-		<c:if test="${pay.pay_method eq '현금' }">
+		<c:if test="${pay.pay_method eq '계좌이체' }">
 			<tr>
-				<th>예금자 명</th>
+				<th>예금자명</th>
 				<td>${pay.pay_name}</td>
 			</tr>
 		</c:if>

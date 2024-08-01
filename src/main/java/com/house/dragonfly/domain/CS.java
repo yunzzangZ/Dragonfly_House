@@ -18,6 +18,16 @@ public class CS {
 		this.cs_date = cs_date;
 		this.cs_response = cs_response;
 	}
+	
+	
+	
+
+	public CS(String email, String cs_title, String cs_text, String cs_date) {
+		this.email = email;
+		this.cs_title = cs_title;
+		this.cs_text = cs_text;
+		this.cs_date = cs_date;
+	}
 
 	public int getCs_id() {
 		return cs_id;

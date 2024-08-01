@@ -8,26 +8,6 @@
 <meta charset="UTF-8">
 <title>결제전 수정화면</title>
 <script type="text/javascript">
-	/* function BtnpayCard(){
-	
-	 const BtnpayCard = document.getElementById('BtnpayCard');
-	 if(pay_name.style.visibility !== 'hidden') {
-	 pay_name.style.visibility = 'hidden';
-	 }else{
-	 pay_name.style.visibility = 'visible';
-	 }
-	 }//end
-
-	 function BtnpayCash(){
-	
-	 const BtnpayCash = document.getElementById('BtnpayCash');
-	 if(card_card_number.style.visibility !== 'hidden') {
-	 card_card_number.style.visibility = 'hidden';
-	 }
-	 else {
-	 card_card_number.style.visibility = 'visible';
-	 } */
-}//end
 </script>
 </head>
 <body>
@@ -50,20 +30,18 @@
 				<input type = "button" value = "현금" name = "pay_method" id = "BtnpayCash" onclick ='BtnpayCash()'></td>
 				 -->
 
-				<td><input type="checkbox" name="pay_method" value="카드">카드
-					<input type="checkbox" name="pay_method" value="현금">현금</td>
+				<td><input type="checkbox" name="pay_method" value="신용카드">신용카드
+					<input type="checkbox" name="pay_method" value="계좌이체">계좌이체</td>
 			</tr>
 			<tr>
 				<th>카드번호</th>
-				<td><input type="number" name="card_card_number"
-					id="card_card_number" value="0"></td>
+				<td><input type="text" name="card_card_number" value="" ></td>
 			</tr>
 			<tr>
 				<th>예금자명</th>
 				<td><input type="text" name="pay_name" id="pay_name" value=""></td>
 			</tr>
 		</table>
-		<input type="hidden" name="booking_bo_num" value="0" readonly>
 		<input type="submit" value="결제수단 수정">
 	</form>
 	<form action="payDetails" method="get">
