@@ -60,8 +60,7 @@
 					</div>
 					<div class="mypage-btn">
 						<input type="reset" value="초기화" id="Btnreset">
-						<button type="button" onclick="checkUpdate();">수정버튼</button>
-						<a href="myInfo?email=${email.email}">돌아가기</a>
+						<button type="button" onclick="checkUpdate();">수정</button>
 					</div>
 				</form>
 			</div>
