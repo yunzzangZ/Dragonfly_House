@@ -2,35 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
-<script type="text/javascript">
-	function checkPw() {
-		var bepassword = $("#bepassword").val();
-		var check_bepassword = $("#check_bepassword").val();
-
-		if (bepassword != check_bepassword) {
-			alert("현재비밀번호와 일치하지 않습니다.");
-			window.history.back();
-			$("#check_bepassword").focus();
-			return;
-		}
-
-		if (!confirm('비밀번호 변경하시겠습니까?')) {
-			alert("변경취소");
-			location.href = "myInfo?email=${email.email}";
-		} else {
-			var form = document.getElementById("updatePw");
-			form.submit();
-			alert("변경성공");
-		}
-	}
-
-	function checkPassword(input) {
-		var inputValue = input.value;
-		// 숫자와 대소문자만 남기기
-		input.value = inputValue.replace(/[^0-9a-zA-Z]/g, "");
-	}
-</script>
-
+<%@include file="../include/header.jsp"%>
 <div class="container mypage-container">
 	<div>
 		<%@include file="../include/nav.jsp"%>
@@ -62,5 +34,32 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	function checkPw() {
+		var bepassword = $("#bepassword").val();
+		var check_bepassword = $("#check_bepassword").val();
 
+		if (bepassword != check_bepassword) {
+			alert("현재비밀번호와 일치하지 않습니다.");
+			window.history.back();
+			$("#check_bepassword").focus();
+			return;
+		}
+
+		if (!confirm('비밀번호 변경하시겠습니까?')) {
+			alert("변경취소");
+			location.href = "myInfo?email=${email.email}";
+		} else {
+			var form = document.getElementById("updatePw");
+			form.submit();
+			alert("변경성공");
+		}
+	}
+
+	function checkPassword(input) {
+		var inputValue = input.value;
+		// 숫자와 대소문자만 남기기
+		input.value = inputValue.replace(/[^0-9a-zA-Z]/g, "");
+	}
+</script>
 <%@include file="../include/footer.jsp"%>

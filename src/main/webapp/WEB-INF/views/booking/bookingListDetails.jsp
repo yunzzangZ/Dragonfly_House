@@ -3,9 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
 <%@include file="../include/header.jsp"%>
-<script>
-	
-</script>
 <div class="container mypage-container">
 	<div>
 		<%@include file="../include/nav.jsp"%>
