@@ -6,5 +6,7 @@
 <typeAliases>
 <typeAlias type="com.house.dragonfly.domain.MEMBER" alias="MEMBER"/>
 <typeAlias type="com.house.dragonfly.domain.BUSINESS" alias="BUSINESS"/>
+   <typeAlias type="com.house.dragonfly.domain.SENDDING_TXT" alias="SENDDING_TXT"/>
+      <typeAlias type="com.house.dragonfly.domain.SENDING" alias="SENDING"/>
 </typeAliases>
 </configuration>
