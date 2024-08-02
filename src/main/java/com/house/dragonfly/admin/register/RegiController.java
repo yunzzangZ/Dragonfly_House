@@ -11,31 +11,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.house.dragonfly.domain.MEMBER;
 
 @Controller
-@RequestMapping("/admin") // 여기서 매핑을 /admin으로 변경
+@RequestMapping("/user")
 public class RegiController {
 
     @Autowired
     private RegiService regiService;
 
-    @GetMapping("/register")
+    @GetMapping("/signupU")
     public String showRegisterForm() {
-        return "admin/registerForm"; // 뷰 경로를 admin/registerForm으로 변경
+        return "admin/registerForm";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/signupU")
     public String registerMember(MEMBER member, Model model, HttpSession session) {
-        // 이메일 중복 체크
         if (regiService.isEmailDuplicate(member.getEmail())) {
             model.addAttribute("error", "이미 사용 중인 이메일입니다.");
-            return "admin/registerForm"; // 뷰 경로를 admin/registerForm으로 변경
+            return "admin/registerForm";
         }
 
+        member.setAdmin_check("N"); // 기본값 설정
         regiService.insertMember(member);
-        return "redirect:/admin/registerSuccess"; // 뷰 경로를 admin/registerSuccess로 변경
+        return "redirect:/user/registerSuccess";
     }
 
     @GetMapping("/registerSuccess")
     public String registerSuccess() {
-        return "admin/registerSuccess"; // 뷰 경로를 admin/registerSuccess로 변경
+        return "admin/registerSuccess";
     }
 }

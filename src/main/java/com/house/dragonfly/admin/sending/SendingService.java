@@ -9,4 +9,5 @@ public interface SendingService {
     List<SENDING> getSendingsByStatus(String status);
     SENDING getSendingById(int mailTxtCode);
     void updateSendingStatus(SENDING sending);
+    void sendReservationEmail(String to, String subject, String text);
 }

@@ -3,29 +3,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register</title>
+    <title>회원가입</title>
 </head>
 <body>
-    <h2>Register</h2>
-    <form action="${pageContext.request.contextPath}/register" method="post">
+    <h2>회원가입</h2>
+    <form action="${pageContext.request.contextPath}/user/signupU" method="post">
         <div>
-            <label>Email:</label>
+            <label>이메일:</label>
             <input type="email" name="email" required />
         </div>
         <div>
-            <label>Password:</label>
+            <label>비밀번호:</label>
             <input type="password" name="password" required />
         </div>
         <div>
-            <label>Tel:</label>
+            <label>전화번호:</label>
             <input type="text" name="tel" required />
         </div>
         <div>
-            <label>Name:</label>
+            <label>이름:</label>
             <input type="text" name="name" required />
         </div>
+
+     
         <div>
-            <button type="submit">Register</button>
+            <button type="submit">회원가입</button>
         </div>
         <div>
             <c:if test="${not empty error}">
@@ -33,6 +35,7 @@
             </c:if>
         </div>
     </form>
-    <a href="${pageContext.request.contextPath}/user/login/login">Login</a>
+    <a href="${pageContext.request.contextPath}/user/login/login">로그인</a>
 </body>
 </html>
+

@@ -57,10 +57,10 @@ function bookingInsert() {
                     <th>예약금액</th>
                     <td><input type="number" value="${ro.ro_price}" name="bo_price" readonly></td>
                 </tr>
-                <tr>
-                    <td><button type="button" onclick="bookingInsert();">예약하기</button></td>
-                    <td><input type="button" value="뒤로가기" onclick="location.href = dragonfly/booking/bookingRoomSelect?ro_num=${ro.ro_num}"></td>
-                </tr>
+              <tr>
+    <td><button type="button" onclick="bookingInsert();" class="btn btn-primary">예약하기</button></td>
+    <td><button type="button" onclick="location.href='/dragonfly/booking/bookingRoomSelect?ro_num=${ro.ro_num}'" class="btn btn-secondary">뒤로가기</button></td>
+</tr>
             </table>
         </form>
     </section>
