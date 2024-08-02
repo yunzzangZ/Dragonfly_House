@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.house.dragonfly.admin.pay.AdminPayDAO">
+
+    <select id="selectAllPayments" resultType="com.house.dragonfly.domain.PAYMENT">
+        SELECT * FROM payment
+    </select>
+
+    <select id="selectPaymentsByMethod" parameterType="string" resultType="com.house.dragonfly.domain.PAYMENT">
+        SELECT * FROM payment WHERE pay_method = #{method}
+    </select>
+
+    <select id="selectPaymentById" parameterType="int" resultType="com.house.dragonfly.domain.PAYMENT">
+        SELECT * FROM payment WHERE pay_id = #{payId}
+    </select>
+
+    <select id="selectRefundRequests" resultType="com.house.dragonfly.domain.PAYMENT">
+        SELECT * FROM payment WHERE pay_status = '환불요청'
+    </select>
+
+    <select id="selectRefundById" parameterType="int" resultType="com.house.dragonfly.domain.PAYMENT">
+        SELECT * FROM payment WHERE pay_id = #{refundId}
+    </select>
+
+</mapper>

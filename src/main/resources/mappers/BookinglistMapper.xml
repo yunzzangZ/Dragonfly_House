@@ -62,7 +62,13 @@
 		#{bo_num};
 	</update>
 
+    <select id="selectBookingById" parameterType="int" resultType="com.house.dragonfly.domain.BOOKING">
+        SELECT * FROM booking WHERE bo_num = #{bo_num}
+    </select>
 
+    <update id="updateBookingStatus" parameterType="map">
+        UPDATE booking SET status = #{status} WHERE bo_num = #{bo_num}
+    </update>
 
 
 

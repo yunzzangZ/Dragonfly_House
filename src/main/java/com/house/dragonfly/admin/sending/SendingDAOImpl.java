@@ -33,4 +33,3 @@ public class SendingDAOImpl implements SendingDAO {
         sqlSession.update("com.house.dragonfly.dao.SendingDAO.updateSendingStatus", sending);
     }
 }
-

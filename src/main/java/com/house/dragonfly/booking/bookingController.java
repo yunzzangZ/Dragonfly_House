@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.house.dragonfly.domain.BOOKING;
@@ -82,22 +83,19 @@ public class bookingController {
 		return "redirect:/bookingListSelect?email="+bo.getMember_email();
 	}// end
 	
-//	예약취소요청 이동_get
-	@GetMapping(value = "bookingCancleUpdate")
-	public ModelAndView bookingCancleUpdate(int bo_num) {
-		System.out.println("예약취소요청 폼이동");
-		ModelAndView mav = bookingListDetails(bo_num);
-		mav.setViewName("booking/bookingCancleUpdate");
-		return mav;
-	}// end
 
-//	예약취소요청_post
-	@PostMapping(value = "bocaUpdate")
-	public String bocaUpdate(int bo_num) {
-		System.out.println("예약취소요청 update");
-		bookingservice.bookingCancleUpdate(bo_num);
-		return "redirect:/bookingListDetails?bo_num=" + bo_num;
-	}// end
-	
+
+	@GetMapping("/bookingCancleUpdate")
+	public String bookingCancleUpdate(@RequestParam("bo_num") int bo_num, Model model) {
+	    bookingservice.bookingCancelUpdate(bo_num);
+	    return "redirect:/admin/pay/refundView?refundId=" + bo_num;
+	}
+
+    @PostMapping("/bocaUpdate")
+    public String bocaUpdate(@RequestParam("bo_num") int bo_num) {
+        System.out.println("예약취소요청 update");
+        bookingservice.bookingCancelUpdate(bo_num);
+        return "redirect:/bookingListDetails?bo_num=" + bo_num;
+    }
 
 }// end
