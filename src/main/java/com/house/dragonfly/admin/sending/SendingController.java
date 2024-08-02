@@ -64,6 +64,20 @@ public class SendingController {
         return "redirect:/admin/mail/sendMailForm";
     }
 
+    // 예약 시 이메일 자동 전송 메서드
+    public void sendReservationEmail(String to, String subject, String text) {
+        try {
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setTo(to);
+            message.setSubject(subject);
+            message.setText(text);
+            message.setFrom("parkwasabi@naver.com");
+            mailSender.send(message);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static class EmailForm {
         private String to;
         private String subject;

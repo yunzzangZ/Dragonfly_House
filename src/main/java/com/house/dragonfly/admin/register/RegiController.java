@@ -6,34 +6,36 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.house.dragonfly.domain.MEMBER;
 
 @Controller
+@RequestMapping("/user")
 public class RegiController {
 
     @Autowired
     private RegiService regiService;
 
-    @GetMapping("/register")
+    @GetMapping("/signupU")
     public String showRegisterForm() {
-        return "registerForm";
+        return "admin/registerForm";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/signupU")
     public String registerMember(MEMBER member, Model model, HttpSession session) {
-        // 이메일 중복 체크
         if (regiService.isEmailDuplicate(member.getEmail())) {
             model.addAttribute("error", "이미 사용 중인 이메일입니다.");
-            return "registerForm";
+            return "admin/registerForm";
         }
 
+        member.setAdmin_check("N"); // 기본값 설정
         regiService.insertMember(member);
-        return "redirect:/registerSuccess"; // 회원가입 성공 페이지로 리디렉션
+        return "redirect:/user/registerSuccess";
     }
 
-    // registerSuccess 경로 매핑 추가
     @GetMapping("/registerSuccess")
     public String registerSuccess() {
-        return "registerSuccess"; // registerSuccess 뷰 반환
+        return "admin/registerSuccess";
     }
 }
