@@ -4,6 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.house.dragonfly.PaymentMapper">
 
+	<!-- 결제 상세보기_bo_num로 -->
 	<select id="payDetails_bo_num"
 		resultType="com.house.dragonfly.domain.PAYMENT">
 		select * from payment
@@ -17,62 +18,41 @@
 		where pay_id = #{pay_id}
 	</select>
 
-	<!-- 결제 추가_card -->
-	<insert id="payInsertCard"
+	<!--결제하기 누르면 그때 되도록 하기 -->
+	<insert id="payInsert"
 		parameterType="com.house.dragonfly.domain.PAYMENT">
-		insert into payment
-		(`booking_bo_num`, `pay_method`, `card_card_number`, `pay_date`, `pay_amount`, `pay_status`)
-		values
-		(#{booking_bo_num}, #{pay_method}, #{card_card_number}, sysdate(), #{pay_amount},'결제확인요청' )
+		insert into payment (booking_bo_num, card_card_number,
+		pay_method, pay_name, pay_date, pay_amount, pay_status)values
+		(#{booking_bo_num}, #{card_card_number}, #{pay_method}, #{pay_name},
+		sysdate(), #{pay_amount}, '결제확인요청');
 	</insert>
-	
-	<!-- 결제 추가_Cash -->
-	<insert id="payInsertCash"
-		parameterType="com.house.dragonfly.domain.PAYMENT">
-		insert into payment
-		(`booking_bo_num`, `pay_method`, `pay_name`, `pay_date`,`pay_amount`, `pay_status`) values
-		(#{booking_bo_num}, #{pay_method}, #{pay_name},sysdate(), #{pay_amount},'결제확인요청' )
-	</insert>
-	
-	<!-- 결제 완료시 booking 수정 -->
-	<update id="payInsertDone" parameterType="com.house.dragonfly.domain.PAYMENT">
-		update booking set 
-		bo_status='결제확인요청', bo_paymethod = #{pay_method}
-		where bo_num =#{booking_bo_num}
-	</update>
-	
-	
+
 	<!-- 결제 수정_카드일때 -->
 	<update id="payUpdateCard"
 		parameterType="com.house.dragonfly.domain.PAYMENT">
-		<!-- 
-		update payment set
-		pay_method='카드', pay_name = null,
-		card_card_number = #{card_number},
-		pay_date=sysdate()
-		where pay_id = #{pay_id}
-		 -->
-		update payment, booking set 
-		payment.pay_method='카드', payment.pay_name = null, 
-		payment.card_card_number = #{card_card_number}, payment.pay_date=sysdate(),
-		booking.bo_paymethod='카드' 
-		where payment.pay_id = #{pay_id} and booking.bo_num=payment.booking_bo_num;
+		update payment, booking set
+		payment.pay_method='신용카드',
+		payment.pay_name = null,
+		payment.card_card_number =
+		#{card_card_number},
+		payment.pay_date=sysdate(),
+		booking.bo_paymethod='신용카드'
+		where
+		payment.pay_id = #{pay_id} and
+		booking.bo_num=payment.booking_bo_num;
 	</update>
 
 	<!-- 결제 수정_현금일때 -->
 	<update id="payUpdateCash"
-		parameterType="com.house.dragonfly.domain.PAYMENT" >
-		update payment, booking set 
-		payment.pay_method ='현금', payment.pay_name=#{pay_name}, 
-		payment.card_card_number=null, payment.pay_date=sysdate(), 
-		booking.bo_paymethod='현금' 
-		where payment.pay_id =#{pay_id} and booking.bo_num=payment.booking_bo_num;
-		<!--  
-				update payment set
-		pay_method='계좌입금', pay_name = #{email},
-		card_card_number=null, pay_date=sysdate()
-		where pay_id = #{pay_id}
-		-->
+		parameterType="com.house.dragonfly.domain.PAYMENT">
+		update payment, booking set
+		payment.pay_method ='계좌이체',
+		payment.pay_name=#{pay_name},
+		payment.card_card_number=null,
+		payment.pay_date=sysdate(),
+		booking.bo_paymethod='계좌이체'
+		where
+		payment.pay_id =#{pay_id} and booking.bo_num=payment.booking_bo_num;
 	</update>
 
 

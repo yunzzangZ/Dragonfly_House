@@ -9,8 +9,7 @@
 <title>결제 내역 통계</title>
 </head>
 <body>
-   <%@include file="../include/header.jsp"%>
-   <%@include file="../include/adminNav.jsp"%>
+   <%@include file="../include/adminHeader.jsp"%>
 
    <div class="container mt-5">
        <h2>결제 내역 통계</h2>
@@ -31,6 +30,5 @@
            </tbody>
        </table>
    </div>
-   
-   <%@include file="../include/footer.jsp"%>
+</html>
 </body>

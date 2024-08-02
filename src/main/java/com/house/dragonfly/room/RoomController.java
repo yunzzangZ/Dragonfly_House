@@ -25,34 +25,34 @@ public class RoomController {
     private static final Logger logger = LoggerFactory.getLogger(RoomController.class);
 
     // 전체 방 조회
-    @GetMapping(value = "room/ro_listall")
+    @GetMapping(value = "business/room/ro_listall")
     public ModelAndView ro_listall() {
         List<RoomVO> list = service.ro_listAll(); // 메소드 호출 일관성
         ModelAndView mav = new ModelAndView();
         mav.addObject("list", list);
-        mav.setViewName("room/ro_listall");
+        mav.setViewName("business/room/ro_listall");
         return mav;
     }
     
     // 상세 조회
-    @GetMapping(value = "room/ro_selectOne")
+    @GetMapping(value = "business/room/ro_selectOne")
     public ModelAndView selectOne(@RequestParam("ro_num") int ro_num) {
         RoomVO ro = service.ro_selectOne(ro_num);
         ModelAndView mav = new ModelAndView();
         mav.addObject("ro", ro);
-        mav.setViewName("room/ro_selectOne");
+        mav.setViewName("business/room/ro_selectOne");
         return mav;
     }
     
     // 추가 페이지 이동
-    @GetMapping(value = "room/ro_insert")
+    @GetMapping(value = "business/room/ro_insert")
     public String insertForm(Model model) {
         model.addAttribute("roomVO", new RoomVO());
-        return "room/ro_insert";     
+        return "business/room/ro_insert";     
     }
     
     // 방 추가
-    @PostMapping(value = "room/ro_insert")
+    @PostMapping(value = "business/room/ro_insert")
     @Transactional
     public String insert(@ModelAttribute("roomVO") RoomVO ro_insert, RedirectAttributes rttr) { // 모델 어트리뷰트 이름 통일
         boolean result = service.ro_insert(ro_insert);
@@ -61,19 +61,19 @@ public class RoomController {
         } else {
             rttr.addFlashAttribute("message", "방 등록 실패");
         }
-        return "redirect:/room/ro_listall"; 
+        return "redirect:/business/room/ro_listall"; 
     }
     
     // 수정 페이지 이동
-    @GetMapping(value = "room/ro_update")
+    @GetMapping(value = "business/room/ro_update")
     public ModelAndView update(@RequestParam("ro_num") int ro_num) {
         ModelAndView mav = selectOne(ro_num);
-        mav.setViewName("room/ro_update");
+        mav.setViewName("business/room/ro_update");
         return mav;     
     }
 
     // 방 수정
-    @PostMapping(value = "room/ro_update")
+    @PostMapping(value = "business/room/ro_update")
     @Transactional
     public String update(@ModelAttribute("roomVO") RoomVO ro_update, RedirectAttributes rttr) {
         boolean result = service.ro_update(ro_update);
@@ -82,11 +82,11 @@ public class RoomController {
         } else {
             rttr.addFlashAttribute("message", "수정에 실패했습니다.");
         }
-        return "redirect:/room/ro_listall"; 
+        return "redirect:/business/room/ro_listall"; 
     }
     
     // 방 삭제
-    @PostMapping(value = "room/ro_delete")
+    @PostMapping(value = "business/room/ro_delete")
     @Transactional
     public String delete(@RequestParam("ro_num") int ro_num, RedirectAttributes rttr) {
         try {           
@@ -100,6 +100,6 @@ public class RoomController {
             rttr.addFlashAttribute("message", "방 삭제 중 오류가 발생했습니다.");
             logger.error("방 삭제 중 오류 발생: {}", e.getMessage(), e); 
         }
-        return "redirect:/room/ro_listall"; 
+        return "redirect:/business/room/ro_listall"; 
     }
 }

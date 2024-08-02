@@ -3,7 +3,7 @@ package com.house.dragonfly.domain;
 public class PAYMENT {
 	private int pay_id;
 	private int booking_bo_num;
-	private double card_card_number;
+	private Double card_card_number;
 	private String pay_name;
 	private String pay_method;
 	private String pay_date;	
@@ -67,11 +67,11 @@ public class PAYMENT {
 		this.booking_bo_num = booking_bo_num;
 	}
 
-	public double getCard_card_number() {
+	public Double getCard_card_number() {
 		return card_card_number;
 	}
 
-	public void setCard_card_number(double card_card_number) {
+	public void setCard_card_number(Double card_card_number) {
 		this.card_card_number = card_card_number;
 	}
 
