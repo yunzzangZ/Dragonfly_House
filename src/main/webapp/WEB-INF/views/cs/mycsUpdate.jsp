@@ -37,7 +37,7 @@
 						<textarea id="cs_text" rows="8" name="cs_text">${cs.cs_text }</textarea>
 					</div>
 
-					<div class="mypage-btn">
+					<div class="mypage-cs-btn">
 						<button type="button" id="BtncsUpdate" onclick="check_csUpdate();">수정</button>
 					</div>
 				</form>

@@ -53,10 +53,10 @@
 						<p>내용</p>
 						<textarea id="cs_text" rows="8" name="cs_text" placeholder="내용을 입력해주세요."></textarea>
 					</div>
-					<div class="mypage-btn">
+					<div class="mypage-cs-btn">
 						<button type="button" onclick="checkInsert();">문의사항 작성</button>
 					</div>
-					<div class="mypage-btn">
+					<div class="mypage-cs-btn">
 						<button type="reset">초기화</button>
 					</div>
 				</form>

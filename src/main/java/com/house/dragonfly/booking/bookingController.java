@@ -43,7 +43,7 @@ public class bookingController {
 		mav.addObject("bo", bo);
 		mav.setViewName("booking/bookingListDetails");
 		return mav;
-	}// end
+	}
 
 //	예약취소전체_회원별 이동
 	@GetMapping(value = "bookingCancleSelect")
@@ -55,14 +55,14 @@ public class bookingController {
 		mav.setViewName("booking/bookingCancleSelect");
 		return mav;
 	}// end
-	
+
 //	예약할 방으로 이동
 	@GetMapping(value = "bookingRoomSelect")
 	public String bookingRoomSelect(int ro_num, Model model) {
-	    System.out.println("예약룸으로 이동");
-	    RoomVO ro = roomservice.ro_selectOne(ro_num);
-	    model.addAttribute("ro", ro); // Model에 데이터 추가
-	    return "booking/bookingRoomSelect"; // 뷰 이름 반환
+		System.out.println("예약룸으로 이동");
+		RoomVO ro = roomservice.ro_selectOne(ro_num);
+		model.addAttribute("ro", ro); // Model에 데이터 추가
+		return "booking/bookingRoomSelect"; // 뷰 이름 반환
 	}
 
 //	예약추가 이동
@@ -79,9 +79,9 @@ public class bookingController {
 	public String bookingInsert(BOOKING bo) {
 		System.out.println("예약추가");
 		bookingservice.bookingInsert(bo);
-		return "redirect:/bookingListSelect?email="+bo.getMember_email();
+		return "redirect:/bookingListSelect?email=" + bo.getMember_email();
 	}// end
-	
+
 //	예약취소요청 이동_get
 	@GetMapping(value = "bookingCancleUpdate")
 	public ModelAndView bookingCancleUpdate(int bo_num) {
@@ -98,6 +98,21 @@ public class bookingController {
 		bookingservice.bookingCancleUpdate(bo_num);
 		return "redirect:/bookingListDetails?bo_num=" + bo_num;
 	}// end
-	
+
+//	예약조회_index쪽 용
+	@GetMapping(value = "Reservation_inquiryInput")
+	public String Reservation_inquiryInput() {
+		return "booking/Reservation_inquiryInput";
+	}
+
+//	예약상세조회_index쪽용
+	@GetMapping(value = "Reservation_inquiry")
+	public ModelAndView Reservation_inquiry(int bo_num) {
+		BOOKING bo = bookingservice.bookingListDetails(bo_num);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("bo", bo);
+		mav.setViewName("booking/Reservation_inquiry");
+		return mav;
+	}
 
 }// end
