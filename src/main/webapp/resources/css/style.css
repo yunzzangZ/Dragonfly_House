@@ -447,6 +447,7 @@ footer span {
 .mypage-content form .mypage-btn {
 	width: 100%;
 	margin-top: 10px;
+	text-align: center;
 }
 
 .mypage-content form .mypage-btn input, 
@@ -462,6 +463,21 @@ footer span {
 	background: #FFAD32;
 	border-radius: 5px;
 	border: 1px solid #E9E9E9;
+}
+
+
+	.mypage-content .mypage-btn input[type="button"] {
+	background: #FFAD32;
+	font-size: 16px;
+	font-weight: bold;
+	width: 100%;
+	padding: 10px; /* 패딩 추가 */
+	border: none; /* 테두리 없애기 */
+	border-radius: 5px; /* 둥근 모서리 */
+	text-decoration: none; /* 링크의 밑줄 제거 */
+	color: black; /* 글자색 검은색 */
+	display: block; /* 블록 요소로 설정 */
+	margin-top: 10px; /* 위쪽 여백 */
 }
 
 .pw-update-btn {
@@ -506,6 +522,9 @@ footer span {
 }
 
 .mypage-content form .mypage-cs-btn {
+	background: #FFAD32;
+	font-size: 16px;
+	font-weight: bold;
 	width: 100%;
 	padding: 0 10px;
 	margin: 0;
@@ -528,6 +547,7 @@ footer span {
 	width: 100%;
 }
 
+/* 로그인*/
 .login {
 	width: 500px;
 	margin: 80px auto;
@@ -647,3 +667,204 @@ footer span {
 
 
 
+
+
+/* 결제화면 */
+.payment-container>div {
+	display: flex;
+}
+
+.payment-container a, .payment-container a:hover {
+	color: #333;
+}
+
+.payment-content {
+	flex-grow: 1;
+	width: calc(100% - 260px);
+	padding: 35px 0 35px 20px;
+}
+
+.payment-content h3 {
+	font-size: 18px;
+	fontn-weight: 700;
+}
+
+.payment-content table {
+	width: 100%;
+	font-size: 15px;
+	border-color: #e3e3e3;
+}
+
+.payment-content table th {
+	padding: 5px;
+	text-align: center;
+	background: #e9e9e9;
+}
+
+.payment-content table td {
+	padding: 5px;
+	text-align: center; /* 텍스트와 요소를 가운데 정렬 */
+}
+
+.payment-content form {
+	margin: 20px -10px 0;
+}
+
+.payment-content form:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.payment-content form div {
+	float: left;
+	width: 50%;
+	padding: 0 10px;
+	margin-bottom: 10px;
+}
+
+.payment-content select {
+	display: inline-block; /* 인라인 블록으로 설정하여 가운데 정렬 */
+	margin: 0 auto; /* 수평 중앙 정렬 */
+	width: 80%; /* 원하는 너비 설정 (필요에 따라 조정) */
+}
+
+.payment-content form div input {
+	width: 100%;
+	padding: 10px 15px;
+	margin-bottom: 10px;
+	font-size: 15px;
+	border: 1px solid #E9E9E9;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+.payment-content form .payment-btn {
+	width: 100%;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.payment-content form .payment-btn input, .payment-content form .payment-btn a,
+	.payment-content form .payment-btn button {
+	background: #FFAD32;
+	font-size: 16px;
+	font-weight: bold;
+	width: 100%;
+	padding: 10px; /* 패딩 추가 */
+	border: none; /* 테두리 없애기 */
+	border-radius: 5px; /* 둥근 모서리 */
+	text-decoration: none; /* 링크의 밑줄 제거 */
+	color: black; /* 글자색 흰색 */
+	display: block; /* 블록 요소로 설정 */
+	margin-top: 10px; /* 위쪽 여백 */
+}
+
+.payment-content .payment form {
+	margin: 20px 0 0;
+}
+
+.payment-content .payment form input, .payment-content .payment form a,.payment-content .payment form button {
+	display: block;
+	width: 100%;
+	padding: 10px 15px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	background: #FFAD32;
+	border-radius: 5px;
+	border: 1px solid #E9E9E9;
+}
+
+/*예약화면*/
+.booking-container>div {
+	display: flex;
+}
+
+.booking-container a, .booking-container a:hover {
+	color: #333;
+}
+
+.booking-content {
+	flex-grow: 1;
+	width: calc(100% - 260px);
+	padding: 35px 0 35px 20px;
+}
+
+.booking-content h3 {
+	font-size: 18px;
+	fontn-weight: 700;
+}
+
+.booking-content table {
+	width: 100%;
+	font-size: 15px;
+	border-color: #e3e3e3;
+}
+
+.booking-content table th {
+	padding: 5px;
+	text-align: center;
+	background: #e9e9e9;
+}
+
+.booking-content table td {
+	padding: 5px;
+	text-align: center; /* 텍스트와 요소를 가운데 정렬 */
+}
+
+.booking-content form {
+	margin: 20px -10px 0;
+}
+
+.booking-content form:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.booking-content form div {
+	float: left;
+	width: 50%;
+	padding: 0 10px;
+	margin-bottom: 10px;
+}
+
+.booking-content select {
+	display: inline-block; /* 인라인 블록으로 설정하여 가운데 정렬 */
+	margin: 0 auto; /* 수평 중앙 정렬 */
+	width: 80%; /* 원하는 너비 설정 (필요에 따라 조정) */
+}
+
+.booking-content form div input {
+	width: 100%;
+	padding: 10px 15px;
+	margin-bottom: 10px;
+	font-size: 15px;
+	border: 1px solid #E9E9E9;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+.booking-content form .booking-btn {
+	width: 100%;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.booking-content form .booking-btn button[type="button"], 
+.booking-content form .booking-btn input[type="reset"], 
+.booking-content form .booking-btn input[type="button"] {
+    background: #FFAD32 !important; /* 기본 배경색 */
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px; /* 패딩 추가 */
+    border: none; /* 테두리 없애기 */
+    border-radius: 5px; /* 둥근 모서리 */
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: black; /* 글자색 검정색 */
+    display: block; /* 블록 요소로 설정 */
+    margin-top: 10px; /* 위쪽 여백 */
+    cursor: pointer; /* 마우스 커서 변경 */
+}

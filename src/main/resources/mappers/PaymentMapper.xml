@@ -30,16 +30,11 @@
 	<!-- 결제 수정_카드일때 -->
 	<update id="payUpdateCard"
 		parameterType="com.house.dragonfly.domain.PAYMENT">
-		update payment, booking set
-		payment.pay_method='신용카드',
-		payment.pay_name = null,
-		payment.card_card_number =
-		#{card_card_number},
-		payment.pay_date=sysdate(),
-		booking.bo_paymethod='신용카드'
-		where
-		payment.pay_id = #{pay_id} and
-		booking.bo_num=payment.booking_bo_num;
+		update payment, booking set payment.pay_method='신용카드',
+		payment.pay_name = null, payment.card_card_number =
+		#{card_card_number}, payment.pay_date=sysdate(),
+		booking.bo_paymethod='신용카드' where payment.pay_id = #{pay_id} and
+		booking.bo_num=#{booking_bo_num}
 	</update>
 
 	<!-- 결제 수정_현금일때 -->

@@ -57,6 +57,8 @@
 							<nav class="mainmenu">
 								<ul>
 									<li><a href="#">FINE STAY</a></li>
+									<li><a href="${contextPath}/Reservation_inquiryInput">예약조회</a></li>
+									<li><a href="${contextPath}/admin/notice/noticeList">공지사항</a></li>
 									<c:if test="${empty sessionScope.email}">
 										<li><a href="${contextPath}/user/login/login">예약조회</a></li>
 									</c:if>
