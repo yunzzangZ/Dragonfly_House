@@ -60,6 +60,13 @@
 									<li><a href="${contextPath}/Reservation_inquiryInput">예약조회</a></li>
 									<li><a href="${contextPath}/admin/notice/noticeList">공지사항</a></li>
 									<c:if test="${empty sessionScope.email}">
+										<li><a href="${contextPath}/user/login/login">예약조회</a></li>
+									</c:if>
+									<c:if test="${not empty sessionScope.email}">
+										<li><a href="${contextPath}/bookingListSelect?email=${email.email}">예약조회</a></li>
+									</c:if>  									
+									<li><a href="${contextPath}/notice/noticeView">공지사항</a></li>
+									<c:if test="${empty sessionScope.email}">
 										<li><a href="${contextPath}/user/login/login">로그인</a></li>
 										<li><a href="${contextPath}/user/login/login">마이페이지</a></li>
 									</c:if>

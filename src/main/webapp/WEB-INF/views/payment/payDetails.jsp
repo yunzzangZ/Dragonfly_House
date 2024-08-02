@@ -8,7 +8,7 @@
 	<div>
 		<%@include file="../include/nav.jsp"%>
 		<div class="mypage-content">
-				<h2>결제 상세보기</h2>
+				<h3>결제 상세보기</h3>
 				<table border="1">
 					<tr>
 						<th>pay_id</th>
