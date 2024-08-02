@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.house.dragonfly.RoomMapper">
 
     <!-- 전체 방 조회 -->
     <select id="ro_listAll" resultType="com.house.dragonfly.domain.RoomVO">
-        select * from room
+        select ro_num, ro_name, ro_price, ro_info, ro_max_person, pension_pen_addr, picture_pic_num from room
     </select>
 
     <!-- 단일 방 조회 -->
     <select id="ro_selectOne" resultType="com.house.dragonfly.domain.RoomVO">
-        select * from room WHERE ro_num = #{ro_num}
+        select ro_num, ro_name, ro_price, ro_info, ro_max_person, pension_pen_addr, picture_pic_num from room WHERE ro_num = #{ro_num}
     </select>
 
     <!-- 방 추가 -->
     <insert id="ro_insert" parameterType="com.house.dragonfly.domain.RoomVO">  
         insert into room
-            (ro_num, ro_name, pension_pen_addr, ro_price, ro_info, ro_max_person, business_bu_email, picture_pic_num)
+            (ro_num, ro_name, pension_pen_addr, ro_price, ro_info, ro_max_person, picture_pic_num)
         values 
-            (#{ro_num}, #{ro_name}, #{pension_pen_addr}, #{ro_price}, #{ro_info}, #{ro_max_person}, #{business_bu_email}, #{picture_pic_num})
+            (#{ro_num}, #{ro_name}, #{pension_pen_addr}, #{ro_price}, #{ro_info}, #{ro_max_person}, #{picture_pic_num})
     </insert>
 
     <!-- 방 정보 수정 -->
@@ -30,7 +28,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ro_price = #{ro_price}, 
             ro_info = #{ro_info}, 
             ro_max_person = #{ro_max_person}, 
-            business_bu_email = #{business_bu_email}, 
             picture_pic_num = #{picture_pic_num}
         where ro_num = #{ro_num}		    
     </update>

@@ -9,30 +9,34 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.house.dragonfly.domain.BOOKING;
 import com.house.dragonfly.domain.RoomVO;
 import com.house.dragonfly.room.RoomService;
+import com.house.dragonfly.admin.sending.SendingService;
 
 @Controller
 public class bookingController {
 
-	@Inject
-	private bookingService bookingservice;
-	@Autowired
-	private RoomService roomservice;
+    @Inject
+    private bookingService bookingservice;
+    @Autowired
+    private RoomService roomservice;
+    @Autowired
+    private SendingService sendingService; // Autowire SendingService
 
-//	예약전체_회원별 이동
-	@GetMapping(value = "bookingListSelect")
-	public ModelAndView bookingListSelect(String email) {
-		System.out.println(email + "예약전체_회원별");
-		List<BOOKING> boselist = bookingservice.bookingListSelect(email);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("boselist", boselist);
-		mav.setViewName("booking/bookingListSelect");
-		return mav;
-	}// end
+    // 예약전체_회원별 이동
+    @GetMapping(value = "bookingListSelect")
+    public ModelAndView bookingListSelect(String email) {
+        System.out.println(email + "예약전체_회원별");
+        List<BOOKING> boselist = bookingservice.bookingListSelect(email);
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("boselist", boselist);
+        mav.setViewName("booking/bookingListSelect");
+        return mav;
+    }// end
 
 //	예약 상세보기 이동
 	@GetMapping(value = "bookingListDetails")
@@ -65,14 +69,14 @@ public class bookingController {
 		return "booking/bookingRoomSelect"; // 뷰 이름 반환
 	}
 
-//	예약추가 이동
-	@GetMapping(value = "bookingInsert")
-	public String bookingInsert(int ro_num, Model model) {
-		System.out.println("예약추가 폼이동");
-		RoomVO ro = roomservice.ro_selectOne(ro_num);
-		model.addAttribute("ro", ro);
-		return "booking/bookingInsert";
-	}// end
+    // 예약추가 이동
+    @GetMapping(value = "bookingInsert")
+    public String bookingInsert(int ro_num, Model model) {
+        System.out.println("예약추가 폼이동");
+        RoomVO ro = roomservice.ro_selectOne(ro_num);
+        model.addAttribute("ro", ro);
+        return "booking/bookingInsert";
+    }// end
 
 //	예약추가_post
 	@PostMapping(value = "bookingInsert")

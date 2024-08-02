@@ -5,9 +5,12 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -85,21 +88,19 @@ public class RoomController {
         return "redirect:/business/room/ro_listall"; 
     }
     
-    // 방 삭제
-    @PostMapping(value = "business/room/ro_delete")
+    @DeleteMapping(value = "business/room/ro_delete")
     @Transactional
-    public String delete(@RequestParam("ro_num") int ro_num, RedirectAttributes rttr) {
-        try {           
+    public ResponseEntity<String> delete(@RequestParam("ro_num") int ro_num) {
+        try {
             boolean result = service.ro_delete(ro_num);
             if (result) {
-                rttr.addFlashAttribute("message", "방 삭제 완료!");
+                return ResponseEntity.ok("방 삭제 완료!");
             } else {
-                rttr.addFlashAttribute("message", "방 삭제 실패!");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("방 삭제 실패!");
             }
         } catch (Exception e) {
-            rttr.addFlashAttribute("message", "방 삭제 중 오류가 발생했습니다.");
-            logger.error("방 삭제 중 오류 발생: {}", e.getMessage(), e); 
+            logger.error("방 삭제 중 오류 발생: {}", e.getMessage(), e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("방 삭제 중 오류가 발생했습니다.");
         }
-        return "redirect:/business/room/ro_listall"; 
     }
 }

@@ -5,10 +5,10 @@
 <mapper namespace="com.house.dragonfly.admin.register.RegiMapper">
 
     <!-- 기존 insertMember 메서드 -->
-    <insert id="insertMember" parameterType="com.house.dragonfly.domain.MEMBER">
-        INSERT INTO member (email, password, tel, name)
-        VALUES (#{email}, #{password}, #{tel}, #{name})
-    </insert>
+<insert id="insertMember" parameterType="com.house.dragonfly.domain.MEMBER">
+    INSERT INTO member (email, password, tel, name, admin_check)
+    VALUES (#{email}, #{password}, #{tel}, #{name}, #{admin_check})
+</insert>
 
     <!-- 추가: 이메일 중복 확인 메서드 -->
     <select id="selectMemberByEmail" resultType="com.house.dragonfly.domain.MEMBER" parameterType="String">

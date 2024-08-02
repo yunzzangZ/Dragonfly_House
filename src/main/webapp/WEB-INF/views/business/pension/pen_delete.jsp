@@ -4,17 +4,17 @@
 <%@ page session="true"%>
 <%@include file="../../include/businessHeader.jsp" %>
    <div>
-		<h2>펜션 삭제</h2>
+		<h2>시설 삭제</h2>
+        <form action="${pageContext.request.contextPath}/pen_delete" method="get">
 
-		<form action="${contextPath}/pen_delete" method="get">
-			<input type="hidden" name="pen_name" value="${pen.pen_name}">
-			<p>정말로 이 펜션을 삭제하시겠습니까?</p>
-			<p>펜션 이름: ${pen.pen_name}</p> 
-			<input type="submit" value="삭제">
-		</form>
+             <input type="hidden" id="pen_addr" name="pen_addr" value="<c:out value='${pen.pen_addr}'/>">
+             <p>정말로 시설 <c:out value='${pen.pen_addr}'/>을 삭제하시겠습니까?</p>
+             <div>
+                 <input type="submit" value="삭제">
+                 <a href="${pageContext.request.contextPath}/pen_listall">취소</a>
+             </div>
+         </form>
+     </div>
+</div>
 
-		<div class="manager-btn">  
-			<a href="${contextPath}/pen_list" class="btn btn-secondary">목록으로</a>
-		</div>
-   </div>
 <%@include file="../../include/adminFooter.jsp" %>

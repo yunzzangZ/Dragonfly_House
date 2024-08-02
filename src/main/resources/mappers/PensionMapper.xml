@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         select * from pension
     </select>
 
-    <!-- 단일 펜션 조회 -->
+    <!-- 펜션 조회 -->
     <select id="pen_selectOne" resultType="com.house.dragonfly.domain.PensionVO">
         select * from pension 
         where pen_addr = #{pen_addr}
@@ -21,15 +21,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         values (#{pen_addr}, #{pen_name}, #{pen_tel}, #{business_bu_email}, #{pen_description})
     </insert>
 
-    <!-- 펜션 정보 수정 -->
+    <!-- 펜션 수정 -->
     <update id="pen_update" parameterType="com.house.dragonfly.domain.PensionVO">
         update pension set 
             pen_name = #{pen_name}, 
             pen_tel = #{pen_tel}, 
             pen_description = #{pen_description},
             business_bu_email = #{business_bu_email}
-        where pen_addr = #{pen_addr}		    
+        where pen_addr = #{pen_addr}
     </update>
+
+    <!-- 관련 room 레코드 삭제 -->
+    <delete id="deleteRelatedRooms" parameterType="String"> 
+        delete from room where pension_pen_addr = #{pen_addr}
+    </delete>
 
     <!-- 펜션 삭제 -->
     <delete id="pen_delete" parameterType="String"> 

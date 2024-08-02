@@ -88,7 +88,7 @@ public class RoFacController {
     }
     
     // 삭제
-    @PostMapping(value = "business/rofac/rofac_delete")
+    @GetMapping(value = "business/rofac/rofac_delete")
     @Transactional
     public String delete(@RequestParam("room_ro_num") int room_ro_num, RedirectAttributes rttr) {
         try {

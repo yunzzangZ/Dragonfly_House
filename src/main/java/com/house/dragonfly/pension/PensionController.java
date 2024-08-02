@@ -40,7 +40,7 @@ public class PensionController {
         PensionVO pen = service.pen_selectOne(pen_addr);
         ModelAndView mav = new ModelAndView();
         mav.addObject("pen", pen);
-        mav.setViewName("business/pension/pen_selectOne"); 
+        mav.setViewName("business/pension/pen_selectOne");
         return mav;
     }
 
@@ -56,7 +56,7 @@ public class PensionController {
     public String insert(@ModelAttribute("pensionVO") PensionVO pensionVO, RedirectAttributes rttr) {
         boolean result = service.pen_insert(pensionVO);
         rttr.addFlashAttribute("message", result ? "펜션 등록 완료" : "펜션 등록 실패");
-        return "redirect:/business/pension/pen_listall"; 
+        return "redirect:/business/pension/pen_listall";
     }
 
     // 수정 페이지 이동
@@ -74,20 +74,24 @@ public class PensionController {
     public String update(@ModelAttribute("pen") PensionVO penUpdate, RedirectAttributes rttr) {
         boolean result = service.pen_update(penUpdate);
         rttr.addFlashAttribute("message", result ? "수정이 완료되었습니다." : "수정에 실패했습니다.");
-        return "redirect:/business/pension/pen_listall"; 
+        return "redirect:/business/pension/pen_listall";
     }
 
     // 삭제
-    @GetMapping(value = "business/pension/pen_delete") 
+    @GetMapping(value = "business/pension/pen_delete") // 수정된 부분
     @Transactional
     public String delete(@RequestParam("pen_addr") String pen_addr, RedirectAttributes rttr) {
         try {
             boolean result = service.pen_delete(pen_addr);
-            rttr.addFlashAttribute("message", result ? "삭제 완료!" : "삭제 실패!");
+            if (result) {
+                rttr.addFlashAttribute("message", "삭제 완료!");
+            } else {
+                rttr.addFlashAttribute("message", "삭제 실패!");
+            }
         } catch (Exception e) {
             rttr.addFlashAttribute("message", "시설 삭제 중 오류가 발생했습니다.");
-            logger.error("펜션 삭제 중 오류 발생: {}", e.getMessage(), e); 
+            logger.error("시설 삭제 중 오류 발생: {}", e.getMessage(), e); // 오류 메시지 추가
         }
-        return "redirect:/business/pension/pen_listall";
+        return "redirect:/business/pension/pen_listall"; 
     }
 }

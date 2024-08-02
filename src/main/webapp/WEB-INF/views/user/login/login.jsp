@@ -5,18 +5,18 @@
 <div class="container">
    <div class="login">
       <ul class="login-tab">
-           <li class="on"><button onclick="changeTab(this)">개인회원</button></li>
-           <li><button onclick="changeTab(this)">사업자회원</button></li>            
+           <li class="on"><button type="button" onclick="changeTab(this)">개인회원</button></li>
+           <li><button type="button" onclick="changeTab(this)">사업자회원</button></li>            
        </ul>
        <div class="login-container">
            <div class="login-form">
-               <form method="post" action="login">
-                   <input type="text" name="email" placeholder="이메일(계정)"><br>
-                   <input type="password" name="password" placeholder="비밀번호"><br>
-                 <div class="login-remember">
-                     <a href="findId">이메일(계정) 찾기</a>
-                     <a href="findPassword">비밀번호 찾기</a>
-                 </div>    
+               <form method="post" action="${pageContext.request.contextPath}/user/login/authenticate">
+                   <input type="text" name="email" placeholder="이메일(계정)" required><br>
+                   <input type="password" name="password" placeholder="비밀번호" required><br>
+                   <div class="login-remember">
+                       <a href="${pageContext.request.contextPath}/user/login/findId">이메일(계정) 찾기</a>
+                       <a href="${pageContext.request.contextPath}/user/login/findPassword">비밀번호 찾기</a>
+                   </div>    
                    <div class="login-btn">
                        <input type="submit" value="개인회원 로그인">
                    </div>
@@ -24,20 +24,20 @@
            </div>
    
            <div class="login-form hidden">
-               <form method="post" action="${contextPath}/business/index">
-                   <input type="text" name="bu_email" placeholder="사업자 이메일(계정)"><br>
-                   <input type="password" name="bu_password" placeholder="비밀번호"><br>
-                 <div class="login-remember">
-                     <a href="findId">이메일(계정) 찾기</a>
-                     <a href="findPassword">비밀번호 찾기</a>
-                 </div>                       
+               <form method="post" action="${pageContext.request.contextPath}/business/login/authenticate">
+                   <input type="text" name="bu_email" placeholder="사업자 이메일(계정)" required><br>
+                   <input type="password" name="bu_password" placeholder="비밀번호" required><br>
+                   <div class="login-remember">
+                       <a href="${pageContext.request.contextPath}/business/login/findId">이메일(계정) 찾기</a>
+                       <a href="${pageContext.request.contextPath}/business/login/findPassword">비밀번호 찾기</a>
+                   </div>                       
                    <div class="login-btn">
                        <input type="submit" value="사업자 로그인">
                    </div>
                </form>
            </div>
        </div>
-      <div class="login-join">잠자리하우스가 처음이신가요? <a href="#">회원가입</a></div>
+      <div class="login-join">잠자리하우스가 처음이신가요? <a href="${pageContext.request.contextPath}/user/signupU">회원가입</a></div>
    </div>
 </div>
 
