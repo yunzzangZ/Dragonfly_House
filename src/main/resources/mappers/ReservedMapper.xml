@@ -11,25 +11,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <!-- 단일 시설물 조회 -->
     <select id="res_selectOne" resultType="com.house.dragonfly.domain.ReservedVO">
-        select booking_bo_num 
-        from reserved where booking_bo_num = #{booking_bo_num}
+        select * from reserved where booking_bo_num = #{booking_bo_num} <!-- 모든 컬럼 선택 -->
     </select>
 
     <!-- 시설 추가 -->
-    <insert id="res_insert">  
-        insert into reserved (booking_bo_num)
-        values (#{booking_bo_num})
+    <insert id="res_insert" parameterType="com.house.dragonfly.domain.ReservedVO">  
+        insert into reserved (booking_bo_num, /* 다른 필드들 */)
+        values (#{booking_bo_num}, /* 다른 필드들 */)
     </insert>
 
     <!-- 시설 정보 수정 -->
-    <update id="res_update">
+    <update id="res_update" parameterType="com.house.dragonfly.domain.ReservedVO">
         update reserved 
-        set booking_bo_num = #{booking_bo_num} 
+        set /* 수정할 필드들 = #{수정할 필드} */ 
         where booking_bo_num = #{booking_bo_num}		    
     </update>
 
     <!-- 시설 삭제 -->
-    <delete id="res_delete">
+    <delete id="res_delete" parameterType="int">
         delete from reserved where booking_bo_num = #{booking_bo_num}
     </delete>
 

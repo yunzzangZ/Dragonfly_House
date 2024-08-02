@@ -1,57 +1,74 @@
 package com.house.dragonfly.domain;
 
 public class MEMBER {
-	private String email;
-	private String password;
-	private String tel;
-	private String name;
+    private String email;
+    private String password;
+    private String tel;
+    private String name;
+    private String admin_check = "N"; // 기본값 설정
 
-	public MEMBER() {}
+    public MEMBER() {}
 
-	public MEMBER(String email, String password, String tel, String name) {
-		this.email = email;
-		this.password = password;
-		this.tel = tel;
-		this.name = name;
-	}
+    public MEMBER(String email, String password, String tel, String name) {
+        this.email = email;
+        this.password = password;
+        this.tel = tel;
+        this.name = name;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public MEMBER(String email, String password, String tel, String name, String admin_check) {
+        this.email = email;
+        this.password = password;
+        this.tel = tel;
+        this.name = name;
+        this.admin_check = admin_check;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    // Getter and Setter methods
 
-	public String getPassword() {
-		return password;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getTel() {
-		return tel;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getTel() {
+        return tel;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
 
-	@Override
-	public String toString() {
-		return "MEMBER [email=" + email + ", password=" + password + ", tel=" + tel + ", name=" + name + "]";
-	}
+    public String getName() {
+        return name;
+    }
 
-	
-	
-}//end class
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAdmin_check() {
+        return admin_check;
+    }
+
+    public void setAdmin_check(String admin_check) {
+        this.admin_check = admin_check;
+    }
+
+    @Override
+    public String toString() {
+        return "MEMBER [email=" + email + ", password=" + password + ", tel=" + tel + ", name=" + name + ", admin_check=" + admin_check + "]";
+    }
+}
+

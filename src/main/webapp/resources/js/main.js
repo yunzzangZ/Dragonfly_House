@@ -1,4 +1,3 @@
-// 모달 팝업
 const lModal = document.querySelector('.searchLoca-modal');
 const lModalOpen = document.querySelector('.searchLoca-modal-btn');
 const lModalClose = document.querySelector('.searchLoca-close-btn');

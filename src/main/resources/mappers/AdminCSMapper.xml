@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.house.dragonfly.mapper.AdminCSMapper">
+
+    <select id="getCsList" resultType="com.house.dragonfly.domain.CS">
+        SELECT * FROM cs
+    </select>
+
+    <select id="getCsView" parameterType="int" resultType="com.house.dragonfly.domain.CS">
+        SELECT * FROM cs WHERE cs_id = #{cs_id}
+    </select>
+
+    <insert id="saveCs" parameterType="com.house.dragonfly.domain.CS">
+        INSERT INTO cs (cs_title, cs_text, cs_date, cs_response, member_email)
+        VALUES (#{cs_title}, #{cs_text}, #{cs_date}, #{cs_response}, #{member_email})
+    </insert>
+
+    <update id="saveCsResponse">
+        UPDATE cs
+        SET cs_response = #{cs_response}
+        WHERE cs_id = #{cs_id}
+    </update>
+
+</mapper>

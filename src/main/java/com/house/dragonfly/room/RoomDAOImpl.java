@@ -59,6 +59,7 @@ public class RoomDAOImpl implements RoomDAO {
             return true; // 성공적으로 삭제
         } catch (Exception e) {
             // 예외 처리 (로그 기록 등)
+        	e.printStackTrace(); // 로그 기록
             return false; // 삭제 실패
         }
     }

@@ -7,17 +7,13 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.house.dragonfly.domain.BOOKING;
+import com.house.dragonfly.domain.PAYMENT;
 
 @Service
 public class bookingServiceImp implements bookingService {
 
 	@Inject
 	private bookingDAO bodao;
-	
-	@Override
-	public List<BOOKING> bookingListAll() {
-		return bodao.bookingListAll();
-	}
 
 	@Override
 	public List<BOOKING> bookingListSelect(String email) {
@@ -34,9 +30,24 @@ public class bookingServiceImp implements bookingService {
 		return bodao.bookingCancleSelect(email);
 	}
 
+
 	@Override
-	public void bookingCancleUpdate(int bo_num) {
-		bodao.bookingCancleUpdate(bo_num);
+	public void bookingInsert(BOOKING bo) {
+		bodao.bookingInsert(bo);
 	}
 
-}//end
+	@Override
+	public void bookingpayUpdate(PAYMENT pay) {
+		bodao.bookingpayUpdate(pay);
+	}
+
+    @Override
+    public BOOKING getBookingDetails(int bo_num) {
+        return bodao.selectBookingById(bo_num);
+    }
+
+    @Override
+    public void bookingCancelUpdate(int bo_num) {
+    	bodao.updateBookingStatus(bo_num, "취소됨");
+    }
+}// end

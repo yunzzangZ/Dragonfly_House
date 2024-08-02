@@ -20,7 +20,7 @@ public interface RoFacService {
 	   public boolean rofac_update(RoomFacilityVO rofac_update);
 	   
 	   // 삭제_방번호 기준
-	   public boolean rofac_delete(int room_ro_num);
+	   boolean rofac_delete(int room_ro_num);
 	 
 	   //======================
 	}

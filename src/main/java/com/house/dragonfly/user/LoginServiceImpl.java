@@ -24,4 +24,10 @@ public class LoginServiceImpl implements LoginService{
 		// TODO Auto-generated method stub
 		return dao.businessLogin(map);
 	}	
+	
+	@Override
+	public Map<String, Object> adminLogin(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.adminLogin(map);
+	}	
 }

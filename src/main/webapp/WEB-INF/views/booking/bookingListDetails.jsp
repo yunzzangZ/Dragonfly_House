@@ -2,85 +2,67 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath }" />
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>예약목록 상세보기</title>
-</head>
-<body>
-	<%@include file="../include/header.jsp"%>
-	<%@include file="../include/nav.jsp"%>
-
-	<table border="1">
-		<tr>
-			<td>bo_num</td>
-			<td>${bo.bo_num }</td>
-		</tr>
-		<tr>
-			<td>checkin</td>
-			<td>${bo.bo_checkin }</td>
-		</tr>
-		<tr>
-			<td>checkout</td>
-			<td>${bo.bo_checkout }</td>
-		</tr>
-		<tr>
-			<td>예약룸</td>
-			<td>${bo.room_ro_num}</td>
-		</tr>
-		<tr>
-			<td>예약상태</td>
-			<td>${bo.bo_status }</td>
-		</tr>
-		<tr>
-			<td>결제방법</td>
-			<td>${bo.bo_paymethod }</td>
-		</tr>
-		<tr>
-			<td>결제급액</td>
-			<td>${bo.bo_price }</td>
-		</tr>
-		<tr>
-			<td>예약자</td>
-			<td>${bo.member_email}</td>
-		</tr>
-	</table>
+<%@include file="../include/header.jsp"%>
+<div class="container mypage-container">
 	<div>
-		<a href="bookingListSelect?email=${bo.member_email}">${bo.member_email }
-			뒤로가기</a>
-	</div>
-	<div>
-		<form action="payment/payScreen" method="get">
-			<c:choose>
-				<c:when test="${bo.bo_status eq '결제전'}">
-					<div>
-						<input type="submit" name="booking_bo_num" value="${bo.bo_num}">
-					</div>
-				</c:when>
-				<c:when test="${bo.bo_status eq '예약전'}">
-					<div>
-						<a href="bookingCancleUpdate?bo_num=${bo.bo_num}">${bo.bo_num }의
-							예약취소하기</a>
-					</div>
-				</c:when>
-			</c:choose>
-		</form>
-		<form action="payment/payDetails" method="get">
-			<c:choose>
-				<c:when test="${bo.bo_status eq '결제확인요청'}">
-					<input type="hidden" name="pay_id" value="0">
-					<input type="submit" name="booking_bo_num" value="${bo.bo_num }">결제내역확인
-			</c:when>
-				<c:when test="${bo.bo_status eq '예약완료'}">
-					<input type="hidden" name="pay_id" value="0">
-					<input type="submit" name="booking_bo_num" value="${bo.bo_num }">결제내역확인
-			</c:when>
-			</c:choose>
-		</form>
-	</div>
+		<%@include file="../include/nav.jsp"%>
+		<div class="mypage-content">
+			<div>
+				<h3>예약상세</h3>
+				<table border="1">
+					<tr>
+						<th>예약번호</th>
+						<td>${bo.bo_num }</td>
+					</tr>
+					<tr>
+						<th>체크인</th>
+						<td>${bo.bo_checkin }</td>
+					</tr>
+					<tr>
+						<th>체크아웃</th>
+						<td>${bo.bo_checkout }</td>
+					</tr>
+					<tr>
+						<th>예약룸</th>
+						<td>${bo.room_ro_num}</td>
+					</tr>
+					<tr>
+						<th>예약상태</th>
+						<td>${bo.bo_status }</td>
+					</tr>
+					<tr>
+						<th>결제방법</th>
+						<td>${bo.bo_paymethod }</td>
+					</tr>
+					<tr>
+						<th>결제급액</th>
+						<td>${bo.bo_price }</td>
+					</tr>
+					<tr>
+						<th>예약자</th>
+						<td>${bo.member_email}</td>
+					</tr>
+				</table>
 
-	<%@include file="../include/footer.jsp"%>
-</body>
-</html>
+				<div class="mypage-booking">
+					<form action="payment/payScreen" method="get">
+						<c:if test="${bo.bo_status eq '예약전'}">
+							<input type="hidden" name="booking_bo_num" value="${bo.bo_num}">
+							<input type="submit" value="결제하기">
+						</c:if>
+						<c:if test="${bo.bo_status eq '예약확인요청'}">
+							<a href="bookingCancleUpdate?bo_num=${bo.bo_num}">예약취소하기</a>
+						</c:if>
+					</form>
+					<form action="payment/payDetails" method="get">
+						<c:if test="${(bo.bo_status eq '예약완료' or bo.bo_status eq '예약확인요청' or bo.bo_status eq '예약취소완료' or bo.bo_status eq '예약취소요청')}">
+							<input type="hidden" name="booking_bo_num" value="${bo.bo_num}">
+							<input type="submit" value="결제내역확인">
+						</c:if>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<%@include file="../include/footer.jsp"%>
