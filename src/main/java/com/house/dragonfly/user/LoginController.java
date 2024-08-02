@@ -62,6 +62,13 @@ public class LoginController {
 		return "business/index";
 	}
 	
+	// 사업자 로그아웃
+	@GetMapping(value = "user/login/businessLogout")
+	public String businessLogout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/index";
+	}	
+	
 	@PostMapping(value = "business/index")
 	public String businessLogin(@RequestParam Map<String, Object> map, HttpSession session) {
 		logger.info("사업자 요청정보 받아서 보내기");
@@ -98,5 +105,12 @@ public class LoginController {
 			return "redirect:/admin/index";
 		}
 	}	
+	
+	// 관리자 로그아웃
+	@GetMapping(value = "user/login/adminLogout")
+	public String adminLogout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/admin/login";
+	}
 
 }

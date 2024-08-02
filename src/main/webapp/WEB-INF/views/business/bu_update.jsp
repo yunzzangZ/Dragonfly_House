@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
 
-<%@ page session="false"%>
+<%@ page session="true"%>
 <!DOCTYPE html>
 <html>
 <head>

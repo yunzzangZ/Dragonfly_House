@@ -11,13 +11,13 @@
 	</select>
 	
 	<select id="businessLogin" parameterType="java.util.Map" resultType="java.util.Map">
-		select bu_email
+		select bu_email, bu_name
 		from business
 		where bu_email=#{bu_email} and bu_password=#{bu_password}
 	</select>		
 	
 	<select id="adminLogin" parameterType="java.util.Map" resultType="java.util.Map">
-		select email
+		select email, name
 		from member
 		where email=#{email} and password=#{password} and admin_check = 'Y'
 	</select>			

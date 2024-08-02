@@ -22,6 +22,9 @@
     <!-- 관리자 채팅 -->
     <div><a href="${pageContext.request.contextPath}/admin/chat">관리자 채팅</a></div>
    <div><a href="${pageContext.request.contextPath}/admin/cs/csList">1:1문의</a></div>
+     <div><a href="${pageContext.request.contextPath}/admin/mail/listMailTexts">메일전체보기</a></div>
+          <div><a href="${pageContext.request.contextPath}/admin/mail/senddingAllView">메일 발송 현황보기</a></div>
+           <div><a href="${pageContext.request.contextPath}/admin/mail/sendMailForm">메일 보내기</a></div>
     <a href="index">index 페이지로 이동</a>
     <p>The time on the server is ${serverTime}.</p>
 </body>

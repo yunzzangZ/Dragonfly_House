@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.house.dragonfly.dao.SendingDAO">
+
+    <select id="selectAllSendings" resultType="com.house.dragonfly.domain.SENDING">
+        SELECT * FROM sending
+    </select>
+
+    <select id="selectSendingsByStatus" parameterType="String" resultType="com.house.dragonfly.domain.SENDING">
+        SELECT * FROM sending WHERE send_status = #{status}
+    </select>
+
+    <select id="selectSendingById" parameterType="int" resultType="com.house.dragonfly.domain.SENDING">
+        SELECT * FROM sending WHERE sending_txt_mail_txt_code = #{mailTxtCode}
+    </select>
+
+    <update id="updateSendingStatus" parameterType="com.house.dragonfly.domain.SENDING">
+        UPDATE sending SET send_status = #{send_status} WHERE sending_txt_mail_txt_code = #{mail_txt_code}
+    </update>
+
+</mapper>

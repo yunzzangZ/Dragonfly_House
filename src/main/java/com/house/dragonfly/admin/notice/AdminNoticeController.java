@@ -21,7 +21,7 @@ public class AdminNoticeController {
         List<NOTICE> notices = noticeService.noticeList();
         ModelAndView mav = new ModelAndView();
         mav.addObject("notices", notices);
-        mav.setViewName("notice/noticeList");
+        mav.setViewName("admin/notice/noticeList");
         return mav;
     }
 
@@ -30,13 +30,13 @@ public class AdminNoticeController {
         NOTICE notice = noticeService.noticeView(notice_id);
         ModelAndView mav = new ModelAndView();
         mav.addObject("notice", notice);
-        mav.setViewName("notice/noticeView");
+        mav.setViewName("admin/notice/noticeView");
         return mav;
     }
 
     @GetMapping("/admin/notice/noticeAdd")
     public String noticeAddForm() {
-        return "notice/noticeAdd";
+        return "admin/notice/noticeAdd";
     }
 
     @PostMapping("/admin/notice/noticeAdd")
@@ -57,7 +57,7 @@ public class AdminNoticeController {
         NOTICE notice = noticeService.noticeView(notice_id);
         ModelAndView mav = new ModelAndView();
         mav.addObject("notice", notice);
-        mav.setViewName("notice/noticeUpdate");
+        mav.setViewName("admin/notice/noticeUpdate");
         return mav;
     }
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.house.dragonfly.admin.mailtxt.MailTextDAO">
+
+    <select id="selectAllMailTexts" resultType="com.house.dragonfly.domain.SENDDING_TXT">
+        SELECT * FROM sending_txt
+    </select>
+
+    <select id="selectMailTextById" parameterType="int" resultType="com.house.dragonfly.domain.SENDDING_TXT">
+        SELECT * FROM sending_txt WHERE mail_txt_code = #{mailTxtCode}
+    </select>
+
+    <insert id="insertMailText" parameterType="com.house.dragonfly.domain.SENDDING_TXT">
+        INSERT INTO sending_txt (mail_txt_title, mail_txt_content) VALUES (#{mail_txt_title}, #{mail_txt_content})
+    </insert>
+
+    <update id="updateMailText" parameterType="com.house.dragonfly.domain.SENDDING_TXT">
+        UPDATE sending_txt SET mail_txt_title = #{mail_txt_title}, mail_txt_content = #{mail_txt_content} WHERE mail_txt_code = #{mail_txt_code}
+    </update>
+
+    <delete id="deleteMailText" parameterType="int">
+        DELETE FROM sending_txt WHERE mail_txt_code = #{mailTxtCode}
+    </delete>
+
+</mapper>
