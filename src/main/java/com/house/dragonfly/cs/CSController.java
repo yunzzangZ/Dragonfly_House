@@ -6,26 +6,21 @@ import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.house.dragonfly.admin.notice.NoticeService;
 import com.house.dragonfly.domain.CS;
+import com.house.dragonfly.domain.NOTICE;
 import com.house.dragonfly.user.LoginController;
 import com.house.dragonfly.user.LoginService;
 
 @Controller
 public class CSController {
-	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
-	// 개인회원 로그인
-	@GetMapping(value = "notice/noticeView")
-	public String notice() {
-		logger.info("공지사항으로 이동");
-		return "notice/noticeView";
-	}
-	
 	@Inject
 	private CSService service;
 	
