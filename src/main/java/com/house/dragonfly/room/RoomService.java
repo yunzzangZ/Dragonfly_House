@@ -19,7 +19,7 @@ public interface RoomService {
 	   public boolean ro_update(RoomVO ro_update);
 	   
 	   // 삭제_방번호 기준
-	   public boolean ro_delete(int ro_num);
+	    boolean ro_delete(int ro_num);
 	   //======================
 	}
 

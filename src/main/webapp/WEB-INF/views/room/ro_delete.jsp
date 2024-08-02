@@ -8,15 +8,12 @@
     <section class="content">
         <div>
             <h2>방 삭제</h2>
-            <form action="${pageContext.request.contextPath}ro_delete" method="get">
-
-                <input type="hidden" id="ro_num" name="ro_num" value="<c:out value='${ro.ro_num}'/>">
-                <p>정말로 방 번호 <c:out value='${ro.ro_num}'/> (<c:out value='${ro.ro_num}'/>)을 삭제하시겠습니까?</p>
-                <div>
-                    <input type="submit" value="삭제">
-                    <a href="${pageContext.request.contextPath}/ro_listall">취소</a>
-                </div>
-            </form>
+            <input type="hidden" id="ro_num" name="ro_num" value="<c:out value='${ro.ro_num}'/>">
+            <p>정말로 방 번호 <c:out value='${ro.ro_num}'/>을 삭제하시겠습니까?</p>
+            <div>
+                <button id="deleteButton">삭제</button>
+                <a href="${pageContext.request.contextPath}/ro_listall">취소</a>
+            </div>
         </div>
     </section>
 </div>
