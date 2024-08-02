@@ -24,7 +24,11 @@
         // 비밀번호 입력 확인
         if (card_password === "") {
             alert("비밀번호를 입력해주세요.");
-            $("#check_card_password").focus();
+            $("#card_password").focus();
+            return;
+        } else if (!/^\d{4}$/.test(card_password)) { // 숫자 4자리 확인
+            alert("비밀번호는 4자리 숫자여야 합니다.");
+            $("#card_password").focus();
             return;
         }
 
@@ -74,7 +78,6 @@
 
         // 마지막 날 구하기
         var lastDay = getLastDate(year, month);
-
         return year + '-' + ('0' + month).slice(-2) + '-' + lastDay; // YYYY-MM-DD 형식으로 변환
     }
 
@@ -82,53 +85,84 @@
         return new Date(year, month, 0).getDate(); // month는 0부터 시작하므로
     }
 
-    // 입력 시 '/' 자동 추가
+    // 입력 시 '/' 자동 추가 및 유효성 검사
     $(document).ready(function() {
         $("#card_duodate").on("input", function() {
             var input = $(this).val().replace(/\D/g, ''); // 숫자만 남기기
+
+            // 월이 1~12 범위를 벗어나지 않도록 제한
+            if (input.length > 4) {
+                input = input.slice(0, 4); // 최대 4자리까지 허용 (MMYY)
+            }
+
             if (input.length >= 2) {
                 input = input.slice(0, 2) + '/' + input.slice(2);
             }
+
+            // 현재 날짜와 비교하여 유효기간이 과거인지 확인
+            if (input.length === 7) { // MM/YY 형식일 때
+                var month = parseInt(input.slice(0, 2), 10);
+                var year = parseInt(input.slice(3), 10) + 2000; // 20xx로 변환
+                var currentDate = new Date();
+                var currentYear = currentDate.getFullYear();
+                var currentMonth = currentDate.getMonth() + 1; // 0부터 시작하므로
+
+                // 현재 날짜 이전의 카드 유효기간 입력 방지
+                if (year < currentYear || (year === currentYear && month < currentMonth)) {
+                    alert("현재 시점 이후의 유효기간을 입력해주세요.");
+                    $(this).val('');
+                    return;
+                }
+            }
+
             $(this).val(input);
+        });
+
+        // 비밀번호 입력란에 숫자만 입력 가능하도록 설정
+        $("#card_password, #check_card_password").on("input", function() {
+            this.value = this.value.replace(/\D/g, ''); // 숫자만 남기기
         });
     });
 </script>
 
 <div class="container mypage-container">
-    <div>
-        <%@include file="../include/nav.jsp"%>
-        <div class="mypage-content">
-            <div>
-                <h3>${mem.name}님의 카드 추가</h3>
-                <form action="caInsert" method="post" name="cardInsertForm" id="cardInsertForm">
-                    <div class="hidden">
-                        <input type="hidden" name="member_email" value="${mem.email}">
-                        <input type="hidden" name="card_duodate" id="hidden_card_duodate">
-                    </div>
-                    <div>
-                        <p>카드번호</p>
-                        <input name="card_number" id="card_number" type="text" maxlength="16">
-                    </div>
-                    <div>
-                        <p>카드비밀번호</p>
-                        <input name="card_password" id="card_password" type="password" maxlength="4">
-                    </div>
-                    <div>
-                        <p>카드비밀번호 확인</p>
-                        <input name="check_card_password" id="check_card_password" type="password" maxlength="4">
-                    </div>
-                    <div>
-                        <p>카드유효기간 (MM/YY)</p>
-                        <input name="card_duodate" id="card_duodate" type="text" placeholder="MM/YY" maxlength="5">
-                    </div>
-                    <div class="mypage-btn">
-                        <button type="button" onclick="cardInsert();">카드 추가</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+	<div>
+		<%@include file="../include/nav.jsp"%>
+		<div class="mypage-content">
+			<div>
+				<h3>${mem.name}님의 카드 추가</h3>
+				<form action="caInsert" method="post" name="cardInsertForm"
+					id="cardInsertForm">
+					<div class="hidden">
+						<input type="hidden" name="member_email" value="${mem.email}">
+						<input type="hidden" name="card_duodate" id="hidden_card_duodate">
+					</div>
+					<div>
+						<p>카드번호</p>
+						<input name="card_number" id="card_number" type="text"
+							maxlength="16">
+					</div>
+					<div>
+						<p>카드비밀번호</p>
+						<input name="card_password" id="card_password" type="password"
+							maxlength="4">
+					</div>
+					<div>
+						<p>카드비밀번호 확인</p>
+						<input name="check_card_password" id="check_card_password"
+							type="password" maxlength="4">
+					</div>
+					<div>
+						<p>카드유효기간 (MM/YY)</p>
+						<input name="card_duodate" id="card_duodate" type="text"
+							placeholder="MM/YY" maxlength="5">
+					</div>
+					<div class="mypage-btn">
+						<button type="button" onclick="cardInsert();">카드 추가</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 <%@include file="../include/footer.jsp"%>
-
-
