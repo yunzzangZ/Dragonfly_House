@@ -67,7 +67,7 @@
 			form.bo_checkin.value = ""; // 입력값 초기화
 			form.bo_checkin.focus(); // 예약 시작일 필드에 포커스
 		}
-	}
+	}//end
 
 	function validateCheckout() {
 		var form = document.getElementById("bookingInsertForm");
@@ -79,7 +79,7 @@
 			form.bo_checkout.value = ""; // 입력값 초기화
 			form.bo_checkout.focus(); // 예약 마지막일 필드에 포커스
 		}
-	}
+	}//end
 </script>
 
 <div class="container booking-container">

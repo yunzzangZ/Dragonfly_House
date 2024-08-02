@@ -42,12 +42,17 @@ public class bookingServiceImp implements bookingService {
 	}
 
     @Override
-    public BOOKING getBookingDetails(int bo_num) {
-        return bodao.selectBookingById(bo_num);
+    public void bookingCancleUpdate(int bo_num) {
+    	bodao.bookingCancleUpdate(bo_num);
     }
 
-    @Override
-    public void bookingCancelUpdate(int bo_num) {
-    	bodao.updateBookingStatus(bo_num, "취소됨");
-    }
+	@Override
+	public BOOKING selectBookingById(int bo_num) {
+		return bodao.selectBookingById(bo_num);
+	}
+
+	@Override
+	public void updateBookingStatus(int bo_num, String status) {
+		bodao.updateBookingStatus(bo_num, status);
+	}
 }// end

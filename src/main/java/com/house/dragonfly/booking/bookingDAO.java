@@ -25,7 +25,7 @@ public interface bookingDAO {
 //	예약취소요청
 	public void bookingCancleUpdate(int bo_num);
 
-	BOOKING selectBookingById(int bo_num);
+	public BOOKING selectBookingById(int bo_num);
 
 	void updateBookingStatus(int bo_num, String status);
 

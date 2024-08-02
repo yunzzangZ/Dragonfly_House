@@ -98,7 +98,7 @@
 										<li><a
 											href="${pageContext.request.contextPath}/user/login/logout">로그아웃</a></li>
 										<li><a
-											href="${pageContext.request.contextPath}/member/myInfo?email=${sessionScope.email}">마이페이지</a></li>
+											href="${pageContext.request.contextPath}/member/myInfo?email=${email.email}">마이페이지</a></li>
 									</c:if>
 								</ul>
 							</nav>

@@ -22,8 +22,9 @@ public interface bookingService {
 	public void bookingpayUpdate(PAYMENT pay);
 
 //	예약취소요청
-	BOOKING getBookingDetails(int bo_num);
+	public void bookingCancleUpdate(int bo_num);
 
-	void bookingCancelUpdate(int bo_num);;
+	public BOOKING selectBookingById(int bo_num);
 
+	void updateBookingStatus(int bo_num, String status);
 }// end

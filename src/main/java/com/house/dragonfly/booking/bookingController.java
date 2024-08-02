@@ -24,8 +24,6 @@ public class bookingController {
     private bookingService bookingservice;
     @Autowired
     private RoomService roomservice;
-    @Autowired
-    private SendingService sendingService; // Autowire SendingService
 
     // 예약전체_회원별 이동
     @GetMapping(value = "bookingListSelect")

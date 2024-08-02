@@ -9,12 +9,12 @@
     <h1>Hello world!</h1>
     <p>여기까지가 끝인가보오~</p>
 
-    <div><a href="bu_listall">전체 사업장 가입자 조회</a></div>
-    <div><a href="fac_listall">전체 시설명 조회</a></div>
-    <div><a href="res_listall">전체 예약현황 조회</a></div>
-    <div><a href="ro_listall">전체 방 조회</a></div>
-    <div><a href="rofac_listall">전체 방 시설 조회</a></div>
-    <div><a href="pen_listall">전체 펜션 조회</a></div>
+    <div><a href="${pageContext.request.contextPath}/business/bu_listall">전체 사업장 가입자 조회</a></div>
+    <div><a href="${pageContext.request.contextPath}/business/facility/fac_listall">전체 시설명 조회</a></div>
+    <div><a href="${pageContext.request.contextPath}/reserved/res_listall">전체 예약현황 조회</a></div>
+    <div><a href="${pageContext.request.contextPath}/business/room/ro_listall">전체 방 조회</a></div>
+    <div><a href="${pageContext.request.contextPath}/business/rofac//rofac_listall">전체 방 시설 조회</a></div>
+    <div><a href="${pageContext.request.contextPath}/business/pension/pen_listall">전체 펜션 조회</a></div>
     <div><a href="${pageContext.request.contextPath}/admin/business/register">사업자가입</a></div>
     
     <!-- 고객 채팅 -->
