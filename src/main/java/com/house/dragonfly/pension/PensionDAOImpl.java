@@ -55,6 +55,7 @@ public class PensionDAOImpl implements PensionDAO {
         }
     }
 
+    // 관련된 방 삭제 메소드
     @Override
     @Transactional
     public boolean pen_delete(String pen_addr) {
@@ -63,7 +64,6 @@ public class PensionDAOImpl implements PensionDAO {
             return true; // 성공적으로 삭제
         } catch (Exception e) {
             // 예외 처리 (로그 기록 등)
-            e.printStackTrace(); // 예외 로그 출력
             return false; // 삭제 실패
         }
     }
